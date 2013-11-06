@@ -17,18 +17,20 @@ Viele UserGroups nutzen unter anderem Twitter, um auf Ihre Veranstaltungen hinzu
 
 @webmontagdd: Der nächste Webmontag Dresden ist am 13.1.2014 in der @cofabdd. Am besten gleich anmelden und teilen https://plus.google.com/events/c3hpt206lq0obfgevis6fcg2mec … #dd #web #event
 
-* Am Hashtag #event erkennt man, dass man sich diesen Tweet also genauer ansehen muss
-* Der Autor ist erkennbar und läßßt sich einer UserGroup zuordnen: WebMontag Dresden
+* Am Hashtag #event erkennt man, dass man sich diesen Tweet also genauer ansehen muss.
+* Der Autor ist erkennbar und läßt sich einer UserGroup zuordnen: WebMontag Dresden
 * Ein Datum ist auch enthalten: 13.01.2014
 * Ein Link zu weiteren Informationen liefert die Details: https://plus.google.com/events/c3hpt206lq0obfgevis6fcg2mec
  
 Indem der komplette Inhalt des Tweets, hinterlegt mit dem ersten Link auf das erkannte Datum gelegt wird, läßt sich ein Kalender für alle realisieren. Ohne Mehraufwand für die Organisatoren!
 
-Natürlich muss es die Möglichkeit geben, Termine nachzubearbeiten, falls man sich mal geirrt hat. 
+Natürlich muss es die Möglichkeit geben, Termine nachzubearbeiten, falls man sich mal geirrt hat oder ein Termin abgesagt werden muss. 
 
-Mehrere UserGroups kann man vielleicht mit eigenen Farbein voneinander unterscheiden.
+Mehrere UserGroups kann man vielleicht mit eigenen Farben voneinander unterscheiden.
 
 Indem der Kalender einfach in andere Seiten (z.B. die Webseiten der UserGroups) integriert werden kann, informiert man die Leser auch über andere IT Events, die bisher nicht auf ihrem Radar waren.
+
+Neben einer Monatsübersicht ist auch eine Listendarstellung denkbar. Damit eine UserGroup vielleicht ausschlisslich diesen Kalender verwendet, ist eine gesonderte Darstellung nur einer UserGroup sinnvoll (dann natürlich mit der Möglichkeit, alle anderen Termine auch einzublenden).
 
 Perspektivisch sind auch andere Informationsquellen denkbar, aber das rudimentäre Format (#event, Datum, Link und Beschreibung) bleibt:
 * RSS-Feed
