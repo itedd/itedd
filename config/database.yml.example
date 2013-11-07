@@ -1,0 +1,20 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  database: itedd_development
+  username: itedd
+  password:
+
+test:
+  adapter: mysql2
+  encoding: utf8
+  database: itedd_test
+  username: itedd
+  password:
+
+production:
+  adapter: mysql2
+  encoding: utf8
+  database: itedd
+  username: itedd
+  password: 
