@@ -10,7 +10,7 @@ development:
 test:
   adapter: mysql2
   encoding: utf8
-  database: itedd
+  database: itedd_test
   username: travis
 
 production:

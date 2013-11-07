@@ -7,8 +7,8 @@ branches:
   only:
       - master
 
-#ibefore_script:
-#  - mysql -e 'create database itedd_test'
+before_script:
+  - mysql -e 'create database itedd_test'
 
 script: 
   - RAILS_ENV=test bundle exec rake db:migrate --trace
