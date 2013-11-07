@@ -6,6 +6,14 @@ class User < ActiveRecord::Base
 
   #attr_accessible :name, :email, :password, :password_confirmation
 
-  validates :username, :email, :password, :password_confirmation, presence: true
-  validates :password, confirmation: true, length: { minimum: 8 }
+  validates :username, presence: true, length: {minimum: 10, maximum: 100}
+
+  #validates :color, presence: true
+  #
+  #validates :logo, length: {maximum: 200}
+  #validates :website, length: {maximum: 200}
+  #validates :description, length: {maximum: 400}   # html is allowed
+  #validates :twitter_name, length: {maximum: 200}
+  #validates :facebook_page, length: {maximum: 200}
+  #validates :google_plus_page, length: {maximum: 200}
 end

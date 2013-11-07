@@ -13,11 +13,17 @@ class UserTest < ActiveSupport::TestCase
     assert !user.valid?
 
     user.password = "Test_1234"
-    assert !user.valid?
+    assert user.valid?, user.errors.inspect
 
     user.password_confirmation = "Test_1234"
     assert user.valid?
   end
+
+  #test "should have a valid fixture" do
+  #  user = users(:valid_user)
+  #  #user.password = '1'
+  #  assert user.valid? , user.errors.inspect
+  #end
 
   test "should not accept to short password" do
     user = users(:valid_user)
