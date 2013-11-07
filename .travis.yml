@@ -6,7 +6,13 @@ rvm:
 branches:
   only:
       - master
-env:
-  - DB=mysql
+
+#ibefore_script:
+#  - mysql -e 'create database itedd_test'
+
+script: 
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rake db:test:prepare
+  - bundle exec rake
 
 bundler_args: "--without development production"
