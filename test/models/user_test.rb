@@ -39,10 +39,12 @@ class UserTest < ActiveSupport::TestCase
   test 'should accept valid twitter account' do
     user = users(:valid_user)
     user.twitter_account = '@ruby_dresden'
-    assert user.valid?
+    user.valid?
+    assert user.errors[:twitter_account].blank?
 
     user.twitter_account = 'ruby dresden'
-    assert !user.valid?
+    user.valid?
+    assert user.errors[:twitter_account].present?
   end
 
 end

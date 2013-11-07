@@ -14,7 +14,8 @@ class User < ActiveRecord::Base
   #validates :logo, length: {maximum: 200}
   #validates :website, length: {maximum: 200}
   #validates :description, length: {maximum: 400}   # html is allowed
-  #validates :twitter_name, length: {maximum: 200}
+  validates :twitter_account, length: {maximum: 200},
+    format: { with: %r{\A(\@\w+|)\z} }, if: ->(r) { r.twitter_account.present? }
   #validates :facebook_page, length: {maximum: 200}
   #validates :google_plus_page, length: {maximum: 200}
 end
