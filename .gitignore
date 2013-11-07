@@ -19,3 +19,6 @@ pickle-email-*.html
 config/initializers/secret_token.rb
 .routes/
 *.swp
+
+
+.idea
