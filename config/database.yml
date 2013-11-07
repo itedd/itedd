@@ -1,18 +1,17 @@
 development:
   adapter: mysql2
   encoding: utf8
-  database: itedd_development
-  username: root
-  password:
-  socket: /opt/lampp/var/mysql/mysql.sock
+  database: itedd
+  username: itedd
+  password: mJeeJarLoeFMmktP2iUMHjaniY6wQK
+  host: 127.0.0.1
+  port: 3306
 
 test:
   adapter: mysql2
   encoding: utf8
   database: itedd_test
-  username: root
-  password:
-  socket: /opt/lampp/var/mysql/mysql.sock
+  username: travis
 
 production:
   adapter: mysql2
@@ -22,3 +21,4 @@ production:
   password: <password>
   host: 127.0.0.1
   port: 3306
+
