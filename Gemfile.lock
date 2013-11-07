@@ -92,6 +92,12 @@ GEM
     sdoc (0.3.20)
       json (>= 1.1.3)
       rdoc (~> 3.10)
+    shoulda (3.5.0)
+      shoulda-context (~> 1.0, >= 1.0.1)
+      shoulda-matchers (>= 1.4.1, < 3.0)
+    shoulda-context (1.1.6)
+    shoulda-matchers (2.4.0)
+      activesupport (>= 3.0.0)
     sprockets (2.10.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -133,6 +139,7 @@ DEPENDENCIES
   rails (= 4.0.1)
   sass-rails (~> 4.0.0)
   sdoc
+  shoulda
   therubyracer
   turbolinks
   uglifier (>= 1.3.0)
