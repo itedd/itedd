@@ -11,16 +11,13 @@ test:
   adapter: mysql2
   encoding: utf8
   database: itedd
-  username: itedd
-  password: mJeeJarLoeFMmktP2iUMHjaniY6wQK
-  host: 127.0.0.1
-  port: 3306
+  username: travis
 
 production:
   adapter: mysql2
   encoding: utf8
   database: itedd
   username: itedd
-  password: mJeeJarLoeFMmktP2iUMHjaniY6wQK
+  password: <password>
   host: 127.0.0.1
   port: 3306

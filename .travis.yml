@@ -1,0 +1,12 @@
+language: ruby
+
+rvm:
+  - 2.0.0
+
+branches:
+  only:
+      - master
+env:
+  - DB=mysql
+
+bundler_args: "--without development production"
