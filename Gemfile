@@ -30,7 +30,10 @@ gem 'jbuilder', '~> 1.2'
 gem 'devise', '3.2.0'
 gem 'cancan'
 
-gem 'dotenv-rails', :groups => [:development, :test]
+group :development, :test do
+  gem 'pry-rails'
+  gem 'dotenv-rails'
+end
 
 group :test do
   gem 'shoulda'

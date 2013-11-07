@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   #attr_accessible :name, :email, :password, :password_confirmation
 
+  scope :with_twitter, -> { where('twitter_account is not null') }
   has_many :events
 
   validates :username, presence: true, length: {minimum: 10, maximum: 100}
