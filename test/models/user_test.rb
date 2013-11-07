@@ -25,4 +25,13 @@ class UserTest < ActiveSupport::TestCase
     assert !user.valid?, "Password should not be accepted!"
   end
 
+  test 'should accept valid twitter account' do
+    user = users(:valid_user)
+    user.twitter_account = '@ruby_dresden'
+    assert user.valid?
+
+    user.twitter_account = 'ruby dresden'
+    assert !user.valid?
+  end
+
 end
