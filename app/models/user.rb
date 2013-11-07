@@ -6,8 +6,9 @@ class User < ActiveRecord::Base
 
   #attr_accessible :name, :email, :password, :password_confirmation
 
-  validates :username, presence: true, length: {minimum: 10, maximum: 100}
+  has_many :events
 
+  validates :username, presence: true, length: {minimum: 10, maximum: 100}
   #validates :color, presence: true
   #
   #validates :logo, length: {maximum: 200}
