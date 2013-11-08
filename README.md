@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/itedd/itedd.png?branch=master)](https://travis-ci.org/itedd/itedd)
+
 IT-Events Dresden
 =================
 
@@ -5,15 +7,15 @@ In Dresden arbeiten viele engagierte Leute in UserGroups mit. Sie organisieren E
 
 Wie wäre es, wenn die Organisatoren auf einen Blick sehen können, wann bereits Veranstaltungen anderer UserGroups geplant sind? Wie wäre es, wenn sie für die Pflege dieser Daten _keinen_ (oder zumindest _keinen nennenswerten_) zusätzlichen, manuellen Aufwand hätten?
 
-Wäre es nicht auch für die Teilnehmer aller Veranstaltungen sinnvoll, wenn Sie einen Überblick zu anderen Veranstaltungen in der Region bekommen können? 
+Wäre es nicht auch für die Teilnehmer aller Veranstaltungen sinnvoll, wenn Sie einen Überblick zu anderen Veranstaltungen in der Region bekommen können?
 
 
 Ein Kalender für alle
 ---------------------
 
-Die Events aller UserGroups müssen in einen, gemeinsamen Kalender, das ist offensichtlich. Aber wo sollen die Termine denn herkommen? 
+Die Events aller UserGroups müssen in einen, gemeinsamen Kalender, das ist offensichtlich. Aber wo sollen die Termine denn herkommen?
 
-Viele UserGroups nutzen unter anderem Twitter, um auf Ihre Veranstaltungen hinzuweisen. Twitter ist gut automatisiert auswertbar und eignet sich deshalb sehr gut als Informationsquelle. Beispiel: 
+Viele UserGroups nutzen unter anderem Twitter, um auf Ihre Veranstaltungen hinzuweisen. Twitter ist gut automatisiert auswertbar und eignet sich deshalb sehr gut als Informationsquelle. Beispiel:
 
 @webmontagdd: Der nächste Webmontag Dresden ist am 13.1.2014 in der @cofabdd. Am besten gleich anmelden und teilen https://plus.google.com/events/c3hpt206lq0obfgevis6fcg2mec … #dd #web #event
 
@@ -21,10 +23,10 @@ Viele UserGroups nutzen unter anderem Twitter, um auf Ihre Veranstaltungen hinzu
 * Der Autor ist erkennbar und läßt sich einer UserGroup zuordnen: WebMontag Dresden
 * Ein Datum ist auch enthalten: 13.01.2014
 * Ein Link zu weiteren Informationen liefert die Details: https://plus.google.com/events/c3hpt206lq0obfgevis6fcg2mec
- 
+
 Indem der komplette Inhalt des Tweets, hinterlegt mit dem ersten Link auf das erkannte Datum gelegt wird, läßt sich ein Kalender für alle realisieren. Ohne Mehraufwand für die Organisatoren!
 
-Natürlich muss es die Möglichkeit geben, Termine nachzubearbeiten, falls man sich mal geirrt hat oder ein Termin abgesagt werden muss. 
+Natürlich muss es die Möglichkeit geben, Termine nachzubearbeiten, falls man sich mal geirrt hat oder ein Termin abgesagt werden muss.
 
 Mehrere UserGroups kann man vielleicht mit eigenen Farben voneinander unterscheiden.
 
@@ -51,7 +53,7 @@ Ziel
 
 Unser Ziel ist, die Abstimmung und Vernetzung der UserGroups in Dresden zu verbessern. Ohne Mehraufwand für die Organisatoren und zum Nutzen von Organisatoren und Teilnehmern aller IT-Events.
 
-Die entstehende Software wird hier veröffentlicht und steht auch anderen Regionen zur Verfügung. 
+Die entstehende Software wird hier veröffentlicht und steht auch anderen Regionen zur Verfügung.
 
 Wie kann meine UserGroup mit aufgenommen werden?
 ------------------------------------------------
