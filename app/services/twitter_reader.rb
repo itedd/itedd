@@ -28,7 +28,6 @@ class TwitterReader
   def run
     tweets.each do |tweet|
       if tweet.text.include? '#event'
-        binding.pry
         EventFactory.new.create( tweet.text, @user )
       end
     end
