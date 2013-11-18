@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/itedd/itedd.png?branch=master)](https://travis-ci.org/itedd/itedd)
+[![Code Climate](https://codeclimate.com/github/itedd/itedd.png)](https://codeclimate.com/github/itedd/itedd)
 
 IT-Events Dresden
 =================
