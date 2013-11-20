@@ -30,6 +30,9 @@ gem 'turbolinks'
 gem 'devise', '3.2.0'
 gem 'cancan'
 
+# Chronic is a pure Ruby natural language date parser with german addon
+gem 'chronic18n', :git => 'https://github.com/soemo/chronic18n'
+
 group :development, :test do
   gem 'pry-rails'
   gem 'dotenv-rails'
