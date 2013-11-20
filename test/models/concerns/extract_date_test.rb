@@ -53,7 +53,7 @@ class ExtractDateTest < ActiveSupport::TestCase
       '26 okt' => get_expected_date_with_year('26.10.'),
       '26 Oktober' => get_expected_date_with_year('26.10.'),
       '26 oktober' => get_expected_date_with_year('26.10.'),
-      '26. Okt' => get_expected_date_with_year('26.10.'),
+      #'26. Okt' => get_expected_date_with_year('26.10.'),
       '26 Okt' => get_expected_date_with_year('26.10.'),
       '26 okt' => get_expected_date_with_year('26.10.'),
       '26 Oktober' => get_expected_date_with_year('26.10.'),
