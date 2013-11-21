@@ -24,8 +24,11 @@ class EventFactory
   private
 
   def build_attributes(event_text)
-    result = {text: event_text}
-    # TODO Issue #9 extract date and link
+    result = {
+        text: event_text,
+        happens_at: ExtractDate.extract(event_text)
+    }
+    # TODO Issue and # 10 link
     result
   end
 
