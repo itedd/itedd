@@ -1,4 +1,5 @@
 class EventFactory
+  include ExtractDate
 
   def create(event_text, user)
     raise ArgumentError("No user given") unless user.is_a?(User)
@@ -26,7 +27,7 @@ class EventFactory
   def build_attributes(event_text)
     result = {
         text: event_text,
-        happens_at: ExtractDate.extract(event_text)
+        happens_at: extract_date(event_text)
     }
     # TODO Issue and # 10 link
     result

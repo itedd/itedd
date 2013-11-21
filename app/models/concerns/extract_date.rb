@@ -5,7 +5,7 @@ module ExtractDate
      august August september September oktober Oktober november November dezember Dezember
      jan Jan feb Feb apr Apr aug Aug sept Sept okt Okt nov Nov dez Dez)
 
-  def extract(string)
+  def extract_date(string)
     result = ''
 
     if string.present?

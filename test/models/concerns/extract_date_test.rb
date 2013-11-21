@@ -86,9 +86,9 @@ class ExtractDateTest < ActiveSupport::TestCase
       expected_date = expected_date_string
       expected_date = expected_date_string.to_date unless expected_date.nil?
 
-      assert_equal(expected_date, @date_extractor.extract("#{current_date_string} tolles Event www.example.com #event"))
-      assert_equal(expected_date, @date_extractor.extract("tolles Event #{current_date_string} www.example.com#event"))
-      assert_equal(expected_date, @date_extractor.extract("tolles Event www.example.com #event #{current_date_string}"))
+      assert_equal(expected_date, @date_extractor.extract_date("#{current_date_string} tolles Event www.example.com #event"))
+      assert_equal(expected_date, @date_extractor.extract_date("tolles Event #{current_date_string} www.example.com#event"))
+      assert_equal(expected_date, @date_extractor.extract_date("tolles Event www.example.com #event #{current_date_string}"))
     end
 
   end
