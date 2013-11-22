@@ -6,34 +6,31 @@ module ExtractDate
      jan Jan feb Feb apr Apr aug Aug sept Sept okt Okt nov Nov dez Dez)
 
   def extract_date(string)
-    result = ''
+    result = nil
 
     if string.present?
-      date_string = extract_with_german_number_regex(string)
-      result = check_date(date_string)
-
-      if result.nil?
-        date_string = extract_with_german_month_name_regex(string)
-        result = check_date(date_string)
-      end
-
-      if result.nil?
-        date_string = extract_with_chronic_de(string)
-        result = check_date(date_string)
-      end
-
-      if result.nil?
-        date_string = extract_with_chronic(string)
-        result = check_date(date_string)
-      end
+      result = check_string_for_date(string, 'extract_with_german_number_regex')
+      result = check_string_for_date(string, 'extract_with_german_month_name_regex')  if result.nil?
+      result = check_string_for_date(string, 'extract_with_chronic_de')               if result.nil?
+      result = check_string_for_date(string, 'extract_with_chronic')                  if result.nil?
     end
 
     result
   end
 
 
-
   private
+
+  def check_string_for_date(string, method_name)
+    result = nil
+
+    if string.present?
+      date_string = self.send(method_name, string)
+      result = check_date(date_string)
+    end
+
+    result
+  end
 
   def extract_with_german_number_regex(string)
     result = ''
@@ -48,22 +45,8 @@ module ExtractDate
         month_string =  matcher[2]
         year_string  =  matcher[3]
 
-        if day_string.present?
-          if day_string.start_with?('0')
-            result << "#{day_string[1..-1]}"
-          else
-            result << "#{day_string}"
-          end
-        end
-
-        if month_string.present?
-          if month_string.start_with?('0')
-            result << ".#{month_string[1..-1]}"
-          else
-            result << ".#{month_string}"
-          end
-        end
-
+        result << get_complete_day_or_month_string(day_string, '')
+        result << get_complete_day_or_month_string(month_string)
         result << get_complete_year_string(year_string, month_string, day_string)
 
       end
@@ -104,6 +87,19 @@ module ExtractDate
     Chronic.parse(string)
   end
 
+  def get_complete_day_or_month_string(string, dot_symbol='.')
+    result = ''
+
+    if string.present?
+      if string.start_with?('0')
+        result << "#{dot_symbol}#{string[1..-1]}"
+      else
+        result << "#{dot_symbol}#{string}"
+      end
+    end
+
+    result
+  end
 
   def check_date(date_string)
     result = nil
