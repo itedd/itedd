@@ -2,46 +2,50 @@ require 'test_helper'
 
 class EventFactoryTest < ActiveSupport::TestCase
 
-  test "create with valid event texts" do
-    user = User.first
-    factory = EventFactory.new()
-
-    def factory.build_attributes(string)
-      # TODO setup valid moching framework
-      {text: "blubb", happens_at: Date.today, link: "www.example.com"}
+  setup do
+    @factory = EventFactory.new()
+    
+      def @factory.extract_date(string)
+      Date.today
     end
 
-    assert_not_nil factory.create("Dies ist ein gültiger event text", user)
-    assert_not_nil factory.create("Dies ist ein gültiger #event text", user)
-    assert_not_nil factory.create("Dies ist ein gültiger #event.", user)
-    assert_not_nil factory.create("Dies ist ein gültiger #event:", user)
-    assert_not_nil factory.create("Dies ist ein gültiger #event", user)
-    assert_not_nil factory.create("Dies ist ein gültiger #event(", user)
-    assert_not_nil factory.create("Dies ist ein gültiger #event[", user)
-    assert_not_nil factory.create("Dies ist ein gültiger #event{", user)
-    assert_not_nil factory.create("Dies ist ein gültiger #event!", user)
-    assert_not_nil factory.create("#event am anfang", user)
-    assert_not_nil factory.create("event am anfang", user)
-    assert_not_nil factory.create("event", user)
-    assert_not_nil factory.create("Event", user)
-    assert_not_nil factory.create("#event", user)
+    def @factory.extract_link(string)
+      'http://www.itedd.de'
+    end
+  end
+
+  test "create with valid event texts" do
+    user = User.first
+
+    assert_not_nil @factory.createEvent("Dies ist ein gültiger #event text", user)
+    assert_not_nil @factory.createEvent("Dies ist ein gültiger #event.", user)
+    assert_not_nil @factory.createEvent("Dies ist ein gültiger #event:", user)
+    assert_not_nil @factory.createEvent("Dies ist ein gültiger #event", user)
+    assert_not_nil @factory.createEvent("Dies ist ein gültiger #event(", user)
+    assert_not_nil @factory.createEvent("Dies ist ein gültiger #event[", user)
+    assert_not_nil @factory.createEvent("Dies ist ein gültiger #event{", user)
+    assert_not_nil @factory.createEvent("Dies ist ein gültiger #event!", user)
+    assert_not_nil @factory.createEvent("#event am anfang", user)
+    assert_not_nil @factory.createEvent("#event am anfang", user)
+    assert_not_nil @factory.createEvent("#event", user)
+    assert_not_nil @factory.createEvent("#Event", user)
+    assert_not_nil @factory.createEvent("#event", user)
   end
 
   test "don't create with invalid event texts" do
     user = User.first
-    factory = EventFactory.new()
 
-    def factory.build_attributes(string)
-      # TODO setup valid moching framework
-      {text: "blubb", happens_at: Date.today, link: "www.example.com"}
+    assert_raise ArgumentError do
+      @factory.createEvent("Bei diesem #event fehlt der user", nil)
     end
 
-    assert_nil factory.create("Dies ist kein gültiges#event", user)
-    assert_nil factory.create("Dies ist kein gültiges ##event", user)
-    assert_nil factory.create("Dies ist kein gültiges pevent", user)
-    assert_nil factory.create("Dies ist kein gültiges evento", user)
-    assert_nil factory.create("Dies ist kein gültiges event)", user)
-    assert_nil factory.create("Dies ist kein gültiges event]", user)
-    assert_nil factory.create("Dies ist kein gültiges event}", user)
+    assert_nil @factory.createEvent("Dies ist kein gültiger event text", user)
+    assert_nil @factory.createEvent("Dies ist kein gültiges#event", user)
+    assert_nil @factory.createEvent("Dies ist kein gültiges ##event", user)
+    assert_nil @factory.createEvent("Dies ist kein gültiges pevent", user)
+    assert_nil @factory.createEvent("Dies ist kein gültiges evento", user)
+    assert_nil @factory.createEvent("Dies ist kein gültiges #event)", user)
+    assert_nil @factory.createEvent("Dies ist kein gültiges #event]", user)
+    assert_nil @factory.createEvent("Dies ist kein gültiges #event}", user)
   end
 end

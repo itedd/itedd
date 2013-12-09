@@ -5,8 +5,8 @@ class TwitterReader
     end
 
     def cronjob
-      twitter_accounts.each do |ta|
-        new(ta).run
+      twitter_accounts.each do |account|
+        new(account).run
       end
     end
 
@@ -28,7 +28,7 @@ class TwitterReader
   def run
     tweets.each do |tweet|
       if tweet.text.include? '#event'
-        EventFactory.new.create( tweet.text, @user )
+        EventFactory.new.createEvent( tweet.text, @user )
       end
     end
   end

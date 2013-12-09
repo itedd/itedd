@@ -1,20 +1,13 @@
 class EventFactory
   include ExtractDate
+  include ExtractLink
 
-  def create(event_text, user)
-    raise ArgumentError("No user given") unless user.is_a?(User)
+  def createEvent(event_text, user)
+    raise ArgumentError.new("No user given") unless user.is_a?(User)
 
     if is_valid_text?(event_text)
-      attributes = build_attributes(event_text)
-      attributes.merge!( user: user )
-
-      result = Event.new(attributes)
-
-      if result.valid?
-        result.save
-      else
-        result = nil
-      end
+      attributes = build_attributes(event_text, user)
+      result = Event.create(attributes)
     else
       result = nil
     end
@@ -24,17 +17,19 @@ class EventFactory
 
   private
 
-  def build_attributes(event_text)
+  def build_attributes(event_text, user)
     result = {
         text: event_text,
-        happens_at: extract_date(event_text)
+        happens_at: extract_date(event_text),
+        link: extract_link(event_text),
+        user: user
     }
     # TODO Issue and # 10 link
     result
   end
 
   def is_valid_text?(event_text)
-    event_text =~ /(^|\s)#?event([\s:\.\(\[\{!]|$)/i
+    event_text =~ /(^|\s)#event([\s:\.\(\[\{!]|$)/i
   end
 
 end

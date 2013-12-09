@@ -12,12 +12,15 @@ class TwitterReaderTest < ActiveSupport::TestCase
   end
 
   test 'creates events' do
-    Event.delete_all
-    tr = TwitterReader.new(@user)
-    def tr.tweets; [
-      Twitter::Tweet.new(id: 123, text: 'Ruby Dresden am 17.11. um 17 Uhr - kommt alle! #event') ]; end
+    twitter_reader = TwitterReader.new(@user)
 
-    tr.run
-    # assert_equal 1, Event.count # TODO #9 muss erst gehen
+    def twitter_reader.tweets
+      [ Twitter::Tweet.new(id: 123, text: 'Ruby Dresden am 17.11. um 17 Uhr - kommt alle! #event') ]
+    end
+
+    assert_difference "Event.count", 1 do
+      twitter_reader.run 
+    end
+
   end
 end
