@@ -1,1 +1,13 @@
-<h1>Hallo Welt!</h1>
+<h1>IT-Events in Dresden</h1>
+
+
+<h2>Anstehende Events</h2>
+<ul>
+  <% @events.each do |event| %>
+
+    <li>
+      <%= event.text %>
+    </li>
+
+  <% end %>
+</ul>
