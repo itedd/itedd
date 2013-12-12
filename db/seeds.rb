@@ -5,6 +5,13 @@ User.create! username: 'ruby_dresden',
   password_confirmation: 'password',
   twitter_account: '@ruby_dresden'
 
+User.create! username: 'webmontagdresden',
+  email: 'info@example.com',
+  password: 'password',
+  password_confirmation: 'password',
+  twitter_account: '@webmontagdd'
+
+
 # User.create! username: 'admin',
 #   email: 'info@example.com',
 #   password: 'password',
