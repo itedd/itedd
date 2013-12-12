@@ -1,4 +1,4 @@
-class TwitterReader
+class TwitterReader < BaseReader
   class << self
     def twitter_accounts
       User.with_twitter
@@ -27,12 +27,16 @@ class TwitterReader
 
   def run
     tweets.each do |tweet|
-      if tweet.text.include? '#event'
-        EventFactory.new.createEvent( tweet.text, @user )
+      if event = build_event( tweet[:text], @user, tweet[:url] )
+        if Event.where( twitter_id: tweet[:id].to_s).count > 0
+          next
+        end
+        event.link = tweet[:url]
+        event.twitter_id = tweet[:id].to_s
+        event.save
       end
     end
   end
-
 
   private
 
@@ -40,7 +44,13 @@ class TwitterReader
     self.class.client.user_timeline(@twitter_account,
                                     exclude_replies: true,
                                     trim_user: true,
-                                    include_rts: false)
+                                    include_rts: false).map do |tweet|
+                                      {
+                                        id: tweet.id,
+                                        text: tweet.text,
+                                        url: tweet.urls.last.try(:url).try(:to_s)
+                                      }
+                                    end
   end
 
 
