@@ -13,8 +13,8 @@ test:
   password:
 
 production:
-  adapter: mysql2
-  encoding: utf8
-  database: itedd
+  adapter: postgresql
+  encoding: unicode
+  database: itedd_production
   username: itedd
   password: 

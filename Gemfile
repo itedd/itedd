@@ -36,10 +36,15 @@ gem 'chronic18n', :git => 'https://github.com/soemo/chronic18n'
 group :development, :test do
   gem 'pry-rails'
   gem 'dotenv-rails'
+  gem 'sqlite3'
 end
 
 group :test do
   gem 'shoulda'
+end
+
+group :production do
+  gem 'pg'
 end
 
 group :doc do
