@@ -24,7 +24,7 @@ class BaseReader
         text: event_text,
         happens_at: extract_date(event_text),
         link: extract_link(event_text),
-        user: user
+        organizer: user
     }
     # TODO Issue and # 10 link
     result
