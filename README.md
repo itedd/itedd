@@ -60,3 +60,21 @@ Wie kann meine UserGroup mit aufgenommen werden?
 ------------------------------------------------
 
 UserGroups aus Dresden können sich bei uns melden, wenn sie mit aufgenommen werden wollen. Die Registrierung ist moderiert, um das System vor Missbrauch zu schützen.
+
+
+## Beitragen
+
+1. Projekt forken
+2. Änderungen durchführen. Tests nicht vergessen.
+3. Pull-Request stellen. Dieser wird auf Travis-CI getestet.
+
+Erste Schritte:
+
+```ruby
+bundle
+cp config/database.yml.example config/database.yml
+# Database.yml an eigenes System anpassen
+rake db:create
+rake db:migrate
+rake test
+```
