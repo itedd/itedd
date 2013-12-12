@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131107221354) do
+ActiveRecord::Schema.define(version: 20131212193406) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "events", force: true do |t|
     t.string   "text"
@@ -20,7 +23,10 @@ ActiveRecord::Schema.define(version: 20131107221354) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "twitter_id"
   end
+
+  add_index "events", ["twitter_id"], name: "index_events_on_twitter_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
