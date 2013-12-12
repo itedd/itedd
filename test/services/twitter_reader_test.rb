@@ -3,7 +3,7 @@ class TwitterReaderTest < ActiveSupport::TestCase
   fixtures :users
 
   setup do
-    @user = users(:valid_user)
+    @user = users(:valid_organizer)
     @user.update_attribute :twitter_account, '@ruby_dresden'
   end
 
