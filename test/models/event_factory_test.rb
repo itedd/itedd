@@ -3,9 +3,9 @@ require 'test_helper'
 class EventFactoryTest < ActiveSupport::TestCase
 
   setup do
-    @factory = EventFactory.new()
+    @factory = EventFactory.new
     
-      def @factory.extract_date(string)
+    def @factory.extract_date(string)
       Date.today
     end
 
@@ -15,7 +15,7 @@ class EventFactoryTest < ActiveSupport::TestCase
   end
 
   test "create with valid event texts" do
-    user = User.first
+    user = Organizer.first
 
     assert_not_nil @factory.createEvent("Dies ist ein gültiger #event text", user)
     assert_not_nil @factory.createEvent("Dies ist ein gültiger #event.", user)
@@ -33,7 +33,7 @@ class EventFactoryTest < ActiveSupport::TestCase
   end
 
   test "don't create with invalid event texts" do
-    user = User.first
+    user = Organizer.first
 
     assert_raise ArgumentError do
       @factory.createEvent("Bei diesem #event fehlt der user", nil)

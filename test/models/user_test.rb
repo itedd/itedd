@@ -1,9 +1,6 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-
-  should have_many(:events)
-
   should validate_presence_of(:username)
   should ensure_length_of(:username).is_at_least(10).is_at_most(100)
 
@@ -37,7 +34,7 @@ class UserTest < ActiveSupport::TestCase
   #end
 
   test 'should accept valid twitter account' do
-    user = users(:valid_user)
+    user = users(:valid_organizer)
     user.twitter_account = '@ruby_dresden'
     user.valid?
     assert user.errors[:twitter_account].blank?
