@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131107221354) do
+ActiveRecord::Schema.define(version: 20131212192532) do
 
   create_table "events", force: true do |t|
     t.string   "text"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20131107221354) do
     t.datetime "updated_at"
     t.string   "username"
     t.string   "twitter_account"
+    t.string   "type"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

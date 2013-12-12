@@ -1,7 +1,7 @@
 class TwitterReader
   class << self
     def twitter_accounts
-      User.with_twitter
+      Organizer.with_twitter
     end
 
     def cronjob

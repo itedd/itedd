@@ -3,7 +3,7 @@ class EventFactory
   include ExtractLink
 
   def createEvent(event_text, user)
-    raise ArgumentError.new("No user given") unless user.is_a?(User)
+    raise ArgumentError.new("No user given") unless user.is_a?(Organizer)
 
     if is_valid_text?(event_text)
       attributes = build_attributes(event_text, user)
