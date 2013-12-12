@@ -17,3 +17,8 @@ script:
   - bundle exec rake
 
 bundler_args: "--without development production"
+
+deploy:
+  provider: heroku
+  app: itedd # optional if it's the same as your repo name
+  api_key: "2c8b68af-71b9-4df1-8e0e-0992a6357e28"
