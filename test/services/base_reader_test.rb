@@ -15,7 +15,7 @@ class BaseReaderTest < ActiveSupport::TestCase
   end
 
   test "create with valid event texts" do
-    user = User.first
+    user = Organizer.first
 
     assert_not_nil @base_reader.build_event("Dies ist ein gültiger #event text", user)
     assert_not_nil @base_reader.build_event("Dies ist ein gültiger #event.", user)
@@ -33,7 +33,7 @@ class BaseReaderTest < ActiveSupport::TestCase
   end
 
   test "don't create with invalid event texts" do
-    user = User.first
+    user = Organizer.first
 
     assert_raise ArgumentError do
       @base_reader.build_event("Bei diesem #event fehlt der user", nil)

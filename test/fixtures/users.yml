@@ -14,3 +14,10 @@ valid_user:
   username: test
   email: user@test.de
   encrypted_password: test_1234
+
+valid_organizer:
+  username: orga1
+  email: orga@test.de
+  encrypted_password: test_1234
+  type: Organizer
+  twitter_account: ruby_dd

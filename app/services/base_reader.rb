@@ -4,14 +4,14 @@ class BaseReader
 
 
   def build_event(event_text, user, optional_link=nil)
-    raise ArgumentError.new("No user given") unless user.is_a?(User)
+    raise ArgumentError.new("No user given") unless user.is_a?(Organizer)
 
     if is_valid_text?(event_text)
       Event.new( {
         text: event_text,
         happens_at: extract_date(event_text),
         link: optional_link || extract_link(event_text),
-        user: user })
+        organizer: user })
     end
   end
 
@@ -22,7 +22,8 @@ class BaseReader
   end
 
   # TODO Finale Implementierung, wenn wir RSS parsen
-  def extract_link(string)
-    raise NotImplementedError
-  end
+  #   def extract_link(string)
+  #       raise NotImplementedError
+  #         end
+  #         end
 end

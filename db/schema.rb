@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20131212193406) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "events", force: true do |t|
     t.string   "text"
     t.string   "link"
@@ -26,7 +23,7 @@ ActiveRecord::Schema.define(version: 20131212193406) do
     t.string   "twitter_id"
   end
 
-  add_index "events", ["twitter_id"], name: "index_events_on_twitter_id", using: :btree
+  add_index "events", ["twitter_id"], name: "index_events_on_twitter_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -43,6 +40,7 @@ ActiveRecord::Schema.define(version: 20131212193406) do
     t.datetime "updated_at"
     t.string   "username"
     t.string   "twitter_account"
+    t.string   "type"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
