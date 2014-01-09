@@ -41,6 +41,7 @@ end
 
 group :test do
   gem 'shoulda'
+  gem 'minitest-reporters'
 end
 
 group :production do

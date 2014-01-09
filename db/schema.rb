@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20131212193406) do
     t.string   "twitter_id"
   end
 
-  add_index "events", ["twitter_id"], name: "index_events_on_twitter_id"
+  add_index "events", ["twitter_id"], name: "index_events_on_twitter_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20131212193406) do
     t.string   "type"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
