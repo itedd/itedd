@@ -75,10 +75,10 @@ class ExtractDateTest < ActiveSupport::TestCase
       '1. Mai 2017'      => '01.05.2017',
       '1. Mai 17'        => '01.05.2017',
       '1. Mai 2013'      => '01.05.2013',
-      'Erster Januar'    => get_expected_date_with_year('01.01.'),
-      'Zweiter Januar'   => get_expected_date_with_year('02.01.'),
-      'Dritter Januar'   => get_expected_date_with_year('03.01.'),
-      'Vierter Januar'   => get_expected_date_with_year('04.01.'),
+      #'Erster Januar'    => get_expected_date_with_year('01.01.'),
+      #'Zweiter Januar'   => get_expected_date_with_year('02.01.'),
+      #'Dritter Januar'   => get_expected_date_with_year('03.01.'),
+      #'Vierter Januar'   => get_expected_date_with_year('04.01.'),
 
   }).each do |current_date_string, expected_date_string|
 
