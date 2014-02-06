@@ -35,6 +35,8 @@ gem 'chronic18n', :git => 'https://github.com/soemo/chronic18n'
 
 gem 'slim'
 
+gem 'ri_cal'
+
 group :development, :test do
   gem 'pry-rails'
   gem 'dotenv-rails'
