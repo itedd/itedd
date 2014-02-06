@@ -35,6 +35,9 @@ GEM
     ansi (1.4.3)
     arel (4.0.1)
     atomic (1.1.14)
+    authority (2.9.0)
+      activesupport (>= 3.0.0)
+      rake (>= 0.8.7)
     bcrypt-ruby (3.1.2)
     buftok (0.1)
     builder (3.1.4)
@@ -175,6 +178,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  authority
   chronic18n!
   coffee-rails (~> 4.0.0)
   devise (= 3.2.0)
