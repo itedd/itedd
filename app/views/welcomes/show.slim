@@ -1,0 +1,11 @@
+h1 IT-Events in Dresden
+h2 Anstehende Events
+
+ul
+  - @events.each do |event|
+    li
+      p
+        span
+          == "#{l(event.happens_at).ljust(46,'&nbsp;')}"
+        span
+          == link_to event.text, event.link
