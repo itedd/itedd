@@ -135,6 +135,9 @@ GEM
     shoulda-matchers (2.4.0)
       activesupport (>= 3.0.0)
     simple_oauth (0.2.0)
+    slim (2.0.2)
+      temple (~> 0.6.6)
+      tilt (>= 1.3.3, < 2.1)
     slop (3.4.6)
     sprockets (2.10.0)
       hike (~> 1.2)
@@ -146,6 +149,7 @@ GEM
       activesupport (>= 3.0)
       sprockets (~> 2.8)
     sqlite3 (1.3.8)
+    temple (0.6.7)
     therubyracer (0.12.0)
       libv8 (~> 3.16.14.0)
       ref
@@ -191,6 +195,7 @@ DEPENDENCIES
   sass-rails (~> 4.0.0)
   sdoc
   shoulda
+  slim
   sqlite3
   therubyracer
   turbolinks
