@@ -37,7 +37,6 @@ GEM
     bcrypt-ruby (3.1.2)
     buftok (0.1)
     builder (3.1.4)
-    cancan (1.6.10)
     chronic (0.10.2)
     coderay (1.0.9)
     coffee-rails (4.0.1)
@@ -164,7 +163,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  cancan
   chronic18n!
   coffee-rails (~> 4.0.0)
   devise (= 3.2.0)
