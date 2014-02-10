@@ -6,6 +6,6 @@ ul
     li
       p
         span
-          == "#{l(event.happens_at).ljust(16,' ')}"
+          == "#{l(event.happens_at).ljust(46,'&nbsp;')}"
         span
-          == event.text
+          == link_to event.text, event.link
