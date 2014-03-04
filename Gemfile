@@ -1,10 +1,13 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.1'
+gem 'rails', '4.0.2'
 
 # Use mysql as the database for Active Record
 gem 'mysql2'
+
+# Used to authorize actions in our Rails app
+gem 'authority'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -28,10 +31,12 @@ gem 'turbolinks'
 # gem 'jbuilder', '~> 1.2'
 
 gem 'devise', '3.2.0'
-gem 'cancan'
 
 # Chronic is a pure Ruby natural language date parser with german addon
 gem 'chronic18n', :git => 'https://github.com/soemo/chronic18n'
+
+gem 'slim'
+gem 'rails-i18n'
 
 group :development, :test do
   gem 'pry-rails'
