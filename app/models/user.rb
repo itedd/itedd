@@ -8,5 +8,5 @@ class User < ActiveRecord::Base
   #attr_accessible :name, :email, :password, :password_confirmation
 
 
-  validates :username, presence: true, length: {minimum: 4, maximum: 100}
+  validates :username, presence: true, length: {minimum: 10, maximum: 100}
 end
