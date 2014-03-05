@@ -38,6 +38,12 @@ gem 'chronic18n', :git => 'https://github.com/soemo/chronic18n'
 gem 'slim'
 gem 'rails-i18n'
 
+# http://foundation.zurb.com/docs/applications.html
+gem 'foundation-rails'
+
+# https://github.com/plataformatec/simple_form
+gem 'simple_form'
+
 group :development, :test do
   gem 'pry-rails'
   gem 'dotenv-rails'
@@ -52,6 +58,7 @@ end
 
 group :production do
   gem 'pg'
+  gem 'rails_12factor'
 end
 
 group :doc do
@@ -63,3 +70,5 @@ gem 'twitter', '~> 5.0.0.rc.1'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
+
+ruby "2.1.1"

@@ -3,6 +3,7 @@ Itedd::Application.routes.draw do
   devise_for :users
 
   resource :welcomes
+  resource :organizers
 
   root  "welcomes#show"
   # The priority is based upon order of creation: first created -> highest priority.
