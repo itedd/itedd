@@ -1,0 +1,10 @@
+h2 Entsperrhinweise erneut senden
+
+.large-12.columns
+  = simple_form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => { :method => :post }) do |f|
+    = devise_error_messages!
+    = f.input :email
+    = f.button :submit, "Abschicken"
+
+    .large-12.columns
+      = render "devise/shared/links"
