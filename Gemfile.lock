@@ -63,6 +63,9 @@ GEM
     execjs (2.0.2)
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
+    foundation-rails (5.1.1.0)
+      railties (>= 3.1.0)
+      sass (>= 3.2.0)
     hashie (2.0.5)
     hike (1.2.3)
     http (0.5.0)
@@ -87,7 +90,7 @@ GEM
       powerbar
     multi_json (1.8.4)
     multipart-post (1.2.0)
-    mysql2 (0.3.13)
+    mysql2 (0.3.15)
     orm_adapter (0.4.0)
     pg (0.17.0)
     polyglot (0.3.3)
@@ -139,6 +142,9 @@ GEM
     shoulda-context (1.1.6)
     shoulda-matchers (2.4.0)
       activesupport (>= 3.0.0)
+    simple_form (3.0.1)
+      actionpack (>= 4.0.0, < 4.1)
+      activemodel (>= 4.0.0, < 4.1)
     simple_oauth (0.2.0)
     slim (2.0.2)
       temple (~> 0.6.6)
@@ -190,6 +196,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise (= 3.2.0)
   dotenv-rails
+  foundation-rails
   jquery-rails
   minitest-reporters
   mysql2
@@ -201,6 +208,7 @@ DEPENDENCIES
   sass-rails (~> 4.0.0)
   sdoc
   shoulda
+  simple_form
   slim
   sqlite3
   therubyracer

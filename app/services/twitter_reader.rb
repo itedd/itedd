@@ -27,7 +27,8 @@ class TwitterReader < BaseReader
 
   def run
     tweets.each do |tweet|
-      if event = build_event( tweet[:text], @user, tweet[:url] )
+      event = build_event( tweet[:text], @user, tweet[:url] )
+      if event
         if Event.where( twitter_id: tweet[:id].to_s).count > 0
           next
         end

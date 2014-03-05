@@ -38,6 +38,12 @@ gem 'chronic18n', :git => 'https://github.com/soemo/chronic18n'
 gem 'slim'
 gem 'rails-i18n'
 
+# http://foundation.zurb.com/docs/applications.html
+gem 'foundation-rails'
+
+# https://github.com/plataformatec/simple_form
+gem 'simple_form'
+
 group :development, :test do
   gem 'pry-rails'
   gem 'dotenv-rails'
