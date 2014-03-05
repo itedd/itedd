@@ -52,6 +52,7 @@ end
 
 group :production do
   gem 'pg'
+  gem 'rails_12factor'
 end
 
 group :doc do
@@ -63,3 +64,5 @@ gem 'twitter', '~> 5.0.0.rc.1'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
+
+ruby "2.1.1"
