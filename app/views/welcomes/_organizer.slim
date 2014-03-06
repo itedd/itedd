@@ -1,21 +1,28 @@
-- if organizer.logo
-  = image_tag organizer.logo
+.organizer
+  .logo
+    - if organizer.logo
+      = image_tag organizer.logo
 
-p #{organizer.username}
+  .name
+    p #{organizer.username}
 
-- if organizer.twitter_account
-  = link_to image_tag('twitter_32.png'), "https://twitter.com/#{organizer.twitter_account}", target: '_blank'
+  .social
+    - if organizer.twitter_account
+      = link_to image_tag('twitter_32.png'), "https://twitter.com/#{organizer.twitter_account}", target: '_blank'
 
-- if organizer.facebook_page
-  = link_to image_tag('facebook_32.png'), organizer.facebook_page, target: '_blank'
+    - if organizer.facebook_page
+      = link_to image_tag('facebook_32.png'), organizer.facebook_page, target: '_blank'
 
-- if organizer.googleplus_page
-  = link_to image_tag('google_32.png'), organizer.googleplus_page, target: '_blank'
+    - if organizer.googleplus_page
+      = link_to image_tag('google_32.png'), organizer.googleplus_page, target: '_blank'
 
-p
-  = organizer.description
+  .description
+    p
+      = organizer.description
 
-- organizer.events.each do |event|
-  p
-    a href=event.link
-      = "#{event.happens_at} #{event.text}"
+  .events
+    - organizer.events.each do |event|
+      .event
+        p
+          a href=event.link
+            = "#{event.happens_at} #{event.text}"
