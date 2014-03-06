@@ -1,0 +1,17 @@
+ul
+  - @events.each do |event|
+    li
+      = render partial: 'events/event', locals: {event: event}
+
+p.center
+  a href="?page=#{session[:page]-1}"
+    | Fr&uuml;her
+  | &nbsp;
+  a href="?page=0"
+    | Heute
+  | &nbsp;
+  a href="?page=#{session[:page]+1}"
+    | Sp&auml;ter
+
+p.center
+  == link_to 'Mehr IT-Events in Dresden', '/'
