@@ -5,7 +5,7 @@ Itedd::Application.routes.draw do
   resource :welcomes
   resource :organizers
 
-  root  "welcomes#show"
+  root  "welcomes#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

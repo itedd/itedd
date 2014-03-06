@@ -1,0 +1,6 @@
+h2 Anstehende Events
+
+ul
+  - @organizers.each do |organizer|
+    li
+      = render partial: "welcomes/organizer", locals: {organizer: organizer}
