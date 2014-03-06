@@ -1,4 +1,5 @@
 .event
-  p
-    a href=event.link
-      = "#{event.happens_at} #{event.organizer.username}: #{event.text}"
+  a href=event.link
+    = "#{l(event.happens_at)} - #{event.organizer.username}"
+    br
+    = "#{event.text}"
