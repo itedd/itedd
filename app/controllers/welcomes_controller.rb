@@ -6,4 +6,8 @@ class WelcomesController < ApplicationController
     @events = Event.upcoming_events
   end
 
+  def index
+    @organizers = Organizer.all
+  end
+
 end

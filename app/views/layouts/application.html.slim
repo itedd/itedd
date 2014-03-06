@@ -21,9 +21,13 @@ body
 
     section class="top-bar-section"
       ul class="right"
-        li
-          == link_to "Einstellungen", edit_organizers_path
-        li.divider
+        - if user_signed_in?
+          li
+            == link_to 'Einbetten', 'events'
+          li.divider
+          li
+            == link_to 'Einstellungen', edit_organizers_path
+          li.divider
         li
           - if user_signed_in?
             == link_to "Logout", destroy_user_session_path, method: "delete"
