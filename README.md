@@ -25,7 +25,8 @@ Viele UserGroups nutzen unter anderem Twitter, um auf Ihre Veranstaltungen hinzu
 * Ein Datum ist auch enthalten: 13.01.2014
 * Ein Link zu weiteren Informationen liefert die Details: https://plus.google.com/events/c3hpt206lq0obfgevis6fcg2mec
 
-Indem der komplette Inhalt des Tweets, hinterlegt mit dem ersten Link auf das erkannte Datum gelegt wird, läßt sich ein Kalender für alle realisieren. Ohne Mehraufwand für die Organisatoren!
+Indem der komplette Inhalt des Tweets als Link auf das erkannte Datum gelegt wird, läßt sich ein Kalender für alle realisieren. Bei mehreren Links wird
+dafür der Erste genommen. Ohne Mehraufwand für die Organisatoren!
 
 Natürlich muss es die Möglichkeit geben, Termine nachzubearbeiten, falls man sich mal geirrt hat oder ein Termin abgesagt werden muss.
 
@@ -33,7 +34,7 @@ Mehrere UserGroups kann man vielleicht mit eigenen Farben voneinander unterschei
 
 Indem der Kalender einfach in andere Seiten (z.B. die Webseiten der UserGroups) integriert werden kann, informiert man die Leser auch über andere IT Events, die bisher nicht auf ihrem Radar waren.
 
-Neben einer Monatsübersicht ist auch eine Listendarstellung denkbar. Damit eine UserGroup vielleicht ausschlisslich diesen Kalender verwendet, ist eine gesonderte Darstellung nur einer UserGroup sinnvoll (dann natürlich mit der Möglichkeit, alle anderen Termine auch einzublenden).
+Neben einer Monatsübersicht ist auch eine Listendarstellung denkbar. Damit eine UserGroup vielleicht ausschliesslich diesen Kalender verwendet, ist eine gesonderte Darstellung nur einer UserGroup sinnvoll (dann natürlich mit der Möglichkeit, alle anderen Termine auch einzublenden).
 
 Perspektivisch sind auch andere Informationsquellen denkbar, aber das rudimentäre Format (#event, Datum, Link und Beschreibung) bleibt:
 * RSS-Feed
@@ -45,7 +46,7 @@ Es gibt viel zu tun.
 Wie kam es zu diesem Projekt und wo stehen wir?
 -----------------------------------------------
 
-Die Ruby-UserGroup hatte den Wunsch, etwas gemeinsam zu programmieren. Das Projekt sollte aber auch einen echten Nutzen haben. Bei ein Stammtisch-Meeting wurde die Idee zu ITEDD geboren. Die Organisatoren haben andere UserGroups angesprochen und das Interesse war deutlich. Die JUG wollte das Problem übrigens auch angehen, war aber noch nicht sehr weit.
+Die Ruby-UserGroup hatte den Wunsch, etwas gemeinsam zu programmieren. Das Projekt sollte aber auch einen echten Nutzen haben. Bei einem Stammtisch-Meeting wurde die Idee zu ITEDD geboren. Die Organisatoren haben andere UserGroups angesprochen und das Interesse war deutlich. Die JUG wollte das Problem übrigens auch angehen, war aber noch nicht sehr weit.
 
 So hat also die JUG Anforderungen für dieses System gesammelt, beim WebMontag wurde ein Designer gesucht und die Ruby-Usergroup programmiert. Alle haben etwas davon, alle steuern etwas bei. So geht das mit OpenSource.
 
