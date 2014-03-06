@@ -24,3 +24,4 @@ config/initializers/secret_token.rb
 
 .idea
 config/database.yml
+.ruby-version

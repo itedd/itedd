@@ -36,6 +36,9 @@ gem 'devise', '3.2.0'
 gem 'chronic18n', :git => 'https://github.com/soemo/chronic18n'
 
 gem 'slim'
+
+gem 'ri_cal'
+
 gem 'rails-i18n'
 
 # http://foundation.zurb.com/docs/applications.html
