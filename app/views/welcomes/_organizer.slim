@@ -21,7 +21,7 @@
       = organizer.description
 
   .events
-    - organizer.events.each do |event|
+    - Event.upcoming_events.for_organizer(organizer).each do |event|
       .event
         p
           a href=event.link
