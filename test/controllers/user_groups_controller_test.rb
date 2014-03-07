@@ -9,7 +9,7 @@ class UserGroupsControllerTest < ActionController::TestCase
 
   test "should render edit" do
     sign_in User.first
-    get :edit
+    get :edit, :format=>1
     assert_response :success, @response.body
   end
 
