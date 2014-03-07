@@ -4,10 +4,10 @@ one:
   text: MyString
   link: MyString
   happens_at: 2013-11-07
-  user_id: 1
+  user_group_id: 1
 
 two:
   text: MyString
   link: MyString
   happens_at: 2013-11-07
-  user_id: 1
+  user_group_id: 1

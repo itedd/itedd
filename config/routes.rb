@@ -3,7 +3,7 @@ Itedd::Application.routes.draw do
   devise_for :users
 
   resource :welcomes
-  resource :organizers
+  resource :user_groups
   resource :events
 
   root 'welcomes#index'

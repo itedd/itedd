@@ -1,0 +1,31 @@
+.user_group
+  .logo
+    - if user_group.logo
+      = image_tag user_group.logo
+
+  .name
+    p #{user_group.name}
+
+  .social
+    - if user_group.twitter_account
+      = link_to image_tag('twitter_32.png'), "https://twitter.com/#{user_group.twitter_account}", target: '_blank'
+
+    - if user_group.facebook_page
+      = link_to image_tag('facebook_32.png'), user_group.facebook_page, target: '_blank'
+
+    - if user_group.googleplus_page
+      = link_to image_tag('google_32.png'), user_group.googleplus_page, target: '_blank'
+
+  .description
+    p
+      = user_group.description
+
+  .events
+    - Event.upcoming_events.for_user_group(user_group).each do |event|
+      .event
+        p
+          a href=event.link
+            = "#{event.happens_at} #{event.text}"
+  .actions
+    - if can? :update, user_group
+      = link_to 'Bearbeiten', edit_user_groups_path(user_group)

@@ -35,12 +35,10 @@ GEM
     ansi (1.4.3)
     arel (4.0.2)
     atomic (1.1.14)
-    authority (2.9.0)
-      activesupport (>= 3.0.0)
-      rake (>= 0.8.7)
     bcrypt-ruby (3.1.2)
     buftok (0.1)
     builder (3.1.4)
+    cancancan (1.7.0)
     chronic (0.10.2)
     coderay (1.0.9)
     coffee-rails (4.0.1)
@@ -197,7 +195,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  authority
+  cancancan
   chronic18n!
   coffee-rails (~> 4.0.0)
   devise (= 3.2.0)

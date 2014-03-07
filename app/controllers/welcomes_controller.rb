@@ -16,7 +16,7 @@ class WelcomesController < ApplicationController
   end
 
   def index
-    @organizers = Organizer.all
+    @user_groups = UserGroup.all
   end
 
 end

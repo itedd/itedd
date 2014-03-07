@@ -3,15 +3,15 @@ class BaseReader
   include ExtractDate
 
 
-  def build_event(event_text, user, optional_link=nil)
-    raise ArgumentError.new("No user given") unless user.is_a?(Organizer)
+  def build_event(event_text, user_group, optional_link=nil)
+    raise ArgumentError.new("No user_group given") unless user_group.present?
 
     if is_valid_text?(event_text)
       Event.new( {
         text: event_text,
         happens_at: extract_date(event_text),
         link: optional_link || extract_link(event_text),
-        organizer: user })
+        user_group: user_group })
     end
   end
 

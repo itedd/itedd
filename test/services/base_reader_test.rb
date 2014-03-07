@@ -15,37 +15,37 @@ class BaseReaderTest < ActiveSupport::TestCase
   end
 
   test "create with valid event texts" do
-    user = Organizer.first
+    user_group = UserGroup.first
 
-    assert_not_nil @base_reader.build_event("Dies ist ein gültiger #event text", user)
-    assert_not_nil @base_reader.build_event("Dies ist ein gültiger #event.", user)
-    assert_not_nil @base_reader.build_event("Dies ist ein gültiger #event:", user)
-    assert_not_nil @base_reader.build_event("Dies ist ein gültiger #event", user)
-    assert_not_nil @base_reader.build_event("Dies ist ein gültiger #event(", user)
-    assert_not_nil @base_reader.build_event("Dies ist ein gültiger #event[", user)
-    assert_not_nil @base_reader.build_event("Dies ist ein gültiger #event{", user)
-    assert_not_nil @base_reader.build_event("Dies ist ein gültiger #event!", user)
-    assert_not_nil @base_reader.build_event("#event am anfang", user)
-    assert_not_nil @base_reader.build_event("#event am anfang", user)
-    assert_not_nil @base_reader.build_event("#event", user)
-    assert_not_nil @base_reader.build_event("#Event", user)
-    assert_not_nil @base_reader.build_event("#event", user)
+    assert_not_nil @base_reader.build_event("Dies ist ein gültiger #event text", user_group)
+    assert_not_nil @base_reader.build_event("Dies ist ein gültiger #event.", user_group)
+    assert_not_nil @base_reader.build_event("Dies ist ein gültiger #event:", user_group)
+    assert_not_nil @base_reader.build_event("Dies ist ein gültiger #event", user_group)
+    assert_not_nil @base_reader.build_event("Dies ist ein gültiger #event(", user_group)
+    assert_not_nil @base_reader.build_event("Dies ist ein gültiger #event[", user_group)
+    assert_not_nil @base_reader.build_event("Dies ist ein gültiger #event{", user_group)
+    assert_not_nil @base_reader.build_event("Dies ist ein gültiger #event!", user_group)
+    assert_not_nil @base_reader.build_event("#event am anfang", user_group)
+    assert_not_nil @base_reader.build_event("#event am anfang", user_group)
+    assert_not_nil @base_reader.build_event("#event", user_group)
+    assert_not_nil @base_reader.build_event("#Event", user_group)
+    assert_not_nil @base_reader.build_event("#event", user_group)
   end
 
   test "don't create with invalid event texts" do
-    user = Organizer.first
+    user_group = UserGroup.first
 
     assert_raise ArgumentError do
-      @base_reader.build_event("Bei diesem #event fehlt der user", nil)
+      @base_reader.build_event("Bei diesem #event fehlt der user_group", nil)
     end
 
-    assert_nil @base_reader.build_event("Dies ist kein gültiger event text", user)
-    assert_nil @base_reader.build_event("Dies ist kein gültiges#event", user)
-    assert_nil @base_reader.build_event("Dies ist kein gültiges ##event", user)
-    assert_nil @base_reader.build_event("Dies ist kein gültiges pevent", user)
-    assert_nil @base_reader.build_event("Dies ist kein gültiges evento", user)
-    assert_nil @base_reader.build_event("Dies ist kein gültiges #event)", user)
-    assert_nil @base_reader.build_event("Dies ist kein gültiges #event]", user)
-    assert_nil @base_reader.build_event("Dies ist kein gültiges #event}", user)
+    assert_nil @base_reader.build_event("Dies ist kein gültiger event text", user_group)
+    assert_nil @base_reader.build_event("Dies ist kein gültiges#event", user_group)
+    assert_nil @base_reader.build_event("Dies ist kein gültiges ##event", user_group)
+    assert_nil @base_reader.build_event("Dies ist kein gültiges pevent", user_group)
+    assert_nil @base_reader.build_event("Dies ist kein gültiges evento", user_group)
+    assert_nil @base_reader.build_event("Dies ist kein gültiges #event)", user_group)
+    assert_nil @base_reader.build_event("Dies ist kein gültiges #event]", user_group)
+    assert_nil @base_reader.build_event("Dies ist kein gültiges #event}", user_group)
   end
 end
