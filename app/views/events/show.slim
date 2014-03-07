@@ -1,17 +1,14 @@
-ul
+ul.embed
   - @events.each do |event|
     li
       = render partial: 'events/event', locals: {event: event}
 
 p.center
-  a href="?page=#{session[:page]-1}"
-    | Fr&uuml;her
-  | &nbsp;
-  a href="?page=0"
-    | Heute
-  | &nbsp;
-  a href="?page=#{session[:page]+1}"
-    | Sp&auml;ter
+  = link_to "Früher", :page=>@page-1, :per=>@per, :organizer_ids=>@organizers
+  =" | "
+  = link_to "Heute", :page=>0, :per=>@per, :organizer_ids=>@organizers
+  =" | "
+  = link_to "Später", :page=>@page+1, :per=>@per, :organizer_ids=>@organizers
 
 p.center
   == link_to 'Mehr IT-Events in Dresden', '/'
