@@ -2,6 +2,7 @@ h2 Einstellungen
 
 .large-12.columns
   = simple_form_for(@user_group, :url=>user_groups_path(@user_group)) do |f|
+    = f.input :id, as: :hidden
     = f.input :name
     = f.input :color
     = f.input :logo

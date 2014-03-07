@@ -26,3 +26,6 @@
         p
           a href=event.link
             = "#{event.happens_at} #{event.text}"
+  .actions
+    - if can? :update, user_group
+      = link_to 'Bearbeiten', edit_user_groups_path(user_group)

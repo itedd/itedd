@@ -1,7 +1,4 @@
 class Event < ActiveRecord::Base
-
-  include Authority::Abilities
-
   scope :upcoming_events, -> { oldest_first.where('happens_at >= :now', now: Time.now) }
   scope :finished_events, -> { newest_first.where('happens_at < :now',  now: Time.now) }
 

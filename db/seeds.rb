@@ -10,15 +10,21 @@ User.create! email: 'info@example.com',
              password: 'password',
              password_confirmation: 'password'
 
+User.create! email: 'admin@objectfab.de',
+             password: 'password',
+             password_confirmation: 'password',
+             admin: true
+
+
 UserGroup.create! name: 'webmontagdresden',
              twitter_account: '@webmontagdd',
              color: '#ffffff',
-             user_group: User.first
+             user: User.first
 
 UserGroup.create! name: 'ruby-dresden',
              twitter_account: '@ruby_dresden',
              color: '#ffffff',
-             user_group: User.all.second
+             user: User.all.second
 
 Event.create! text: 'Ruby User Group Dresden Event -1',
               happens_at: 4.weeks.ago,

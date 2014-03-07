@@ -25,8 +25,9 @@ body
           li
             == link_to 'Einbetten', 'events'
           li.divider
+
           li
-            == link_to 'Einstellungen', edit_user_groups_path
+            == link_to 'Account', edit_user_registration_path
           li.divider
         li
           - if user_signed_in?
