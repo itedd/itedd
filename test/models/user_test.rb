@@ -1,47 +1,29 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  should validate_presence_of(:username)
-  should ensure_length_of(:username).is_at_least(10).is_at_most(100)
 
-  #test "should require name, password and email" do
-  #  user = User.new
-  #  assert !user.valid?
-  #
-  #  user.username = "Bruce Wayne"
-  #  assert !user.valid?
-  #
-  #  user.email = "bruce.wayne@wayne.com"
-  #  assert !user.valid?
-  #
-  #  user.password = "Test_1234"
-  #  assert user.valid?, user.errors.inspect
-  #
-  #  user.password_confirmation = "Test_1234"
-  #  assert user.valid?
-  #end
+  test "should require password and email" do
+    user = User.new
+    assert !user.valid?
+    user.email = "bla@bla.com"
+    user.password = "Test_1234"
+    assert user.valid?, user.errors.inspect
 
-  #test "should have a valid fixture" do
-  #  user = users(:valid_user)
-  #  #user.password = '1'
-  #  assert user.valid? , user.errors.inspect
-  #end
-
-  #test "should not accept to short password" do
-  #  user = users(:valid_user)
-  #  user.password = '1'
-  #  assert !user.valid?, "Password should not be accepted!"
-  #end
-
-  test 'should accept valid twitter account' do
-    user = users(:valid_organizer)
-    user.twitter_account = '@ruby_dresden'
-    user.valid?
-    assert user.errors[:twitter_account].blank?
-
-    user.twitter_account = 'ruby dresden'
-    user.valid?
-    assert user.errors[:twitter_account].present?
+    user.password_confirmation = "Test_1234"
+    assert user.valid?
   end
+
+  test "should have a valid fixture" do
+    user = users(:valid_user)
+    user.password = '1'
+    assert !user.valid? , user.errors.inspect
+  end
+
+  test "should not accept to short password" do
+    user = users(:valid_user)
+    user.password = '1'
+    assert !user.valid?, "Password should not be accepted!"
+  end
+
 
 end

@@ -3,8 +3,8 @@ class TwitterReaderTest < ActiveSupport::TestCase
   fixtures :users
 
   setup do
-    @user = users(:valid_organizer)
-    @user.update_attribute :twitter_account, '@ruby_dresden'
+    @user_group = user_groups(:valid_user_group)
+    @user_group.update_attribute :twitter_account, '@ruby_dresden'
   end
 
   test 'Twitter Reader finds all users with twitter accounts' do
@@ -12,7 +12,7 @@ class TwitterReaderTest < ActiveSupport::TestCase
   end
 
   test 'creates events' do
-    twitter_reader = TwitterReader.new(@user)
+    twitter_reader = TwitterReader.new(@user_group)
 
     def twitter_reader.tweets
       [ {

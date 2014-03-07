@@ -1,7 +1,7 @@
 class TwitterReader < BaseReader
   class << self
     def twitter_accounts
-      Organizer.with_twitter
+      UserGroup.with_twitter
     end
 
     def cronjob
@@ -20,14 +20,14 @@ class TwitterReader < BaseReader
     end
   end
 
-  def initialize(user)
-    @user = user
-    @twitter_account = user.twitter_account
+  def initialize(user_group)
+    @user_group = user_group
+    @twitter_account = user_group.twitter_account
   end
 
   def run
     tweets.each do |tweet|
-      event = build_event( tweet[:text], @user, tweet[:url] )
+      event = build_event( tweet[:text], @user_group, tweet[:url] )
       if event
         if Event.where( twitter_id: tweet[:id].to_s).count > 0
           next

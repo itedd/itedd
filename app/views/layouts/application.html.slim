@@ -17,7 +17,7 @@ body
           a href="/"
             | Itedd
       li class="toggle-topbar menuicon"
-        == link_to "Itedd", controller: "/welcomes", action: "show"
+        == link_to "Itedd", controller: '/welcomes', action: 'show'
 
     section class="top-bar-section"
       ul class="right"
@@ -26,7 +26,7 @@ body
             == link_to 'Einbetten', 'events'
           li.divider
           li
-            == link_to 'Einstellungen', edit_organizers_path
+            == link_to 'Einstellungen', edit_user_groups_path
           li.divider
         li
           - if user_signed_in?

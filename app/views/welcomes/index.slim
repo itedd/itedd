@@ -1,6 +1,6 @@
 h2 Anstehende Events
 
 ul
-  - @organizers.each do |organizer|
+  - @user_groups.each do |user_group|
     li
-      = render partial: "welcomes/organizer", locals: {organizer: organizer}
+      = render partial: 'welcomes/user_group', locals: {user_group: user_group}
