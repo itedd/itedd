@@ -1,13 +1,13 @@
 class UserGroupsController < ApplicationController
+  load_and_authorize_resource
+
   def edit
-    @user_group = UserGroup.find params[:format]
   end
 
   def update
-    @user_group = UserGroup.find user_params[:id]
     if @user_group.update(user_params)
-      flash[:notice] = "Die Änderungen wurden gespeichert."
-      redirect_to edit_user_groups_path(@user_group)
+      flash[:notice] = 'Die Änderungen wurden gespeichert.'
+      redirect_to edit_user_group_path(@user_group)
     else
       render 'edit'
     end

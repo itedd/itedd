@@ -12,10 +12,10 @@
 #
 valid_organizer:
   id: 1
-  email: user@test.de
+  email: orga@test.de
   encrypted_password: test_1234
 
 valid_user:
   id: 2
-  email: orga@test.de
+  email: user@test.de
   encrypted_password: test_1234

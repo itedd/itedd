@@ -1,0 +1,9 @@
+h2 #{@event.text} von #{@event.user_group.name} bearbeiten
+
+.large-12.columns
+  = simple_form_for(@event, url: event_path(@event)) do |f|
+    = f.input :id, as: :hidden
+    = f.input :text
+    = f.input :link
+    = f.input :happens_at
+    = f.button :submit, 'Änderungen speichern'
