@@ -11,6 +11,7 @@
  *= require_self
  *= require foundation_and_overrides
  *= require organizer
+ *= require events
 
  *= require_tree .
  */
