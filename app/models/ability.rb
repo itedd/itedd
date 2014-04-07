@@ -8,9 +8,10 @@ class Ability
       can :approve, User
     else
       can :read, :all
-      can :manage, UserGroup, :user_id=>user.id
-      UserGroup.where(user_id: user.id).each do |user_group|
-        can :manage, Event, :user_group_id=>user_group.id
+      ug = user.user_group
+      if ug.present?
+        can :manage, UserGroup, :id=>ug.id
+        can :manage, Event, :user_group_id=>ug.id
       end
     end
   end

@@ -15,6 +15,7 @@ valid_organizer:
   email: orga@test.de
   encrypted_password: test_1234
   approved: true
+  user_group_id: 1
 
 valid_user:
   id: 2
