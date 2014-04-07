@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.2'
 
 # Use mysql as the database for Active Record
-gem 'mysql2'
+gem 'pg'
 
 gem 'cancancan'
 
@@ -30,6 +30,8 @@ gem 'turbolinks'
 # gem 'jbuilder', '~> 1.2'
 
 gem 'devise', '3.2.0'
+
+gem 'chronic', :git=>'https://github.com/synopia/chronic'
 
 # Chronic is a pure Ruby natural language date parser with german addon
 gem 'chronic18n', :git => 'https://github.com/soemo/chronic18n'
@@ -59,7 +61,6 @@ group :test do
 end
 
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
 end
 
