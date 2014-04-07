@@ -29,7 +29,7 @@ body class="antialiased"
               li.divider
               - if can? :approve, User
                 li
-                  == link_to 'Freischalten', 'approve'
+                  == link_to 'Benutzer verwalten', 'approve'
                 li.divider
               li
                 == link_to 'Account', edit_user_registration_path
