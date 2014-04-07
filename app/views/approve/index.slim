@@ -1,0 +1,6 @@
+h2 Noch nicht freigeschaltete Benutzer
+
+ul
+  - @users.each do |user|
+    li
+      = render partial: 'approve/user', locals: {user: user}

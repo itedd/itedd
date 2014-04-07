@@ -13,8 +13,8 @@ User.create! email: 'info@example.com',
 User.create! email: 'admin@objectfab.de',
              password: 'password',
              password_confirmation: 'password',
-             admin: true
-
+             admin: true,
+             approved: true
 
 UserGroup.create! name: 'webmontagdresden',
              twitter_account: '@webmontagdd',

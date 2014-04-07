@@ -1,5 +1,7 @@
 Itedd::Application.routes.draw do
 
+  get "approve" => 'approve#index'
+  get "approve/:id" => 'approve#approve', as: :approve_user
   get 'events/embedded' => 'events#embedded'
 
   devise_for :users
