@@ -31,6 +31,8 @@ gem 'turbolinks'
 
 gem 'devise', '3.2.0'
 
+gem 'chronic', :git=>'https://github.com/synopia/chronic'
+
 # Chronic is a pure Ruby natural language date parser with german addon
 gem 'chronic18n', :git => 'https://github.com/soemo/chronic18n'
 
@@ -59,7 +61,6 @@ group :test do
 end
 
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
 end
 

@@ -27,7 +27,10 @@ body class="antialiased"
               li
                 == link_to 'Einbetten', 'events/embedded'
               li.divider
-
+              - if can? :approve, User
+                li
+                  == link_to 'Freischalten', 'approve'
+                li.divider
               li
                 == link_to 'Account', edit_user_registration_path
               li.divider

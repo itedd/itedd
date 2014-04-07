@@ -1,5 +1,4 @@
 valid_user_group:
   id: 1
   name: "user_group_1"
-  user_id: 1
   color: "#ffffff"

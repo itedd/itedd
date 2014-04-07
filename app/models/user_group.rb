@@ -13,5 +13,5 @@ class UserGroup < ActiveRecord::Base
   validates :twitter_account, length: {maximum: 200},
             format: { with: %r{\A(\@\w+|)\z} }, if: ->(r) { r.twitter_account.present? }
 
-  belongs_to :user
+  has_many :users
 end

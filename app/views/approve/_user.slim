@@ -1,0 +1,7 @@
+.user
+  .name
+    p #{user.email}
+
+  .actions
+    - if can? :approve, user
+      = link_to 'Freischalten', approve_user_path(user)

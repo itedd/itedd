@@ -17,6 +17,7 @@ de:
       timeout: "Deine Sitzung ist abgelaufen, bitte melde Dich erneut an."
       unauthenticated: "Du musst Dich anmelden oder registrieren, bevor Du fortfahren kannst."
       unconfirmed: "Du musst Deinen Account bestätigen, bevor Du fortfahren kannst."
+      not_approved: "Dein Account muss von einem Administrator freigeschalten werden, bevor du dich anmelden kannst."
     mailer:
       confirmation_instructions:
         subject: "Anleitung zur Bestätigung Deines Accounts"
@@ -39,6 +40,7 @@ de:
       signed_up_but_inactive: "Du hast dich erfolgreich registriert. Wir konnten Dich noch nicht anmelden, da Dein Account inaktiv ist."
       signed_up_but_locked: "Du hast dich erfolgreich registriert. Wir konnten Dich noch nicht anmelden, da Dein Account gesperrt ist."
       signed_up_but_unconfirmed: "Du hast Dich erfolgreich registriert. Wir konnten Dich noch nicht anmelden, da Dein Account noch nicht bestätigt ist. Du erhältst in Kürze eine E-Mail mit der Anleitung, wie Du Deinen Account freischalten kannst."
+      signed_up_but_not_approved: "Du hast dich erfolgreich registriert. Ein Administrator wird deine Anmeldung überprüfen und dich schnellstmöglich freischalten."
       update_needs_confirmation: "Deine Daten wurden aktualisiert, aber Du musst Deine neue E-Mail-Adresse bestätigen. Du erhälsts in wenigen Minuten eine E-Mail, mit der Du die Änderung Deiner E-Mail-Adresse abschließen kannst."
       updated: "Deine Daten wurden aktualisiert."
     sessions:
