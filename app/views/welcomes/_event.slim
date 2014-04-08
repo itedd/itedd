@@ -1,12 +1,12 @@
-.event
-  .logo
+.row
+  .small-1.columns
     - if event.user_group.logo.present?
       = link_to image_tag(event.user_group.logo, size: '64'), user_group_path(event.user_group)
 
-  .text
-    = link_to event.text, event.link
+  .small-10.columns
+    = link_to event.text, event.link, target: 'blank'
 
-  .actions
+  .small-1.columns
     - if can? :update, event
-      = link_to "<i class='fi-pencil'></i>".html_safe, edit_event_path(event)
+      = link_to "<i class='fi-pencil'></i>".html_safe, edit_event_path(event), class: 'actions'
 

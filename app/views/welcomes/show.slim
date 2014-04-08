@@ -1,11 +1,7 @@
-h2 Nächste IT Events
-
-.events
-  ul
-    - @days.each do |day|
-      li
-        h2= "#{I18n.l(day)}"
-        - @map[day].each do |event|
-          = render partial: 'welcomes/event', locals: {event: event}
-        hr
+- @days.each do |day|
+  .row
+    .large-12.columns
+      h2= "#{I18n.l(day)}"
+  - @map[day].each do |event|
+    = render partial: 'welcomes/event', locals: {event: event}
 
