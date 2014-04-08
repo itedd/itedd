@@ -1,24 +1,4 @@
-development:
-  adapter: mysql2
-  encoding: utf8
-  database: itedd
-  username: itedd
-  password: mJeeJarLoeFMmktP2iUMHjaniY6wQK
-  host: 127.0.0.1
-  port: 3306
-
 test:
-  adapter: mysql2
-  encoding: utf8
+  adapter: postgresql
   database: itedd_test
-  username: travis
-
-production:
-  adapter: mysql2
-  encoding: utf8
-  database: itedd
-  username: itedd
-  password: <password>
-  host: 127.0.0.1
-  port: 3306
-
+  username: postgres
