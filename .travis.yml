@@ -8,7 +8,7 @@ branches:
       - master
 
 before_script:
-  - mysql -e 'create database itedd_test'
+  - psql -c 'create database itedd_test;' -U postgres
   - cp config/database.yml.travis config/database.yml
 
 script: 
