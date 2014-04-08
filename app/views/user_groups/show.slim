@@ -1,37 +1,31 @@
-.row
-  .small-1.columns
+.row.headline
+  .small-2.columns
     - if @user_group.logo.present?
       = image_tag @user_group.logo
-  .small-10.columns style="background-color:#{@user_group.color}"
+  .small-9.columns style="background-color:#{@user_group.color}"
     h2= @user_group.name
+    - if @user_group.twitter_account.present?
+      = link_to "<i class='fi-social-twitter'></i>".html_safe, "https://twitter.com/#{@user_group.twitter_account}", target: '_blank'
+
+      - if @user_group.facebook_page.present?
+        = link_to "<i class='fi-social-facebook'></i>".html_safe, @user_group.facebook_page, target: '_blank'
+
+      - if @user_group.googleplus_page.present?
+        = link_to "<i class='fi-social-google-plus'></i>".html_safe, @user_group.googleplus_page, target: '_blank'
   .small-1.columns
     - if can? :update, @user_group
       = link_to "<i class='fi-pencil'></i>".html_safe, edit_user_group_path(@user_group)
 
 .row
-  .small-1.columns
-    = '&nbsp;'.html_safe
-  .small-10.columns style="background-color:#{@user_group.color}"
-    - if @user_group.twitter_account.present?
-      = link_to "<i class='fi-social-twitter'></i>".html_safe, "https://twitter.com/#{@user_group.twitter_account}", target: '_blank'
-
-    - if @user_group.facebook_page.present?
-      = link_to "<i class='fi-social-facebook'></i>".html_safe, @user_group.facebook_page, target: '_blank'
-
-    - if @user_group.googleplus_page.present?
-      = link_to "<i class='fi-social-google-plus'></i>".html_safe, @user_group.googleplus_page, target: '_blank'
-  .small-1.columns
-
-.row
-  .small-12.columns
+  .small-10.small-offset-2.columns
     p
       = @user_group.description
 
 .row
 
 - Event.upcoming_events.for_user_group(@user_group).each do |event|
-  .row
-    .small-2.columns
+  .row.headline
+    .large-1.large-offset-1.columns
       = I18n.l(event.happens_at)
     .small-9.columns
       = link_to "#{event.text}", event.link

@@ -1,7 +1,7 @@
 - @days.each do |day|
   .row
     .large-12.columns
-      h2= "#{I18n.l(day)}"
+      h2.headline= "#{I18n.l(day)}"
   - @map[day].each do |event|
     = render partial: 'welcomes/event', locals: {event: event}
 
