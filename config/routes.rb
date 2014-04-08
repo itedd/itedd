@@ -10,8 +10,8 @@ Itedd::Application.routes.draw do
   resources :user_groups
   resources :events
 
+  root 'welcomes#show'
 
-  root 'welcomes#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

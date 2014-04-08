@@ -1,0 +1,35 @@
+.user_group
+  .logo style="background-color:#{@user_group.color}"
+    - if @user_group.logo.present?
+      = image_tag @user_group.logo, size: '64'
+
+  .name= @user_group.name
+
+  .actions
+    - if can? :update, @user_group
+      = link_to "<i class='fi-pencil'></i>".html_safe, edit_user_group_path(@user_group)
+
+  .social
+    - if @user_group.twitter_account.present?
+      = link_to "<i class='fi-social-twitter'></i>".html_safe, "https://twitter.com/#{@user_group.twitter_account}", target: '_blank'
+
+    - if @user_group.facebook_page.present?
+      = link_to "<i class='fi-social-facebook'></i>".html_safe, @user_group.facebook_page, target: '_blank'
+
+    - if @user_group.googleplus_page.present?
+      = link_to "<i class='fi-social-google-plus'></i>".html_safe, @user_group.googleplus_page, target: '_blank'
+
+
+  .description
+    p
+      = @user_group.description
+
+  .events
+    - Event.upcoming_events.for_user_group(@user_group).each do |event|
+      .event
+        .text
+          = link_to "#{I18n.l(event.happens_at)} #{event.text}", event.link
+
+        .actions
+          - if can? :update, event
+            = link_to "<i class='fi-pencil'></i>".html_safe, edit_event_path(event)

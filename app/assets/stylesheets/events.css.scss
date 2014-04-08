@@ -1,3 +1,19 @@
-.event {
+.events {
   margin: 10px;
+  li {
+    list-style-type: none;
+  }
+}
+
+.event {
+  .logo {
+    display: inline;
+  }
+  .text {
+    display: inline;
+  }
+  .actions {
+    font-size: 10px;
+    display: inline;
+  }
 }

@@ -1,0 +1,26 @@
+.user_group {
+  li {
+    list-style-type: none;
+  }
+  .logo {
+    display: inline;
+  }
+  .name {
+    font-size: 40px;
+    display: inline;
+  }
+
+  .actions {
+    display: inline;
+    font-size: 20px;
+  }
+  .social {
+    font-size: 20px;
+  }
+
+  .event {
+    .actions {
+      font-size: 10px;
+    }
+  }
+}

@@ -8,11 +8,9 @@ table
       th
         span UserGroup
       th
-        span Status
+        span Aktiv
       th
         span Admin
-      th
-        span Aktionen
   tbody
     - @users.each do |user|
       tr
@@ -21,24 +19,24 @@ table
           - if user.user_group.present?
             = user.user_group.name
         td
-          = case user.approved
-            - when true then 'Bestätigt'
-            - when false then 'Gesperrt'
-            - else '-'
-        td
-          - if user.admin?
-            = 'Admin'
+          - if current_user!=user && can?(:manage, user)
+            - if user.approved
+              = link_to "<i class='fi-check'/>".html_safe, approve_user_path(user, :deny)
+            - else
+              = link_to "<i class='fi-x'/>".html_safe, approve_user_path(user, :permit)
           - else
-            = 'Kein Admin'
+            - if user.approved
+              i class="fi-check"
+            - else
+              i class="fi-x"
         td
-          - if current_user!=user
-            span= case user.approved
-              - when true then link_to 'Sperren', approve_user_path(user, :deny)
-              - when false then link_to 'Entsperren', approve_user_path(user, :permit)
-              - else link_to 'Bestätigen', approve_user_path(user, :permit)
-            br
-            span
-              - if user.admin?
-                = link_to 'Adminrecht entfernen', approve_user_path(user, :unset_admin)
-              - else
-                = link_to 'Admin vergeben', approve_user_path(user, :set_admin)
+          - if current_user!=user && can?(:manage, user)
+            - if user.admin?
+              = link_to "<i class='fi-check'/>".html_safe, approve_user_path(user, :unset_admin)
+            - else
+              = link_to "<i class='fi-x'/>".html_safe, approve_user_path(user, :set_admin)
+          - else
+            - if user.admin?
+              i class="fi-check"
+            - else
+              i class="fi-x"

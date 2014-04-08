@@ -20,9 +20,11 @@ class EventsController < ApplicationController
     @per = (params[:per] || 10).to_i
 
     if not params[:user_group_ids].blank?
-      @user_groups = UserGroup.find(params[:user_group_ids])
+      @user_groups = UserGroup.approved.find(params[:user_group_ids])
     elsif not params[:user_group_id].blank?
-      @user_groups = UserGroup.where('id=?', params[:user_group_id])
+      @user_groups = UserGroup.approved.where('user_groups.id=?', params[:user_group_id])
+    else
+      @user_groups = UserGroup.approved
     end
 
     if @page>=0
