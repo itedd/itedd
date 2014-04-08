@@ -1,13 +1,15 @@
 .user_group
-  .logo style="background-color:#{@user_group.color}"
-    - if @user_group.logo.present?
-      = image_tag @user_group.logo, size: '64'
+  div style="background-color:#{@user_group.color}"
+    .logo
+      - if @user_group.logo.present?
+        = image_tag @user_group.logo, size: '64'
 
-  .name= @user_group.name
+    .name
+      = @user_group.name
 
-  .actions
-    - if can? :update, @user_group
-      = link_to "<i class='fi-pencil'></i>".html_safe, edit_user_group_path(@user_group)
+    .actions
+      - if can? :update, @user_group
+        = link_to "<i class='fi-pencil'></i>".html_safe, edit_user_group_path(@user_group)
 
   .social
     - if @user_group.twitter_account.present?
