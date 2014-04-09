@@ -1,24 +1,26 @@
 h2 Registrieren
+.row
 
-.large-12.columns
-  = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
-    = devise_error_messages!
-    = f.input :email
-    = f.input :password
-    = f.input :password_confirmation
-    = f.association :user_group
-    #nested_user_group
-      p User Group
-      = f.simple_fields_for :user_group do |ugf|
-        = ugf.input :name
-        = ugf.input :color
-        = ugf.input :logo
-        = ugf.input :website
-        = ugf.input :description
-        = ugf.input :twitter_account
-        = ugf.input :facebook_page
-        = ugf.input :googleplus_page
-    = f.button :submit, "Registrieren"
+  .large-12.columns
+    = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+      = devise_error_messages!
+      = f.input :email
+      = f.input :password
+      = f.input :password_confirmation
+      = f.association :user_group
+      #nested_user_group
+        p User Group
+        = f.simple_fields_for :user_group do |ugf|
+          = ugf.input :name
+          = ugf.input :color
+          = ugf.input :logo
+          = ugf.input :website
+          = ugf.input :description
+          = ugf.input :twitter_account
+          = ugf.input :facebook_page
+          = ugf.input :googleplus_page
+      = f.button :submit, "Registrieren"
 
-    .large-12.columns
-      = render "devise/shared/links"
+.row
+  .large-12.columns
+    = render "devise/shared/links"

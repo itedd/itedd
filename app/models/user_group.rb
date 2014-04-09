@@ -17,4 +17,10 @@ class UserGroup < ActiveRecord::Base
   scope :approved, -> { joins(:users).where("users.approved=true").uniq}
   scope :ordered, -> { order('name ASC') }
   scope :with_twitter, -> { where('twitter_account is not null') }
+
+  def approved?
+    users.select do |user|
+      user.approved==true
+    end.size>0
+  end
 end

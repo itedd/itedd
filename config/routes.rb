@@ -1,7 +1,5 @@
 Itedd::Application.routes.draw do
 
-  get "approve" => 'approve#index'
-  get "approve/:id/:action_id" => 'approve#approve', as: :approve_user
   get 'events/embedded' => 'events#embedded'
 
   devise_for :users
@@ -9,6 +7,10 @@ Itedd::Application.routes.draw do
   resource :welcomes
   resources :user_groups
   resources :events
+  resources :user_admins
+  resources :user_group_admins
+
+  get "user_admins/:id/:action_id" => 'user_admins#set', as: :user_admin_set
 
   root 'welcomes#show'
 

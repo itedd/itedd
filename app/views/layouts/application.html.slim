@@ -27,13 +27,17 @@ body class="antialiased"
               li
                 == link_to 'Einbetten', events_embedded_path
               li.divider
-              - if can? :approve, User
-                li
-                  == link_to 'Benutzer verwalten', approve_path
-                li.divider
+            - if can? :manage, User
               li
-                == link_to 'Account', edit_user_registration_path
+                == link_to 'Benutzer verwalten', user_admins_path
               li.divider
+            - if can? :manage, UserGroup
+              li
+                == link_to 'UserGroups verwalten', user_group_admins_path
+              li.divider
+            li
+              == link_to 'Account', edit_user_registration_path
+            li.divider
             li
               - if user_signed_in?
                 == link_to "Logout", destroy_user_session_path, method: "delete"
