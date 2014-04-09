@@ -1194,3 +1194,19 @@ $topbar-title-font-size: rem-calc(16);
 // $include-html-visibility-classes: $include-html-classes;
 
 @import 'foundation';
+
+html {
+//  font-size: 62.5%;
+}
+
+body {
+  font-size: 0.9rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+}
+
+p {
+  font-size: 0.9rem;
+}

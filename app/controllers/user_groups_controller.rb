@@ -1,5 +1,6 @@
 class UserGroupsController < ApplicationController
   load_and_authorize_resource
+  skip_before_filter :authenticate_user!, only: :show
 
   def show
     @user_group = UserGroup.find(params[:id])

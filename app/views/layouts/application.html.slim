@@ -12,20 +12,20 @@ html
 body class="antialiased"
   div class="row"
     div class="large-12 columns"
-      nav class="top-bar"
+      nav class="top-bar" data-topbar="true"
         ul class="title-area"
           li class="name"
             h1
               a href="/"
                 | IT Events Dresden
           li class="toggle-topbar menuicon"
-            == link_to "IT Events Dresden", controller: '/welcomes', action: 'show'
+            a href="#" Menu
 
         section class="top-bar-section"
           ul class="right"
             - if user_signed_in?
               li
-                == link_to 'Einbetten', 'events/embedded'
+                == link_to 'Einbetten', events_embedded_path
               li.divider
               - if can? :approve, User
                 li
