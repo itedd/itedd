@@ -1,46 +1,26 @@
 class UserGroupAdminsController < ApplicationController
   def index
     authorize! :manage, UserGroup
-    @user_groups = UserGroup.all
+    @user_groups = UserGroup.accessible_by(current_ability, :manage)
+    if @user_groups.size==1
+      redirect_to action: :edit, id: @user_groups.first.id
+    end
   end
 
   def edit
-    authorize! :manage, UserGroup
     @user_group = UserGroup.find(params[:id])
+    authorize! :manage, @user_group
   end
 
   def update
-    authorize! :manage, UserGroup
     @user_group = UserGroup.find(params[:id])
+    authorize! :manage, @user_group
     if @user_group.update_attributes(user_group_params)
       redirect_to :user_group_admins
     else
       render :edit
     end
   end
-
-=begin
-  def set
-    @user = User.find(params[:id])
-    if current_user==@user
-      raise CanCan::AccessDenied.new('Du kannst dich nicht selbst administrieren.', :manage, User)
-    end
-    action = params[:action_id].to_sym
-    authorize! action, @user
-    case action
-      when :permit then
-        @user.approved = true
-      when :deny then
-        @user.approved = false
-      when :set_admin
-        @user.admin = true
-      when :unset_admin
-        @user.admin = false
-    end
-    @user.save
-    redirect_to :user_admins
-  end
-=end
 
   private
 

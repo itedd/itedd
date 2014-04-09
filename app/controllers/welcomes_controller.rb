@@ -5,6 +5,12 @@ class WelcomesController < ApplicationController
 
   respond_to :ics, only: :index
 
+  def faq
+  end
+
+  def impressum
+  end
+
   def show
     @user_groups = UserGroup.approved
     @events = Event.upcoming_events.for_user_groups(@user_groups)

@@ -5,13 +5,13 @@ class UserAdminsController < ApplicationController
   end
 
   def edit
-    authorize! :manage, User
     @user = User.find(params[:id])
+    authorize! :manage, @user
   end
 
   def update
-    authorize! :manage, User
     @user = User.find(params[:id])
+    authorize! :manage, @user
     if @user.update_attributes(user_params)
       redirect_to :user_admins
     else

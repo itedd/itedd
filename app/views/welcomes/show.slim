@@ -1,9 +1,7 @@
 - @days.each do |day|
   .row.first_line
-    .small-6.columns
+    .small-12.columns
       h2= "#{I18n.l(day)}"
-    .small-6.columns
-      span.right= distance_of_time_in_words(Time.now, day)
   - @map[day].each do |event|
     = render partial: 'welcomes/event', locals: {event: event}
 

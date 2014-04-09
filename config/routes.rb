@@ -12,6 +12,9 @@ Itedd::Application.routes.draw do
 
   get "user_admins/:id/:action_id" => 'user_admins#set', as: :user_admin_set
 
+  get 'impressum' => 'welcomes#impressum', as: :impressum
+  get 'faq' => 'welcomes#faq', as: :faq
+
   root 'welcomes#show'
 
   # The priority is based upon order of creation: first created -> highest priority.

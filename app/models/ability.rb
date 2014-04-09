@@ -5,7 +5,6 @@ class Ability
     user ||= User.new
     if user.admin?
       can :manage, :all
-      can :approve, User
     else
       can :read, :all
       ug = user.user_group
