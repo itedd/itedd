@@ -7,6 +7,7 @@ class Event < ActiveRecord::Base
 
   scope :for_user_group, -> (ug) { where('user_group_id=?', ug.id)  }
   scope :for_user_groups, -> (ugs) { where('user_group_id IN (?)', ugs.map{|ug| ug.id}) }
+  scope :approved, -> { for_user_groups(UserGroup.approved) }
 
   belongs_to :user_group
 
@@ -16,4 +17,14 @@ class Event < ActiveRecord::Base
   validates_presence_of :user_group
   validates_length_of   :link, :maximum => 200
   validates_length_of   :text, :maximum => 200
+
+  def self.per_day(events)
+    days = {}
+    events.each do |event|
+      day = event.happens_at
+      days[day] ||= []
+      days[day] << event
+    end
+    days
+  end
 end

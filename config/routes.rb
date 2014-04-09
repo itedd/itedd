@@ -1,6 +1,7 @@
 Itedd::Application.routes.draw do
 
-  get 'events/embedded' => 'events#embedded'
+  get 'embedded' => 'embedded#index'
+  get 'embedded/embedded' => 'embedded#embedded'
 
   devise_for :users
 

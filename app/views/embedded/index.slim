@@ -1,0 +1,17 @@
+h2 Einbetten
+
+.row
+  .small-12.columns
+    input.embedded_url type='hidden' value=embedded_embedded_url
+    input.embedded_iframe_code type='hidden' value='<iframe src="$URL"></iframe>'
+    .input.select.optional
+      = select_tag 'user_group', '<option value="0">alle UserGroups</option>'.html_safe+options_from_collection_for_select(UserGroup.approved, 'id', 'name')
+
+.row
+  .small-6.columns
+    h2 Voransicht
+    iframe width="95%" src="#{embedded_embedded_url}"
+  .small-6.columns
+    h2 Quelltext
+    textarea.embedded_iframe_code_final width="95%"
+
