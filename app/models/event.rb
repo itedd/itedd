@@ -5,8 +5,8 @@ class Event < ActiveRecord::Base
   scope :oldest_first, -> { order('happens_at asc') }
   scope :newest_first, -> { order('happens_at desc') }
 
-  scope :for_user_group, -> (ug) { where('user_group_id=?', ug.id) if ug.present? }
-  scope :for_user_groups, -> (ugs) { where('user_group_id IN (?)', ugs.map{|ug| ug.id}) if ugs.present? }
+  scope :for_user_group, -> (ug) { where('user_group_id=?', ug.id)  }
+  scope :for_user_groups, -> (ugs) { where('user_group_id IN (?)', ugs.map{|ug| ug.id}) }
 
   belongs_to :user_group
 

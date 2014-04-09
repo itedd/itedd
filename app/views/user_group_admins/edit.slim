@@ -1,0 +1,13 @@
+.row
+
+  .large-12.columns
+    = simple_form_for(@user_group, url: user_group_admin_path(@user_group)) do |ugf|
+      = ugf.input :name
+      = ugf.input :color
+      = ugf.input :logo
+      = ugf.input :website
+      = ugf.input :description
+      = ugf.input :twitter_account
+      = ugf.input :facebook_page
+      = ugf.input :googleplus_page
+      = ugf.button :submit, 'Speichern'

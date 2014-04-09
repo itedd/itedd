@@ -1,11 +1,9 @@
-h1 IT-Events in Dresden
-h2 Anstehende Events
+- @days.each do |day|
+  .row.first_line
+    .small-6.columns
+      h2= "#{I18n.l(day)}"
+    .small-6.columns
+      span.right= distance_of_time_in_words(Time.now, day)
+  - @map[day].each do |event|
+    = render partial: 'welcomes/event', locals: {event: event}
 
-ul
-  - @events.each do |event|
-    li
-      p
-        span
-          == "#{l(event.happens_at).ljust(46,'&nbsp;')}"
-        span
-          == link_to event.text, event.link

@@ -3,20 +3,25 @@ class WelcomesController < ApplicationController
 
   skip_before_filter :authenticate_user!
 
-  respond_to :ics, only: :show
+  respond_to :ics, only: :index
 
   def show
-    @events = Event.upcoming_events
+    @user_groups = UserGroup.approved
+    @events = Event.upcoming_events.for_user_groups(@user_groups)
+    @map = {}
+    @days = []
+    @events.each do |event|
+      @days << event.happens_at
+      @map[event.happens_at] ||= []
+      @map[event.happens_at] << event
+    end
+    @days.uniq!
     respond_to do |format|
       format.html
       format.ics do
         render text: events_ical(@events)
       end
     end
-  end
-
-  def index
-    @user_groups = UserGroup.all
   end
 
 end

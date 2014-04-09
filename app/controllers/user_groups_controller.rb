@@ -1,5 +1,10 @@
 class UserGroupsController < ApplicationController
   load_and_authorize_resource
+  skip_before_filter :authenticate_user!, only: :show
+
+  def show
+    @user_group = UserGroup.find(params[:id])
+  end
 
   def edit
   end
@@ -7,7 +12,7 @@ class UserGroupsController < ApplicationController
   def update
     if @user_group.update(user_params)
       flash[:notice] = 'Die Änderungen wurden gespeichert.'
-      redirect_to edit_user_group_path(@user_group)
+      redirect_to user_group_path(@user_group)
     else
       render 'edit'
     end

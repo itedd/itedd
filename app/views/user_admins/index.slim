@@ -1,0 +1,46 @@
+h2 Alle Benutzer
+
+table
+  thead
+    tr
+      th
+        span Email
+      th
+        span UserGroup
+      th
+        span Aktiv
+      th
+        span Admin
+      th
+  tbody
+    - @users.each do |user|
+      tr
+        td= user.email
+        td
+          - if user.user_group.present?
+            = user.user_group.name
+        td
+          - if current_user!=user && can?(:manage, user)
+            - if user.approved
+              = link_to "<i class='fi-check'/>".html_safe, user_admin_set_path(user, :deny)
+            - else
+              = link_to "<i class='fi-x'/>".html_safe, user_admin_set_path(user, :permit)
+          - else
+            - if user.approved
+              i class="fi-check"
+            - else
+              i class="fi-x"
+        td
+          - if current_user!=user && can?(:manage, user)
+            - if user.admin?
+              = link_to "<i class='fi-check'/>".html_safe, user_admin_set_path(user, :unset_admin)
+            - else
+              = link_to "<i class='fi-x'/>".html_safe, user_admin_set_path(user, :set_admin)
+          - else
+            - if user.admin?
+              i class="fi-check"
+            - else
+              i class="fi-x"
+        td
+          - if current_user!=user && can?(:manage, user)
+            = link_to "<i class='fi-pencil'/>".html_safe, edit_user_admin_path(user)

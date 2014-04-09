@@ -12,28 +12,32 @@ html
 body class="antialiased"
   div class="row"
     div class="large-12 columns"
-      nav class="top-bar"
+      nav class="top-bar" data-topbar="true"
         ul class="title-area"
           li class="name"
             h1
               a href="/"
-                | Itedd
+                | IT Events Dresden
           li class="toggle-topbar menuicon"
-            == link_to "Itedd", controller: '/welcomes', action: 'show'
+            a href="#" Menu
 
         section class="top-bar-section"
           ul class="right"
             - if user_signed_in?
               li
-                == link_to 'Einbetten', 'events/embedded'
+                == link_to 'Einbetten', events_embedded_path
               li.divider
-              - if can? :approve, User
-                li
-                  == link_to 'Benutzer verwalten', 'approve'
-                li.divider
+            - if can? :manage, User
               li
-                == link_to 'Account', edit_user_registration_path
+                == link_to 'Benutzer verwalten', user_admins_path
               li.divider
+            - if can? :manage, UserGroup
+              li
+                == link_to 'UserGroups verwalten', user_group_admins_path
+              li.divider
+            li
+              == link_to 'Account', edit_user_registration_path
+            li.divider
             li
               - if user_signed_in?
                 == link_to "Logout", destroy_user_session_path, method: "delete"
@@ -45,3 +49,6 @@ body class="antialiased"
 
 
       == yield
+
+      footer.footer-bottom
+        | (c) 2014 ObjectFab GmbH

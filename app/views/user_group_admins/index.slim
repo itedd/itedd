@@ -1,0 +1,26 @@
+h2 Alle UserGroups
+
+table
+  thead
+    tr
+      th
+        span Name
+      th
+        span Organisatoren
+      th
+        span Aktiv
+      th
+  tbody
+    - @user_groups.each do |ug|
+      tr
+        td= ug.name
+        td
+          = organizer_for_group(ug)
+        td
+          - if ug.approved?
+            i class="fi-check"
+          - else
+            i class="fi-x"
+        td
+          - if can?(:manage, ug)
+            = link_to "<i class='fi-pencil'/>".html_safe, edit_user_group_admin_path(ug)
