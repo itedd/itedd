@@ -7,7 +7,7 @@ update_code= (user_group_id) ->
     final_url = $('.embedded_url').val()+'?user_group_id='+user_group_id
     content = $('.embedded_iframe_code').val().replace /\$URL/, final_url
 
-    $('iframe').attr('src', final_url)
+    $('iframe.embedded#iFrameResizer0').attr('src', final_url)
     $('.embedded_iframe_code_final').val(content)
 
 $ ->
@@ -22,3 +22,13 @@ $ ->
     $(this).mouseup ->
       $(this).unbind("mouseup")
       return false
+
+  if $('.embedded_calendar').length>0
+    $('.embedded_calendar').eventCalendar({
+      eventsjson: '/events.json',
+    })
+
+  $('iframe').iFrameResize({
+      sizeWidth: false,
+      sizeHeight: true
+  })

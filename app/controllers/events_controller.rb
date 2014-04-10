@@ -1,5 +1,7 @@
 class EventsController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource only: [:edit, :update]
+  skip_before_filter :authenticate_user!, only: [:index]
+  respond_to :json, only: :index
 
   def edit
   end
@@ -13,6 +15,25 @@ class EventsController < ApplicationController
     end
   end
 
+  def index
+    @events = Event.upcoming_events.approved
+
+    json = @events.collect do |event|
+      {
+          date: "#{event.happens_at.to_time.to_i*1000}",
+          type: 'meeting',
+          title: event.user_group.name,
+          description: event.text,
+          url: event.link
+      }
+    end
+
+    respond_to do |format|
+      format.json do
+        render json: json
+      end
+    end
+  end
 
   private
 

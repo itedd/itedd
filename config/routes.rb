@@ -2,6 +2,7 @@ Itedd::Application.routes.draw do
 
   get 'embedded' => 'embedded#index'
   get 'embedded/embedded' => 'embedded#embedded'
+  get 'embedded/embedded_calendar' => 'embedded#embedded_calendar', as: :embedded_calendar
 
   devise_for :users
 

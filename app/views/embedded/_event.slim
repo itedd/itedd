@@ -1,5 +1,12 @@
-.event
-  a href=event.link
-    = "#{l(event.happens_at)} - #{event.user_group.name}"
-    br
-    = "#{event.text}"
+.row
+  .column.small-3
+    a href=event.link
+      = "#{l(event.happens_at)}"
+  .column.small-9
+    = event.user_group.name
+.row
+  .column.small-3
+    - if event.user_group.logo.present?
+      = link_to image_tag(event.user_group.logo), user_group_path(event.user_group)
+  .column.small-9
+    = event.text

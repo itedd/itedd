@@ -5,8 +5,11 @@ html
     meta name="viewport" content="width=device-width, initial-scale=1.0"
 
     title Itedd
-    == stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    == stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+    == javascript_include_tag "application", "data-turbolinks-track" => true, "vendor/modernizr" => true
+
     == csrf_meta_tags
 
-body
+body.embedded_container
   == yield
+  script type="text/javascript" src="/iframeResizer.contentWindow.min.js"

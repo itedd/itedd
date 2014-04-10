@@ -1,5 +1,5 @@
 class EmbeddedController < ApplicationController
-  skip_before_filter :authenticate_user!, only: [:embedded, :index]
+  skip_before_filter :authenticate_user!, only: [:embedded, :index, :embedded_calendar]
 
   def index
 
@@ -25,6 +25,10 @@ class EmbeddedController < ApplicationController
     @per_day = Event.per_day(@events)
 
     render 'show', layout: 'embed'
+  end
+
+  def embedded_calendar
+    render 'calendar', layout: 'embed'
   end
 
 end
