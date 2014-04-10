@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   default_scope { order('email ASC') }
   scope :admins, -> { where('admin=true') }
 
-  after_create :send_mail_to_admin
+  # after_create :send_mail_to_admin
 
   def self.new_with_session(hash, session)
     hash.delete 'user_group_attributes' if hash['user_group_id'].present?
