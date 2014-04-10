@@ -28,6 +28,11 @@ class TwitterReader < BaseReader
   def run
     begin
       Rails.logger.info "Loading tweets for #{@user_group.name}"
+      unless @user_group.logo.present?
+        url = self.class.client.user(@twitter_account).profile_image_url.to_s
+        @user_group.logo = url
+        @user_group.save
+      end
       tweets.each do |tweet|
         event = build_event( tweet[:text], @user_group, tweet[:url] )
         if event
