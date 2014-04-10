@@ -1,0 +1,9 @@
+Ein neuer Benutzer hat sich bei http://www.itedd.de angemeldet und wartet auf seine Freigabe.
+
+Du wurdest mit dieser Email darüber informiert, weil du bei ITEDD ein Admin bist.
+
+Bitte prüfe die Anmeldung und gibt den Benutzer gegebenenfalls frei.
+
+Neuer Benutzer: <%= @user.email %>
+Zugeordnete Usergroup: <%= @user.user_group.present? ? @user.user_group.name : '-' %>
+
