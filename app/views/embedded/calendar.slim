@@ -1,1 +1,6 @@
 .embedded_calendar
+javascript:
+  $('.embedded_calendar').eventCalendar({
+    eventsjson: '/events.json?user_group_id='+#{@user_group_id||0}
+  })
+

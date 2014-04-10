@@ -28,6 +28,7 @@ class EmbeddedController < ApplicationController
   end
 
   def embedded_calendar
+    @user_group_id = params[:user_group_id]
     render 'calendar', layout: 'embed'
   end
 

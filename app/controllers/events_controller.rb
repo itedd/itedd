@@ -16,7 +16,7 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.upcoming_events.approved
+    @events = Event.approved.limit(params[:limit])
 
     json = @events.collect do |event|
       {

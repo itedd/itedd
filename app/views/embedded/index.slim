@@ -2,25 +2,35 @@ h2 Einbetten
 
 .row
   .small-12.columns
-    input.embedded_url type='hidden' value=embedded_embedded_url
-    input.embedded_iframe_code type='hidden' value='<iframe src="$URL"></iframe>'
+    input#embedded_list_url type='hidden' value=embedded_embedded_url
+    input#embedded_list_source type='hidden' value='<iframe width="$WIDTH" height="$HEIGHT" src="$URL"></iframe>'
+    input#embedded_calendar_url type='hidden' value=embedded_calendar_url
+    input#embedded_calendar_source type='hidden' value='<iframe width="$WIDTH" height="$HEIGHT" src="$URL"></iframe>'
+
     .input.select.optional
       = select_tag 'user_group', '<option value="0">alle UserGroups</option>'.html_safe+options_from_collection_for_select(UserGroup.approved, 'id', 'name')
-
+.row
+  .columns.small-offset-5.small-1
+    input#embedded_width type='text' value="400"
+  .columns.small-1
+    input#embedded_height type='text' value="150"
+  .columns.small-5
 .row
   .small-6.columns
-    h2 Voransicht
+    h2 Vorschau
   .small-6.columns
     h2 Quelltext
 .row
   .small-6.columns
-    iframe.embedded#iFrameResizer0 scrolling="no" width="95%" src="#{embedded_embedded_url}"
+    iframe.embedded#embedded_list_iframe src="#{embedded_embedded_url}"
   .small-6.columns
-    textarea.embedded_iframe_code_final width="95%"
+    textarea.embedded#embedded_list_source_textarea
 .row
   .small-6.columns
-    iframe.embedded#iFrameResizer1 scrolling="no" width="95%" src="#{embedded_calendar_url}"
+    iframe.embedded#embedded_calendar_iframe src="#{embedded_calendar_url}"
   .small-6.columns
+    textarea.embedded#embedded_calendar_source_textarea
+
 
 
 
