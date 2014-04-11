@@ -8,7 +8,15 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy
-    flash[:notice] = 'Event wurde gelöscht.'
+    flash[:notice] = 'Event wurde gesperrt.'
+    redirect_to request.referer
+  end
+
+  def restore
+    @event = Event.with_deleted.find(params[:id])
+    authorize! :manage, @event
+    @event.restore
+    flash[:notice] = 'Event wurde wieder hergestellt.'
     redirect_to request.referer
   end
 

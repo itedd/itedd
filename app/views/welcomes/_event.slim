@@ -5,10 +5,4 @@
     p.first_line= link_to event.text, event.link, target: 'blank'
   .column.small-1
     .row
-      - if can? :update, event
-        .column.small
-          = link_to "<i class='fi-pencil'></i>".html_safe, edit_event_path(event), class: 'actions'
-      - if can? :destroy, event
-        .column.small
-          = link_to "<i class='fi-trash'></i>".html_safe, event_path(event), class: 'actions', method: :delete
-
+      = render partial: 'events/event_actions', locals: {event: event}

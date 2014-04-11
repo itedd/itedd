@@ -4,6 +4,12 @@ class UserGroupsController < ApplicationController
 
   def show
     @user_group = UserGroup.find(params[:id])
+
+    if can?(:manage, @user_group)
+      @events = Event.with_deleted.upcoming_events.for_user_group(@user_group)
+    else
+      @events = Event.upcoming_events.for_user_group(@user_group)
+    end
   end
 
   def edit

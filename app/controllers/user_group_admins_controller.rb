@@ -3,7 +3,7 @@ class UserGroupAdminsController < ApplicationController
     authorize! :manage, UserGroup
     @user_groups = UserGroup.accessible_by(current_ability, :manage)
     if @user_groups.size==1
-      redirect_to action: :edit, id: @user_groups.first.id
+      redirect_to controller: :user_groups, action: :show, id: @user_groups.first.id
     end
   end
 
