@@ -14,6 +14,10 @@ class TwitterReaderTest < ActiveSupport::TestCase
   test 'creates events' do
     twitter_reader = TwitterReader.new(@user_group)
 
+    def twitter_reader.profile_image_url
+      'profile.png'
+    end
+
     def twitter_reader.tweets
       [ {
         id: 123,
@@ -25,6 +29,7 @@ class TwitterReaderTest < ActiveSupport::TestCase
     assert_difference "Event.count", 1 do
       twitter_reader.run
     end
+    assert_equal 'profile.png', @user_group.logo
 
     event = Event.last
     assert_equal 'Ruby Dresden am 17.11. um 17 Uhr - kommt alle! #event', event.text
