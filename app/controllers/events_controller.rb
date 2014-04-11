@@ -9,7 +9,7 @@ class EventsController < ApplicationController
   def destroy
     @event.destroy
     flash[:notice] = 'Event wurde gesperrt.'
-    redirect_to request.referer
+    redirect_to request.referer || root_path
   end
 
   def restore
@@ -17,7 +17,7 @@ class EventsController < ApplicationController
     authorize! :manage, @event
     @event.restore
     flash[:notice] = 'Event wurde wieder hergestellt.'
-    redirect_to request.referer
+    redirect_to request.referer || root_path
   end
 
   def update

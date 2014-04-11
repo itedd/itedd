@@ -1,9 +1,14 @@
 require 'test_helper'
 
 class WelcomesControllerTest < ActionController::TestCase
-  test "should render show" do
+  test_access :show, :success=>[:admin, :anonymous, :jug, :rug] do
     get :show
-    assert_response :success, @response.body
+  end
+  test_access :faq, :success=>[:admin, :anonymous, :jug, :rug] do
+    get :faq
+  end
+  test_access :impressum, :success=>[:admin, :anonymous, :jug, :rug] do
+    get :impressum
   end
 
 end

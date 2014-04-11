@@ -22,3 +22,30 @@ valid_user:
   email: user@test.de
   encrypted_password: test_1234
   approved: true
+
+rug:
+  id: 3
+  email: orga@rug.de
+  encrypted_password: test_1234
+  approved: true
+  user_group_id: 2
+
+jug:
+  id: 4
+  email: orga@jug.de
+  encrypted_password: test_1234
+  approved: true
+  user_group_id: 3
+
+unapproved:
+  id: 5
+  email: unapproved@test.de
+  encrypted_password: test_1234
+  user_group_id: 4
+
+admin:
+  id: 6
+  email: admin@test.de
+  encrypted_password: test_1234
+  admin: true
+  approved: true

@@ -11,3 +11,15 @@ two:
   link: MyString
   happens_at: 2013-11-07
   user_group_id: 1
+
+rug:
+  text: RUG
+  link: RUG
+  happens_at: 2013-11-07
+  user_group_id: 2
+
+jug:
+  text: JUG
+  link: JUG
+  happens_at: 2013-11-07
+  user_group_id: 3
