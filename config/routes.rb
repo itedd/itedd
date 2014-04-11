@@ -4,6 +4,8 @@ Itedd::Application.routes.draw do
   get 'embedded/embedded' => 'embedded#embedded'
   get 'embedded/embedded_calendar' => 'embedded#embedded_calendar', as: :embedded_calendar
 
+  get 'events/restore/:id' => 'events#restore', as: :restore_event
+
   devise_for :users
 
   resource :welcomes

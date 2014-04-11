@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140407121134) do
+ActiveRecord::Schema.define(version: 20140411090423) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,8 +24,10 @@ ActiveRecord::Schema.define(version: 20140407121134) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "twitter_id"
+    t.datetime "deleted_at"
   end
 
+  add_index "events", ["deleted_at"], name: "index_events_on_deleted_at", using: :btree
   add_index "events", ["twitter_id"], name: "index_events_on_twitter_id", using: :btree
   add_index "events", ["user_group_id"], name: "index_events_on_user_group_id", using: :btree
 

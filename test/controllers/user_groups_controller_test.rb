@@ -1,23 +1,19 @@
 require 'test_helper'
 
 class UserGroupsControllerTest < ActionController::TestCase
-
-  test "should redirect to sign in if not logged in" do
-    get :edit, :id=>1
-    assert_redirected_to new_user_session_path
+  test_access :show, :success=>[:anonymous, :jug, :rug, :admin] do
+    get :show, :id=>user_groups(:jug).id
   end
-
-  test "should render edit for organizer" do
-    sign_in users(:valid_organizer)
-    get :edit, :id=>1
-    assert_response :success, @response.body
+  test_access :edit, :redirect => :anonymous, :success=> [:admin, :jug], :deny=>:rug do
+    get :edit, :id=>user_groups(:jug).id
   end
-
-  test "should not render edit for normal user" do
-    sign_in users(:valid_user)
-    assert_raise CanCan::AccessDenied do
-      get :edit, :id=>1
-    end
+  test_access :post, :redirect => :anonymous, :success=> [:admin, :jug], :deny=>:rug do
+    post :edit, :id=>user_groups(:jug).id
   end
-
+  test_access :put, :redirect => :anonymous, :success=> [:admin, :jug], :deny=>:rug do
+    put :edit, :id=>user_groups(:jug).id
+  end
+  test_access :delete, :error=>[:anonymous, :admin, :jug, :rug] do
+    delete :edit, :id=>user_groups(:jug).id
+  end
 end

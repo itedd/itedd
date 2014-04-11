@@ -35,7 +35,7 @@ class TwitterReader < BaseReader
       tweets.each do |tweet|
         event = build_event( tweet[:text], @user_group, tweet[:url] )
         if event
-          if Event.where( twitter_id: tweet[:id].to_s).count > 0
+          if Event.with_deleted.where( twitter_id: tweet[:id].to_s).count > 0
             next
           end
           event.link = tweet[:url]

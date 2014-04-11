@@ -1,17 +1,8 @@
+= render partial: 'user_groups/headline', locals: {user_group: event.user_group}
+
 .row
-  .small-3.large-2.columns
-    - if event.user_group.logo.present?
-      = link_to image_tag(event.user_group.logo), user_group_path(event.user_group)
-
-  .small-9.columns
+  .column.small-9.small-offset-1
+    p.first_line= link_to event.text, event.link, target: 'blank'
+  .column.small-1
     .row
-      .small-6.columns
-        span= event.user_group.name
-    .row
-      .small-12.columns
-        p.first_line= link_to event.text, event.link, target: 'blank'
-
-.row.last_line
-  .small-offset-3.small-9.columns
-    - if can? :update, event
-      = link_to "<i class='fi-pencil'></i>".html_safe, edit_event_path(event), class: 'actions'
+      = render partial: 'events/event_actions', locals: {event: event}

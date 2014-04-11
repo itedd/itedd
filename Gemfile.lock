@@ -97,6 +97,8 @@ GEM
     multi_json (1.8.4)
     multipart-post (1.2.0)
     orm_adapter (0.4.0)
+    paranoia (2.0.2)
+      activerecord (~> 4.0)
     pg (0.17.1)
     polyglot (0.3.3)
     powerbar (1.0.11)
@@ -212,6 +214,7 @@ DEPENDENCIES
   foundation-rails
   jquery-rails
   minitest-reporters
+  paranoia (~> 2.0)
   pg
   pry-rails
   quiet_assets

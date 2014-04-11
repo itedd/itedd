@@ -2,3 +2,15 @@ valid_user_group:
   id: 1
   name: "user_group_1"
   color: "#ffffff"
+rug:
+  id: 2
+  name: "rug"
+  color: "#ff0000"
+jug:
+  id: 3
+  name: "jug"
+  color: "#ffffff"
+unapproved:
+  id: 4
+  name: "unapproved"
+  color: "#ffffff"

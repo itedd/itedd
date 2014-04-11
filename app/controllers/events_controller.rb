@@ -1,9 +1,23 @@
 class EventsController < ApplicationController
-  load_and_authorize_resource only: [:edit, :update]
+  load_and_authorize_resource only: [:edit, :update, :destroy]
   skip_before_filter :authenticate_user!, only: [:index]
   respond_to :json, only: :index
 
   def edit
+  end
+
+  def destroy
+    @event.destroy
+    flash[:notice] = 'Event wurde gesperrt.'
+    redirect_to request.referer || root_path
+  end
+
+  def restore
+    @event = Event.with_deleted.find(params[:id])
+    authorize! :manage, @event
+    @event.restore
+    flash[:notice] = 'Event wurde wieder hergestellt.'
+    redirect_to request.referer || root_path
   end
 
   def update

@@ -1,8 +1,13 @@
 require 'test_helper'
 
 class EmbeddedControllerTest < ActionController::TestCase
-  test "should render embedded without login" do
+  test_access :index, :success=>[:admin, :anonymous, :jug, :rug] do
+    get :index
+  end
+  test_access :embedded, :success=>[:admin, :anonymous, :jug, :rug] do
     get :embedded
-    assert_response :success, @response.body
+  end
+  test_access :embedded_calendar, :success=>[:admin, :anonymous, :jug, :rug] do
+    get :embedded_calendar
   end
 end

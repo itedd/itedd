@@ -14,6 +14,34 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  def self.test_access(name, *allowed, &block)
+    allowed.first.each do |action, value|
+      value = [value] unless value.is_a? Array
+      value.each do |user|
+        self.send :test, "#{name} should #{action} for #{user}" do
+          sign_in users(user) unless user==:anonymous
+          case action
+            when :redirect then
+              instance_eval &block
+              assert_response :redirect, @response.body
+            when :deny then
+              assert_raise CanCan::AccessDenied do
+                instance_eval &block
+              end
+            when :success then
+              instance_eval &block
+              assert_response :success, @response.body
+            when :error then
+              begin
+                instance_eval &block
+                assert false, 'Error expected'
+              rescue Exception=>e
+              end
+          end
+        end
+      end
+    end
+  end
 end
 
 class ActionController::TestCase
