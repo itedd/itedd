@@ -26,20 +26,33 @@ class TwitterReader < BaseReader
   end
 
   def run
-    tweets.each do |tweet|
-      event = build_event( tweet[:text], @user_group, tweet[:url] )
-      if event
-        if Event.where( twitter_id: tweet[:id].to_s).count > 0
-          next
-        end
-        event.link = tweet[:url]
-        event.twitter_id = tweet[:id].to_s
-        event.save
+    begin
+      Rails.logger.info "Loading tweets for #{@user_group.name}"
+      unless @user_group.logo.present?
+        @user_group.logo = profile_image_url
+        @user_group.save
       end
+      tweets.each do |tweet|
+        event = build_event( tweet[:text], @user_group, tweet[:url] )
+        if event
+          if Event.where( twitter_id: tweet[:id].to_s).count > 0
+            next
+          end
+          event.link = tweet[:url]
+          event.twitter_id = tweet[:id].to_s
+          event.save
+        end
+      end
+    rescue Exception => e
+      Rails.logger.warn e
     end
   end
 
   private
+
+  def profile_image_url
+    self.class.client.user(@twitter_account).profile_image_url.to_s
+  end
 
   def tweets
     self.class.client.user_timeline(@twitter_account,

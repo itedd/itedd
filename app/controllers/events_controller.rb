@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
-  skip_before_filter :authenticate_user!, only: :embedded
-  load_and_authorize_resource
-  skip_authorize_resource :only => :embedded
+  load_and_authorize_resource only: [:edit, :update]
+  skip_before_filter :authenticate_user!, only: [:index]
+  respond_to :json, only: :index
 
   def edit
   end
@@ -15,26 +15,24 @@ class EventsController < ApplicationController
     end
   end
 
-  def embedded
-    @page = params[:page].to_i
-    @per = (params[:per] || 10).to_i
+  def index
+    @events = Event.approved.limit(params[:limit])
 
-    if not params[:user_group_ids].blank?
-      @user_groups = UserGroup.approved.find(params[:user_group_ids])
-    elsif not params[:user_group_id].blank?
-      @user_groups = UserGroup.approved.where('user_groups.id=?', params[:user_group_id])
-    else
-      @user_groups = UserGroup.approved
+    json = @events.collect do |event|
+      {
+          date: "#{event.happens_at.to_time.to_i*1000}",
+          type: 'meeting',
+          title: event.user_group.name,
+          description: event.text,
+          url: event.link
+      }
     end
 
-    if @page>=0
-      @events = Event.upcoming_events.for_user_groups(@user_groups).limit(@per).offset(@page*@per)
-    else
-      @events = Event.finished_events.for_user_groups(@user_groups).limit(@per).offset((-1*@page-1)*@per)
-      @events.reverse!
+    respond_to do |format|
+      format.json do
+        render json: json
+      end
     end
-
-    render 'show', layout: 'embed'
   end
 
   private

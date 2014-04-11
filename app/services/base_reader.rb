@@ -10,7 +10,7 @@ class BaseReader
       Event.new( {
         text: event_text,
         happens_at: extract_date(event_text),
-        link: optional_link || extract_link(event_text),
+        link: optional_link, #|| extract_link(event_text),
         user_group: user_group })
     end
   end

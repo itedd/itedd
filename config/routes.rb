@@ -1,6 +1,8 @@
 Itedd::Application.routes.draw do
 
-  get 'events/embedded' => 'events#embedded'
+  get 'embedded' => 'embedded#index'
+  get 'embedded/embedded' => 'embedded#embedded'
+  get 'embedded/embedded_calendar' => 'embedded#embedded_calendar', as: :embedded_calendar
 
   devise_for :users
 
@@ -11,6 +13,9 @@ Itedd::Application.routes.draw do
   resources :user_group_admins
 
   get "user_admins/:id/:action_id" => 'user_admins#set', as: :user_admin_set
+
+  get 'impressum' => 'welcomes#impressum', as: :impressum
+  get 'faq' => 'welcomes#faq', as: :faq
 
   root 'welcomes#show'
 

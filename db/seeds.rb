@@ -1,77 +1,16 @@
-def fake_twitter_id
-  Array.new(32) { rand(36).to_s(36) }.join
-end
+jugsaxony      = UserGroup.create! name: 'JUG Saxony',        twitter_account: '@jugsaxony',      color: '#ffffff'
+agile_saxony   = UserGroup.create! name: 'Agile Saxony',      twitter_account: '@AgileSaxony',    color: '#ffffff'
+cofab          = UserGroup.create! name: 'CoFab DD',          twitter_account: '@cofabdd',        color: '#ffffff'
+rug            = UserGroup.create! name: 'ruby-dresden',      twitter_account: '@ruby_dresden',   color: '#ffffff'
+webmontag      = UserGroup.create! name: 'WebMontag Dresden', twitter_account: '@webmontagdd',    color: '#ffffff'
+wdmc           = UserGroup.create! name: 'WDMC Dresden',      twitter_account: '@wdmcdresden',    color: '#ffffff'
+barcamp        = UserGroup.create! name: 'BarCamp Dresden',   twitter_account: '@startcampdd',    color: '#ffffff'
+output         = UserGroup.create! name: 'Output Dresden',    twitter_account: '@outputdd',       color: '#ffffff'
+agile_hardware = UserGroup.create! name: 'Agile Hardware',    twitter_account: '@agile_hardware', color: '#ffffff'
 
-
-UserGroup.create! name: 'webmontagdresden',
-             twitter_account: '@webmontagdd',
-             color: '#ffffff'
-
-UserGroup.create! name: 'ruby-dresden',
-             twitter_account: '@ruby_dresden',
-             color: '#ffffff'
-
-User.create! email: 'info@ruby-dresden.de',
-             password: 'password',
-             password_confirmation: 'password',
-             user_group: UserGroup.all.second
-
-User.create! email: 'info@example.com',
-             password: 'password',
-             password_confirmation: 'password',
-             user_group: UserGroup.first
-
-User.create! email: 'admin@objectfab.de',
+User.create! email: 'paul.fritsche@objectfab.de',
              password: 'password',
              password_confirmation: 'password',
              admin: true,
-             approved: true
+             approved:true
 
-
-Event.create! text: 'Ruby User Group Dresden Event -1',
-              happens_at: 4.weeks.ago,
-              user_group: UserGroup.first,
-              link: 'http://',
-              twitter_id: fake_twitter_id
-
-Event.create! text: 'Ruby User Group Dresden Event -2',
-              happens_at: 8.weeks.ago,
-              user_group: UserGroup.first,
-              link: 'http://',
-              twitter_id: fake_twitter_id
-
-Event.create! text: 'Web Montag Dresden Event -1',
-              happens_at: 6.weeks.ago,
-              user_group: UserGroup.all.second,
-              link: 'http://',
-              twitter_id: fake_twitter_id
-
-Event.create! text: 'Web Montag Dresden Event -2',
-              happens_at: 12.weeks.ago,
-              user_group: UserGroup.all.second,
-              link: 'http://',
-              twitter_id: fake_twitter_id
-
-Event.create! text: 'Ruby User Group Dresden Event 1',
-              happens_at: 4.weeks.from_now,
-              user_group: UserGroup.first,
-              link: 'http://',
-              twitter_id: fake_twitter_id
-
-Event.create! text: 'Ruby User Group Dresden Event 2',
-              happens_at: 8.weeks.from_now,
-              user_group: UserGroup.first,
-              link: 'http://',
-              twitter_id: fake_twitter_id
-
-Event.create! text: 'Web Montag Dresden Event 1',
-              happens_at: 6.weeks.from_now,
-              user_group: UserGroup.all.second,
-              link: 'http://',
-              twitter_id: fake_twitter_id
-
-Event.create! text: 'Web Montag Dresden Event 2',
-              happens_at: 12.weeks.from_now,
-              user_group: UserGroup.all.second,
-              link: 'http://',
-              twitter_id: fake_twitter_id

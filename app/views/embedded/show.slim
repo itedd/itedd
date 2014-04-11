@@ -1,0 +1,15 @@
+.row
+  - @events.each do |event|
+    = render partial: 'embedded/event', locals: {event: event}
+
+.row
+  .columns.center
+    = link_to "Früher", :page=>@page-1, :per=>@per, :user_group_id=>params[:user_group_id]
+    =" | "
+    = link_to "Heute", :page=>0, :per=>@per, :user_group_id=>params[:user_group_id]
+    =" | "
+    = link_to "Später", :page=>@page+1, :per=>@per, :user_group_id=>params[:user_group_id]
+
+.row
+  .columns.center
+    = link_to 'Mehr IT-Events in Dresden', '/'
