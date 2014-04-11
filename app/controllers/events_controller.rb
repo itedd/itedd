@@ -1,9 +1,15 @@
 class EventsController < ApplicationController
-  load_and_authorize_resource only: [:edit, :update]
+  load_and_authorize_resource only: [:edit, :update, :destroy]
   skip_before_filter :authenticate_user!, only: [:index]
   respond_to :json, only: :index
 
   def edit
+  end
+
+  def destroy
+    @event.destroy
+    flash[:notice] = 'Event wurde gelöscht.'
+    redirect_to request.referer
   end
 
   def update

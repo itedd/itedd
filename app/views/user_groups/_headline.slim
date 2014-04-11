@@ -1,0 +1,20 @@
+.row.headline
+  .column.small-3.medium-1.large-1
+    - if user_group.logo.present?
+      = link_to image_tag(user_group.logo), user_group_path(user_group)
+  .column.small-7.medium-9.large-7 style="background-color:#{user_group.color}"
+    h2= user_group.name
+  .column.small-1.medium-1.large-1
+    .row
+      - if user_group.twitter_account.present?
+        .column
+          = link_to "<i class='fi-social-twitter'></i>".html_safe, "https://twitter.com/#{user_group.twitter_account}", target: '_blank'
+      - if user_group.facebook_page.present?
+        .column
+          = link_to "<i class='fi-social-facebook'></i>".html_safe, user_group.facebook_page, target: '_blank'
+      - if user_group.googleplus_page.present?
+        .column
+          = link_to "<i class='fi-social-google-plus'></i>".html_safe, user_group.googleplus_page, target: '_blank'
+      - if can? :update, user_group
+        .column
+          = link_to "<i class='fi-pencil'></i>".html_safe, edit_user_group_path(user_group)

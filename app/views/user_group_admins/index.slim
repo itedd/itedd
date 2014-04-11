@@ -13,7 +13,7 @@ table
   tbody
     - @user_groups.each do |ug|
       tr
-        td= ug.name
+        td= link_to ug.name, user_group_path(ug)
         td
           = organizer_for_group(ug)
         td
