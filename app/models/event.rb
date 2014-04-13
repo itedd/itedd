@@ -1,32 +1,46 @@
 class Event < ActiveRecord::Base
   acts_as_paranoid
 
-  scope :upcoming_events, -> { oldest_first.where('happens_at >= :now', now: Time.now) }
-  scope :finished_events, -> { newest_first.where('happens_at < :now',  now: Time.now) }
-
-  scope :oldest_first, -> { order('happens_at asc') }
-  scope :newest_first, -> { order('happens_at desc') }
-
-  scope :for_user_group, -> (ug) { where('user_group_id=?', ug.id)  }
-  scope :for_user_groups, -> (ugs) { where('user_group_id IN (?)', ugs.map{|ug| ug.id}) }
-  scope :approved, -> { for_user_groups(UserGroup.approved) }
+  validates :link, presence: true, length: {maximum: 200}
+  validates :text, presence: true, length: {maximum: 200}
+  validates :happens_at, presence: true
+  validates :user_group, presence: true
 
   belongs_to :user_group
 
-  validates_presence_of :link
-  validates_presence_of :text
-  validates_presence_of :happens_at
-  validates_presence_of :user_group
-  validates_length_of   :link, :maximum => 200
-  validates_length_of   :text, :maximum => 200
+  scope :oldest_first, -> { order happens_at: :asc }
+  scope :newest_first, -> { order happens_at: :desc }
 
-  def self.per_day(events)
-    days = {}
-    events.each do |event|
-      day = event.happens_at
-      days[day] ||= []
-      days[day] << event
+  class << self
+    def upcoming(after = Time.now)
+      oldest_first.where arel_table[:happens_at].gteq(after)
     end
-    days
+    def finished(since = Time.now)
+      newest_first.where arel_table[:happens_at].lt(since)
+    end
+
+    def for_user_group user_group
+      if user_group && user_group != 0
+        where(user_group_id: user_group)
+      else
+        all
+      end
+    end
+
+    def approved
+      joins(user_group: :users).where(users:{approved:true}).uniq
+    end
+
+    def per_day events
+      events.to_a.group_by { |event| event.happens_at }
+    end
+  end
+
+  def self.page(page, per_page)
+    if page >= 0
+      upcoming.offset page * per_page
+    else
+      finished.offset((-page-1) * per_page)
+    end.limit(per_page)
   end
 end

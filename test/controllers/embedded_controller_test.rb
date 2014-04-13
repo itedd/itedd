@@ -5,9 +5,9 @@ class EmbeddedControllerTest < ActionController::TestCase
     get :index
   end
   test_access :embedded, :success=>[:admin, :anonymous, :jug, :rug] do
-    get :embedded
+    get :show
   end
   test_access :embedded_calendar, :success=>[:admin, :anonymous, :jug, :rug] do
-    get :embedded_calendar
+    get :calendar
   end
 end

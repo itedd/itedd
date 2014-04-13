@@ -3,7 +3,7 @@ class WelcomesController < ApplicationController
 
   skip_before_filter :authenticate_user!
 
-  respond_to :ics, only: :index
+  respond_to :ics, only: :show
 
   def faq
   end
@@ -12,7 +12,7 @@ class WelcomesController < ApplicationController
   end
 
   def show
-    @events = Event.upcoming_events.approved
+    @events = Event.upcoming.approved
 
     respond_to do |format|
       format.html do
@@ -23,5 +23,4 @@ class WelcomesController < ApplicationController
       end
     end
   end
-
 end
