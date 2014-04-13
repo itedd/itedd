@@ -1,17 +1,15 @@
 class UserAdminsController < ApplicationController
+  before_filter :load_and_authorize_user, except: :index
+
   def index
     authorize! :manage, User
     @users = User.all
   end
 
   def edit
-    @user = User.find(params[:id])
-    authorize! :manage, @user
   end
 
   def update
-    @user = User.find(params[:id])
-    authorize! :manage, @user
     if @user.update_attributes(user_params)
       redirect_to :user_admins
     else
@@ -20,20 +18,14 @@ class UserAdminsController < ApplicationController
   end
 
   def set
-    @user = User.find(params[:id])
-    if current_user==@user
-      raise CanCan::AccessDenied.new('Du kannst dich nicht selbst administrieren.', :manage, User)
-    end
-    action = params[:action_id].to_sym
-    authorize! action, @user
-    case action
-      when :permit then
+    case params[:action_id]
+      when 'permit'
         @user.approved = true
-      when :deny then
+      when 'deny'
         @user.approved = false
-      when :set_admin
+      when 'set_admin'
         @user.admin = true
-      when :unset_admin
+      when 'unset_admin'
         @user.admin = false
     end
     @user.save
@@ -42,13 +34,20 @@ class UserAdminsController < ApplicationController
 
   private
 
+  def load_and_authorize_user
+    old_action = params[:action]
+    params[:action] = :manage
+    self.class.cancan_resource_class.new(self, nil, class: 'User', instance_name: :user).load_and_authorize_resource
+  ensure
+    params[:action] = old_action
+  end
+
   def user_params
     p = params.required(:user).permit(:email, :password, :password_confirmation, :user_group_id)
     unless p[:password].present?
       p.delete :password
       p.delete :password_confirmation
     end
-
     p
   end
 end
