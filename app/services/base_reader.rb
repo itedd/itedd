@@ -1,7 +1,5 @@
 class BaseReader
-
   include ExtractDate
-
 
   def build_event(event_text, user_group, optional_link=nil)
     raise ArgumentError.new("No user_group given") unless user_group.present?

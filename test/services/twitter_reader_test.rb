@@ -34,7 +34,7 @@ class TwitterReaderTest < ActiveSupport::TestCase
     event = Event.last
     assert_equal 'Ruby Dresden am 17.11. um 17 Uhr - kommt alle! #event', event.text
     assert_equal 'http://t.co/1hrNAj4L8V', event.link
-    assert_equal  '123', event.twitter_id
+    assert_equal '123', event.twitter_id
 
     assert_no_difference "Event.count" do
       twitter_reader.run
