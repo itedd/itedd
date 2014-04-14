@@ -1,35 +1,33 @@
 class EmbeddedController < ApplicationController
-  skip_before_filter :authenticate_user!, only: [:embedded, :index, :embedded_calendar]
+  skip_before_filter :authenticate_user!, only: [:index, :show, :calendar]
 
   def index
-
+    render layout: 'application'
   end
 
-  def embedded
-    @page = params[:page].to_i
-    @per = (params[:per] || 10).to_i
-
-    if params[:user_group_id].present? && params[:user_group_id].to_s!='0'
-      @user_groups = UserGroup.approved.where('user_groups.id=?', params[:user_group_id])
-    else
-      @user_groups = UserGroup.approved
-    end
-
-    if @page>=0
-      @events = Event.upcoming_events.for_user_groups(@user_groups).limit(@per).offset(@page*@per)
-    else
-      @events = Event.finished_events.for_user_groups(@user_groups).limit(@per).offset((-1*@page-1)*@per)
-      @events.reverse!
-    end
-
+  def show
+    @events = Event.for_user_group(user_group_id).page(page, per_page)
     @per_day = Event.per_day(@events)
-
-    render 'show', layout: 'embed'
   end
 
-  def embedded_calendar
-    @user_group_id = params[:user_group_id]
-    render 'calendar', layout: 'embed'
+  def calendar
   end
 
+  private
+
+  def page
+    params[:page].to_i
+  end
+
+  def per_page
+    desire = (params[:per] || 10).to_i
+    1 if desire < 1
+    100 if desire > 100
+    desire
+  end
+
+  def user_group_id
+    params[:user_group_id]
+  end
+  helper_method :page, :per_page, :user_group_id
 end

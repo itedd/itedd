@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
-  load_and_authorize_resource only: [:edit, :update, :destroy]
+  before_filter :load_deleted_event, only: :restore
+  load_and_authorize_resource only: [:edit, :update, :destroy, :restore]
   skip_before_filter :authenticate_user!, only: [:index]
   respond_to :json, only: :index
 
@@ -13,8 +14,6 @@ class EventsController < ApplicationController
   end
 
   def restore
-    @event = Event.with_deleted.find(params[:id])
-    authorize! :manage, @event
     @event.restore
     flash[:notice] = 'Event wurde wieder hergestellt.'
     redirect_to request.referer || root_path
@@ -31,8 +30,23 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.approved.limit(params[:limit])
+    respond_to do |format|
+      format.json { render json: events_to_json }
+    end
+  end
 
-    json = @events.collect do |event|
+  private
+
+  def load_deleted_event
+    @event = Event.with_deleted.find(params[:id])
+  end
+
+  def event_params
+    params.require(:event).permit(:id, :text, :link, :happens_at)
+  end
+
+  def events_to_json
+    @events.collect do |event|
       {
           date: "#{event.happens_at.to_time.to_i*1000}",
           type: 'meeting',
@@ -41,18 +55,5 @@ class EventsController < ApplicationController
           url: event.link
       }
     end
-
-    respond_to do |format|
-      format.json do
-        render json: json
-      end
-    end
   end
-
-  private
-
-  def event_params
-    params.require(:event).permit(:id, :text, :link, :happens_at)
-  end
-
 end

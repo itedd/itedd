@@ -66,7 +66,4 @@ class TwitterReader < BaseReader
                                       }
                                     end
   end
-
-
-
 end

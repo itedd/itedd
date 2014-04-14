@@ -3,12 +3,10 @@ class UserGroupsController < ApplicationController
   skip_before_filter :authenticate_user!, only: :show
 
   def show
-    @user_group = UserGroup.find(params[:id])
-
-    if can?(:manage, @user_group)
-      @events = Event.with_deleted.upcoming_events.for_user_group(@user_group)
+    @events = if can?(:manage, @user_group)
+      Event.with_deleted.upcoming.for_user_group(@user_group)
     else
-      @events = Event.upcoming_events.for_user_group(@user_group)
+      Event.upcoming.for_user_group(@user_group)
     end
   end
 
@@ -16,7 +14,7 @@ class UserGroupsController < ApplicationController
   end
 
   def update
-    if @user_group.update(user_params)
+    if @user_group.update(user_group_params)
       flash[:notice] = 'Die Änderungen wurden gespeichert.'
       redirect_to user_group_path(@user_group)
     else
@@ -26,8 +24,8 @@ class UserGroupsController < ApplicationController
 
   private
 
-  def user_params
-    params.require(:user_group).permit(
+  def user_group_params
+    params.require(:user_group_admins).permit(
         :id, :name, :twitter_account, :color, :logo, :website,
         :description, :facebook_page, :googleplus_page)
   end
