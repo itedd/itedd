@@ -76,3 +76,6 @@ gem 'twitter', '~> 5.0.0.rc.1'
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
 ruby "2.1.1"
+
+gem "mail"
+gem "postmark"
