@@ -1,5 +1,5 @@
 class AdminMailer < ActionMailer::Base
-  default from: "noreply@itedd.de"
+  default from: ENV['EMAIL_SENDER'] || 'noreply@localhost.org'
 
   def new_user_waiting_for_approval(user)
     @user = user
