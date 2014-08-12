@@ -48,6 +48,18 @@ class TweetTest < ActiveSupport::TestCase
               {url:'http://1', happens_at:d(17,5),text:'am 17.5.2014 um 17 Uhr #event'},
           ]
       },
+      {
+          name:     'Doppeltes Datum',
+          tweets:   [
+              {id:3, url:'http://3', text:'am 16.5.2014 um 17 Uhr #event' },
+              {id:1, url:'http://1', text:'am 17.5.2014 um 17 Uhr #event' },
+              {id:2, url:'http://2', text:'am 17.5.2014 um 18 Uhr #event' },
+          ],
+          expected: [
+              {url:'http://3', happens_at:d(16,5),text:'am 16.5.2014 um 17 Uhr #event'},
+              {url:'http://2', happens_at:d(17,5),text:'am 17.5.2014 um 18 Uhr #event'},
+          ]
+      },
   ].each do |sample|
     test "Testing tweets #{sample[:name]}" do
       Event.destroy_all
