@@ -13,9 +13,14 @@ class TweetTest < ActiveSupport::TestCase
 
   [
       {
-          name:     'Simple',
-          tweets:   [{id:1, url:'http://1', text:'Ruby Dresden am 17.11. um 17 Uhr - kommt alle! #event' }],
-          expected: [{url:'http://1', happens_at:d(17,11),text:'Ruby Dresden am 17.11. um 17 Uhr - kommt alle! #event'}]
+          name:     'Tweetzeit is vor Eventdatum',
+          tweets:   [{id:1, url:'http://1', text:'Ruby Dresden am 17.1. um 17 Uhr - kommt alle! #event', created_at:d(16,1).to_time}],
+          expected: [{url:'http://1', happens_at:d(17,1),text:'Ruby Dresden am 17.1. um 17 Uhr - kommt alle! #event'}]
+      },
+      {
+          name:     'Tweetzeit ist nach Eventdatum',
+          tweets:   [{id:1, url:'http://1', text:'Ruby Dresden am 17.1. um 17 Uhr - kommt alle! #event', created_at:Date.new(Date.today.year-1, 11, 16).to_time}],
+          expected: [{url:'http://1', happens_at:d(17,1),text:'Ruby Dresden am 17.1. um 17 Uhr - kommt alle! #event'}]
       },
       {
           name:     'Simple 2',

@@ -5,7 +5,7 @@ class BaseReaderTest < ActiveSupport::TestCase
   setup do
     @base_reader = BaseReader.new()
 
-    def @base_reader.extract_date(string)
+    def @base_reader.extract_date(event_text, user_group, tweet_url=nil, tweet_time=Date.today)
       Date.today
     end
 

@@ -1,3 +1,9 @@
+require "chronic"
+require "yaml"
+
+require "chronic18n/translator"
+
+
 #  Funktion zum Extrahieren eines Datums aus einem String.
 module ExtractDate
 
@@ -5,8 +11,9 @@ module ExtractDate
      august August september September oktober Oktober november November dezember Dezember
      jan Jan feb Feb apr Apr aug Aug sept Sept okt Okt nov Nov dez Dez)
 
-  def extract_date(string)
+  def extract_date(string, now=nil)
     result = nil
+    @now = now || Time.now
 
     if string.present?
       result = check_string_for_date(string, 'extract_with_german_number_regex')
@@ -80,11 +87,12 @@ module ExtractDate
   end
 
   def extract_with_chronic_de(string)
-    Chronic18n.parse(string, :de)
+    str = Chronic18n::Translator.new(string, 'de').work
+    Chronic.parse(str, now: @now)
   end
 
   def extract_with_chronic(string)
-    Chronic.parse(string)
+    Chronic.parse(string, now: @now)
   end
 
   def get_complete_day_or_month_string(string, dot_symbol='.')
@@ -145,11 +153,11 @@ module ExtractDate
   def get_presumable_year(month_string, day_string)
     result = ''
     begin
-      check_date_string = "#{Date.today.year}-#{month_string}-#{day_string}"
-      if Date.today <= check_date_string.to_date
-        result = "#{Date.today.year}"
+      check_date_string = "#{@now.year}-#{month_string}-#{day_string}"
+      if @now <= check_date_string.to_date
+        result = "#{@now.year}"
       else
-        result = "#{Date.today.year + 1}"
+        result = "#{@now.year + 1}"
       end
     rescue ArgumentError => e
       result = ''

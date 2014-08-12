@@ -46,7 +46,7 @@ class TwitterReader < BaseReader
 
   def extract_events
     tweets.collect do |tweet|
-      event = build_event( tweet[:text], @user_group, tweet[:url] )
+      event = build_event( tweet[:text], @user_group, tweet[:url], tweet[:created_at] )
       if event
         event.link = tweet[:url]
         event.twitter_id = tweet[:id].to_s
@@ -86,7 +86,8 @@ class TwitterReader < BaseReader
                                       {
                                         id: tweet.id,
                                         text: tweet.text,
-                                        url: tweet.urls.last.try(:url).try(:to_s)
+                                        url: tweet.urls.last.try(:url).try(:to_s),
+                                        created_at: tweet.created_at
                                       }
                                     end
   end
