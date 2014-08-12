@@ -33,6 +33,7 @@ class ExtractDateTest < ActiveSupport::TestCase
   end
 
   german_month_name_tests.merge({
+      '17.11.'           => '17.11.2014',
       '1.1.2014'         => '01.01.2014',
       '31.12.2014'       => '31.12.2014',
       '1.1.2014 19Uhr'   => '01.01.2014',

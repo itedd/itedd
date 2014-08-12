@@ -26,29 +26,53 @@ class TwitterReader < BaseReader
   end
 
   def run
+    events = []
     begin
       Rails.logger.info "Loading tweets for #{@user_group.name}"
       unless @user_group.logo.present?
         @user_group.logo = profile_image_url
         @user_group.save
       end
-      tweets.each do |tweet|
-        event = build_event( tweet[:text], @user_group, tweet[:url] )
-        if event
-          if Event.with_deleted.where( twitter_id: tweet[:id].to_s).count > 0
-            next
-          end
-          event.link = tweet[:url]
-          event.twitter_id = tweet[:id].to_s
-          event.save
-        end
-      end
+      events = extract_events
+      Rails.logger.info " #{events.size} relevant tweets found"
+      store_events(events)
     rescue Exception => e
       Rails.logger.warn e
     end
+    events
   end
 
   private
+
+  def extract_events
+    tweets.collect do |tweet|
+      event = build_event( tweet[:text], @user_group, tweet[:url] )
+      if event
+        event.link = tweet[:url]
+        event.twitter_id = tweet[:id].to_s
+      end
+      event
+    end.compact
+  end
+
+  def store_events(events)
+    events.each do |event|
+      if Event.with_deleted.where( twitter_id: event.twitter_id).count == 0
+        existing_event = Event.with_deleted.where( link: event.link ).first
+        unless existing_event
+          existing_event = Event.with_deleted.where( happens_at: event.happens_at ).where( user_group: @user_group ).first
+        end
+        if existing_event
+          existing_event.happens_at = event.happens_at
+          existing_event.text = event.text
+          existing_event.link = event.link
+          existing_event.save
+        else
+          event.save
+        end
+      end
+    end
+  end
 
   def profile_image_url
     self.class.client.user(@twitter_account).profile_image_url.to_s
