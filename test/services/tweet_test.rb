@@ -57,7 +57,7 @@ class TweetTest < ActiveSupport::TestCase
       end
       reader.run
       assert_equal sample[:expected].size, Event.count
-      Event.all.each_with_index do |event, index|
+      Event.oldest_first.each_with_index do |event, index|
         expected = sample[:expected][index]
         assert_equal expected[:happens_at], event.happens_at
         assert_equal expected[:text], event.text
