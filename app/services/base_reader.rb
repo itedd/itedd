@@ -1,7 +1,7 @@
 class BaseReader
   include ExtractDate
 
-  def build_event(event_text, user_group, tweet_url, tweet_time)
+  def build_event(event_text, user_group, tweet_url=nil, tweet_time=Date.today)
     raise ArgumentError.new("No user_group given") unless user_group.present?
 
     if is_valid_text?(event_text)
