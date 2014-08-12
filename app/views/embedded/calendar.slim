@@ -1,6 +1,27 @@
+/ Information about the configuration of the calendar plugin can be found here: http://www.vissit.com/projects/eventCalendar/
+
 .embedded_calendar
 javascript:
-  $('.embedded_calendar').eventCalendar({
-    eventsjson: '/events.json?user_group_id=' + #{user_group_id}
-  })
+  var opts_de = { 
+    dayNames: [ 'Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag' ],
+    dayNamesShort: [ 'So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa' ],
+    txt_noEvents: 'Keine Veranstaltungen',
+    txt_NextEvents: 'Nächste Veranstaltungen',
+    monthNames: [ 'Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember' ],
+    txt_next: 'nächste',
+    txt_prev: 'früher',
+    txt_GoToEventUrl: 'Zur Veranstaltung'
+  };
+  var opts_common = {
+    eventsjson: '/events.json?user_group_id=' + #{user_group_id},
+    startWeekOnMonday: true,
+    textEventHeaderDayView: 'M',
+    textEventHeaderMonthView: 'M'
+  };
 
+- if I18n.locale.to_s == 'de'
+  javascript:
+    $('.embedded_calendar').eventCalendar( $.extend(opts_common, opts_de) );
+- else
+  javascript:
+    $('.embedded_calendar').eventCalendar( opts_common );
