@@ -27,17 +27,21 @@ update_all= (user_group_id) ->
   update_code('list', user_group_id)
   update_code('calendar', user_group_id)
 
+get_user_group_id= () ->
+  $('select#user_group_').val() || 0
+
+
 $ ->
   update_all(0)
 
-  $('select#user_group').change ->
-    update_all( $(this).val() )
+  $('select#user_group_').change ->
+    update_all( get_user_group_id() )
 
   $('#embedded_width').change ->
-    update_all( $('select#user_group').val() )
+    update_all( get_user_group_id() )
 
   $('#embedded_height').change ->
-    update_all( $('select#user_group').val() )
+    update_all( get_user_group_id() )
 
 
   $('textarea.embedded').focus ->

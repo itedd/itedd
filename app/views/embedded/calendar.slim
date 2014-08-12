@@ -1,6 +1,14 @@
 / Information about the configuration of the calendar plugin can be found here: http://www.vissit.com/projects/eventCalendar/
 
+
 .embedded_calendar
+
+  .calendar_filter.center
+    /a id='toggle_events' href='#' Alle anzeigen
+
+  .embedded_calendar_plugin
+
+
 javascript:
   var opts_de = { 
     dayNames: [ 'Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag' ],
@@ -12,16 +20,40 @@ javascript:
     txt_prev: 'früher',
     txt_GoToEventUrl: 'Zur Veranstaltung'
   };
-  var opts_common = {
-    eventsjson: '/events.json?user_group_id=' + #{user_group_id},
-    startWeekOnMonday: true,
-    textEventHeaderDayView: 'M',
-    textEventHeaderMonthView: 'M'
+
+  var opts_common = function(user_group_id) {
+    return { eventsjson: '/events.json?user_group_id=' + #{user_group_id},
+             startWeekOnMonday: true,
+             textEventHeaderDayView: 'M',
+             textEventHeaderMonthView: 'M'};
   };
 
-- if I18n.locale.to_s == 'de'
+  var load_calendar = function(user_group_id) {
+    if ( #{I18n.locale.to_s == 'de'} ) {
+      $('.embedded_calendar_plugin').eventCalendar( $.extend(opts_common(user_group_id), opts_de) );
+    } else {
+      $('.embedded_calendar_plugin').eventCalendar( opts_common(user_group_id) );
+    }
+  }
+
+  load_calendar(#{user_group_id});
+
+/ Toggle event logic
+- if user_group_id.to_i > 0
   javascript:
-    $('.embedded_calendar').eventCalendar( $.extend(opts_common, opts_de) );
-- else
-  javascript:
-    $('.embedded_calendar').eventCalendar( opts_common );
+    var txt_show_all = 'Alle anzeigen';
+    var txt_show_user_group = "#{UserGroup.find(user_group_id).name} anzeigen";
+    var toggle_events_link = $('<a>', { text: txt_show_user_group, href: '#', id: 'toggle_events' });
+    toggle_events_link.appendTo('.calendar_filter');
+
+    toggle_events_link.get(0).onclick = function () {
+      console.dir(toggle_events_link);
+      if ($(this).text() == txt_show_all) {
+        $(this).text(txt_show_user_group);
+        load_calendar(#{user_group_id});
+      } else {
+        $(this).text(txt_show_all);
+        load_calendar(0);
+      }
+      return true;
+    };
