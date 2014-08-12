@@ -60,7 +60,7 @@ class TwitterReader < BaseReader
       if Event.with_deleted.where( twitter_id: event.twitter_id).count == 0
         existing_event = Event.with_deleted.where( link: event.link ).first
         unless existing_event
-          existing_event = Event.with_deleted.where( happens_at: event.happens_at ).first
+          existing_event = Event.with_deleted.where( happens_at: event.happens_at ).where( user_group: @user_group ).first
         end
         if existing_event
           existing_event.happens_at = event.happens_at
