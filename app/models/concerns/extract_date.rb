@@ -11,7 +11,7 @@ module ExtractDate
      august August september September oktober Oktober november November dezember Dezember
      jan Jan feb Feb apr Apr aug Aug sept Sept okt Okt nov Nov dez Dez)
 
-  def extract_date(string, now=nil)
+  def extract_date(string, now)
     result = nil
     @now = now || Time.now
 
