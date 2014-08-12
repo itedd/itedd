@@ -1,10 +1,12 @@
 h2 Passwort vergessen?
 
-.large-12.columns
-  = simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f|
-    = devise_error_messages!
-    = f.input :email
-    = f.button :submit, "Abschicken"
+.row
+  .large-12.columns
+    = simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f|
+      = devise_error_messages!
+      = f.input :email
+      = f.button :submit, "Abschicken"
 
-    .large-12.columns
-      = render "devise/shared/links"
+.row
+  .large-12.columns
+    = render "devise/shared/links"
