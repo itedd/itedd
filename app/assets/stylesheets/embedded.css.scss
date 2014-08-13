@@ -5,3 +5,21 @@
 .calendar_filter {
   margin: 5px;
 }
+
+#embedded_calendar_source_textarea, #embedded_list_source_textarea {
+  min-height: 200px;
+  min-width:  300px;
+}
+
+#embedded_calendar_iframe {
+  border: 0px;
+  overflow: auto;
+}
+
+.embedded_container {
+  height: 95%;
+}
+
+.row.embedded_item {
+  margin-top: 30px;
+}
