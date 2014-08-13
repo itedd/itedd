@@ -18,11 +18,12 @@ javascript:
     monthNames: [ 'Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember' ],
     txt_next: 'nächste',
     txt_prev: 'früher',
-    txt_GoToEventUrl: 'Zur Veranstaltung'
+    txt_GoToEventUrl: 'Zur Veranstaltung',
+    eventsLimit: 15
   };
 
   var opts_common = function(user_group_id) {
-    return { eventsjson: '/events.json?user_group_id=' + #{user_group_id},
+    return { eventsjson: '/events.json?user_group_id=' + user_group_id,
              startWeekOnMonday: true,
              textEventHeaderDayView: 'M',
              textEventHeaderMonthView: 'M'};
