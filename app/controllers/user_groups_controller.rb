@@ -1,6 +1,14 @@
 class UserGroupsController < ApplicationController
   load_and_authorize_resource
-  skip_before_filter :authenticate_user!, only: :show
+  skip_before_filter :authenticate_user!, only: [:show, :index]
+
+  def index
+    if can? :manage, UserGroup
+      @user_groups = UserGroup.all
+    else
+      @user_groups = UserGroup.approved
+    end
+  end
 
   def show
     @events = if can?(:manage, @user_group)

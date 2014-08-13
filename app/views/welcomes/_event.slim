@@ -3,7 +3,7 @@
 
   .row
     .column.small-9.small-offset-1
-      p.first_line= link_to event.text, event.link, target: 'blank'
+      p.first_line= link_to event.text, event.link, target: '_blank'
     .column.small-1
       .row
         = render partial: 'events/event_actions', locals: {event: event}
