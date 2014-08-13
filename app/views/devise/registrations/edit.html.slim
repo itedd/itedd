@@ -1,4 +1,4 @@
-h2 #{resource_name.to_s.humanize} bearbeiten
+h2 Kontoeinstellungen
 
 .row
   .large-12.columns
@@ -15,4 +15,4 @@ h2 #{resource_name.to_s.humanize} bearbeiten
 
 .row
   .large-12.columns
-    = button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Sicher?" }, :method => :delete
+    = link_to 'Konto löschen', registration_path(resource_name), :data => { :confirm => "Sicher?" }, :method => :delete

@@ -1,4 +1,4 @@
-h2 Alle Benutzer
+h2 Alle Nutzer
 
 table
   thead
@@ -15,10 +15,8 @@ table
   tbody
     - @users.each do |user|
       tr
-        td= user.email
-        td
-          - if user.user_group.present?
-            = user.user_group.name
+        td= user_link(user)
+        td= user_group_link(user.user_group)
         td
           - if current_user!=user && can?(:manage, user)
             - if user.approved

@@ -19,9 +19,15 @@ class Event < ActiveRecord::Base
       newest_first.where arel_table[:happens_at].lt(since)
     end
 
-    def for_user_group user_group
-      if user_group && user_group != 0
-        where(user_group_id: user_group)
+    def for_user_group(user_group_id)
+      if user_group_id.is_a? UserGroup
+        id = user_group_id.id
+      else
+        id = user_group_id
+        id = id.to_i if id
+      end
+      if id && id != 0
+        where(user_group_id: id)
       else
         all
       end

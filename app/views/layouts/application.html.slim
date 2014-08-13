@@ -24,28 +24,27 @@ body class="antialiased"
         section class="top-bar-section"
           ul class="right"
             li
-              == link_to 'Embed', embedded_path
+              == link_to 'Einbetten', embedded_path
             li.divider
             li
               == link_to 'FAQ', faq_path
             li.divider
             - if can? :manage, User
               li
-                == link_to 'Users', user_admins_path
+                == link_to 'Nutzer', user_admins_path
               li.divider
-            - if can? :manage, UserGroup
-              li
-                == link_to 'UserGroups', user_group_admins_path
-              li.divider
+            li
+              == link_to 'Veranstalter', user_group_admins_path
+            li.divider
             - if user_signed_in?
               li
-                == link_to 'Account', edit_user_registration_path
+                == link_to 'Konto', edit_user_registration_path
               li.divider
             li
               - if user_signed_in?
-                == link_to "Logout", destroy_user_session_path, method: "delete"
+                == link_to 'Abmelden', destroy_user_session_path, method: "delete"
               - else
-                == link_to "Login", new_user_session_path
+                == link_to 'Anmelden', new_user_session_path
 
       - flash.each do |name, msg|
         = content_tag :div, msg, class:name
