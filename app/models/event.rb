@@ -20,8 +20,12 @@ class Event < ActiveRecord::Base
     end
 
     def for_user_group(user_group_id)
-      id = user_group_id
-      id = id.to_i if id
+      if user_group_id.is_a? UserGroup
+        id = user_group_id.id
+      else
+        id = user_group_id
+        id = id.to_i if id
+      end
       if id && id != 0
         where(user_group_id: id)
       else
