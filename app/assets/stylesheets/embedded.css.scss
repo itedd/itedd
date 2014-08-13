@@ -6,6 +6,10 @@
   margin: 5px;
 }
 
+.eventsCalendar-list li time small {
+  visibility: hidden;
+}
+
 #embedded_calendar_source_textarea, #embedded_list_source_textarea {
   min-height: 200px;
   min-width:  300px;
