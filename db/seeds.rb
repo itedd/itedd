@@ -14,3 +14,15 @@ User.create! email: 'paul.fritsche@objectfab.de',
              admin: true,
              approved:true
 
+[
+    jugsaxony, agile_hardware, agile_saxony, cofab, rug, webmontag, wdcm, barcamp, output
+].each do |ug|
+  User.create! email: "#{ug.twitter_account[1..-1]}@objectfab.de",
+               password: 'password',
+               password_confirmation: 'password',
+               admin: false,
+               approved: true,
+               user_group: ug
+
+end
+
