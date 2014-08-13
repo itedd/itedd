@@ -2,6 +2,8 @@
   .column.small-3.medium-1.large-1
     - if user_group.logo.present?
       = link_to image_tag(user_group.logo), user_group_path(user_group)
+    - else
+      == '&nbsp;'
   .column.small-7.medium-9.large-7
     .i.fi-arrow-right style="color:#{user_group.color}; font-size:40px; float:left"
     h2= user_group.name
