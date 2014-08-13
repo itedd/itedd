@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class UserGroupAdminsControllerTest < ActionController::TestCase
-  test_access :index, :success=>[:admin], :redirect=>[:anonymous, :jug, :rug] do
+  test_access :index, :success=>[:admin,:anonymous, :jug, :rug] do
     get :index
   end
   test_access :edit, :success=>[:admin, :jug], :deny=>[:rug], :redirect=>[:anonymous] do
