@@ -18,9 +18,17 @@ class UserGroup < ActiveRecord::Base
   scope :ordered, -> { order('name ASC') }
   scope :with_twitter, -> { where('twitter_account is not null') }
 
+  before_update :check_website_link
+
   def approved?
     users.select do |user|
       user.approved==true
     end.size>0
+  end
+
+  def check_website_link
+    if website && !website.start_with?("http://")
+      self.website = "http://#{website}"
+    end
   end
 end
