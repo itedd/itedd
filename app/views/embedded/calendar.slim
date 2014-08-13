@@ -30,8 +30,10 @@ javascript:
 
   var load_calendar = function(user_group_id) {
     if ( #{I18n.locale.to_s == 'de'} ) {
+      $('.embedded_calendar_plugin').empty()
       $('.embedded_calendar_plugin').eventCalendar( $.extend(opts_common(user_group_id), opts_de) );
     } else {
+      $('.embedded_calendar_plugin').empty()
       $('.embedded_calendar_plugin').eventCalendar( opts_common(user_group_id) );
     }
   }

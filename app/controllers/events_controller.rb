@@ -30,6 +30,10 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.approved.limit(params[:limit])
+    if params[:user_group_id] && params[:user_group_id][0]!='0'
+      user_group = UserGroup.find(params[:user_group_id])
+      @events = @events.where(user_group: user_group)
+    end
     respond_to do |format|
       format.json { render json: events_to_json }
     end
