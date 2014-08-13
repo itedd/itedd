@@ -25,7 +25,7 @@ class UserGroupsController < ApplicationController
   private
 
   def user_group_params
-    params.require(:user_group_admins).permit(
+    params.require(:user_group).permit(
         :id, :name, :twitter_account, :color, :logo, :website,
         :description, :facebook_page, :googleplus_page)
   end

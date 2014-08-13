@@ -1,10 +1,8 @@
-.row
-  - if can? :update, event
-    .column.small
-      = link_to "<i class='fi-pencil'></i>".html_safe, edit_event_path(event), class: 'actions'
+.icon-bar.horizontal.two-up
   - if can? :destroy, event
-    .column.small
-      - if event.destroyed?
-        = link_to "<i class='fi-unlock'></i>".html_safe, restore_event_path(event), class: 'actions', method: :get
-      - else
-        = link_to "<i class='fi-lock'></i>".html_safe, event_path(event), class: 'actions', method: :delete
+    - if event.destroyed?
+      = link_to "<i class='fi-unlock'></i>".html_safe, restore_event_path(event), class: 'item', method: :get
+    - else
+      = link_to "<i class='fi-lock'></i>".html_safe, event_path(event), class: 'item', method: :delete
+  - if can? :update, event
+    = link_to "<i class='fi-pencil'></i>".html_safe, edit_event_path(event), class: 'item'
