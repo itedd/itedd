@@ -1,5 +1,10 @@
 h2 Alle Veranstalter
 
 - @user_groups.each do |ug|
-  = render partial: 'user_groups/headline', locals: {user_group: ug}
+  .user_group
+    = render partial: 'user_groups/headline', locals: {user_group: ug}
+    .row
+      .column.small-9.small-offset-1
+        p
+          = ug.description
 
