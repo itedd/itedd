@@ -1,7 +1,6 @@
-h2 Neue Veranstaltung
-
 .row
   .large-12.columns
+    h2 Neue Veranstaltung
     = simple_form_for(@event, url: events_path(@event)) do |f|
       = f.input :text
       = f.input :link

@@ -1,7 +1,6 @@
-h2 Registrieren
-
 .row
   .large-12.columns
+    h2 Registrieren
     = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
       = devise_error_messages!
       = f.input :email
@@ -19,8 +18,8 @@ h2 Registrieren
           = ugf.input :twitter_account
           = ugf.input :facebook_page
           = ugf.input :googleplus_page
-      = f.button :submit, "Registrieren"
+      = f.button :submit, 'Registrieren'
 
 .row
   .large-12.columns
-    = render "devise/shared/links"
+    = render 'devise/shared/links'

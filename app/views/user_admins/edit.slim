@@ -1,7 +1,6 @@
-h2 Nutzer bearbeiten
-
 .row
   .large-12.columns
+    h2 Nutzer bearbeiten
     = simple_form_for(@user, url: user_admin_path(@user)) do |f|
       = f.input :email
       = f.input :password

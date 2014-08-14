@@ -1,14 +1,13 @@
-h2 Passwort ändern
-
 .row
   .large-12.columns
+    h2 Passwort ändern
     = simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f|
       = devise_error_messages!
       = f.input :reset_password_token, as: :hidden
-      = f.input :password, :title=>"Neues Passwort"
-      = f.input :password_confirmation, :title=>"Neues Passwort bestätigen"
-      = f.button :submit, "Passwort ändern"
+      = f.input :password, :title=>'Neues Passwort'
+      = f.input :password_confirmation, :title=>'Neues Passwort bestätigen'
+      = f.button :submit, 'Passwort ändern'
 
 .row
   .large-12.columns
-    = render "devise/shared/links"
+    = render 'devise/shared/links'
