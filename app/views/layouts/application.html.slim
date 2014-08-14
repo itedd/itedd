@@ -24,8 +24,6 @@ body
 
       section.top-bar-section
         ul#menu-header.nav-bar
-          li
-            a href='/' Übersicht 
           li== link_to 'Einbetten', embedded_path
           li== link_to 'FAQ', faq_path
           - if can? :manage, User

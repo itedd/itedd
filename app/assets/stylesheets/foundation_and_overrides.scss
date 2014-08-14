@@ -1204,7 +1204,8 @@ html {
 }
 
 body {
-  font-size: 0.9rem;
+ font-size: 0.9rem;
+ color: #5F5C5C;
 }
 
 h2 {
@@ -1213,6 +1214,10 @@ h2 {
 
 p {
   font-size: 0.9rem;
+}
+
+p, h4 {
+ color: #5F5C5C;
 }
 
 input[type="file"],
