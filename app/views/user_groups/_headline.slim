@@ -1,21 +1,35 @@
 .row.headline
+
+  / Display Logo
   .column.small-3.medium-1.large-1
     - if user_group.logo.present?
       = link_to image_tag(user_group.logo), user_group_path(user_group)
     - else
       == '&nbsp;'
-  .column.small-7.medium-9.large-7
-    .i.fi-arrow-right style="color:#{user_group.color}; font-size:40px; float:left"
+
+  / UserGroup Name
+  .column.small-5.medium-5.large-3
     h2= link_to user_group.name, user_group_path(user_group)
-  .column.small-1.medium-1.large-1
-    .icon-bar.horizontal.two-up
+
+  / Social Icons
+  .column.small-3.medium-3.large-3
+    .icon-bar.horizontal.five-up.social_item_bar.right
+      / Twitter
       - if user_group.twitter_account.present?
-        = link_to "<i class='fi-social-twitter'></i>".html_safe, twitter_link(user_group), target: '_blank', class: 'item'
+        = link_to "<i class='fi-social-twitter'></i>".html_safe, twitter_link(user_group), target: '_blank', class: 'item', title: 'Twitter'
+
+      / Facebook
       - if user_group.facebook_page.present?
-        = link_to "<i class='fi-social-facebook'></i>".html_safe, user_group.facebook_page, target: '_blank', class: 'item'
+        = link_to "<i class='fi-social-facebook'></i>".html_safe, user_group.facebook_page, target: '_blank', class: 'item', title: 'Facebook'
+
+      / Google+
       - if user_group.googleplus_page.present?
-        = link_to "<i class='fi-social-google-plus'></i>".html_safe, user_group.googleplus_page, target: '_blank', class: 'item'
+        = link_to "<i class='fi-social-google-plus'></i>".html_safe, user_group.googleplus_page, target: '_blank', class: 'item', title: 'Google+'
+
+      / UserGroup Website
       - if user_group.website.present?
-        = link_to "<i class='fi-web'></i>".html_safe, user_group.website, target: '_blank', class: 'item'
+        = link_to "<i class='fi-web'></i>".html_safe, user_group.website, target: '_blank', class: 'item', title: 'Webseite'
+
+      / Edit UserGroup
       - if can? :update, user_group
-        = link_to "<i class='fi-pencil'></i>".html_safe, edit_user_group_path(user_group), class: 'item'
+        = link_to "<i class='fi-pencil'></i>".html_safe, edit_user_group_path(user_group), class: 'item', title: 'Veranstalter bearbeiten'
