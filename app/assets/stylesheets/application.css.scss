@@ -103,8 +103,13 @@ header {
   font-style: bold;
 }
 
+.social_item_bar .indicate_deactivation {
+  color: rgba(0, 102, 204, 0.4);
+}
+
 .social_item_bar {
   font-size: 30px;
+
   i {
     padding: 5px;
     color: rgba(0, 102, 204, 0.75);
@@ -116,7 +121,7 @@ header {
 }
 
 .small_icons {
-  font-size: 25px;
+  font-size: 30px;
 }
 
 .first_line {
