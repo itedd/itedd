@@ -1,4 +1,6 @@
 class Event < ActiveRecord::Base
+  include WithoutTimestamp
+
   acts_as_paranoid
 
   validates :link, presence: true, length: {maximum: 200}
@@ -16,6 +18,12 @@ class Event < ActiveRecord::Base
   def check_link
     if link && !link.start_with?('http://') && !link.start_with?('https://')
       self.link = "http://#{link}"
+    end
+  end
+
+  def save_without_timestamps
+    without_timestamps do
+      save
     end
   end
 

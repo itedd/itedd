@@ -25,8 +25,8 @@ class TweetTest < ActiveSupport::TestCase
       {
           name:     'Simple 2',
           tweets:   [
-              {id:1, url:'http://1', text:'am 17.5.2014 um 17 Uhr #event' },
-              {id:2, url:'http://2', text:'am 17.6.2014 um 18 Uhr #event' },
+              {id:1, url:'http://1', text:'am 17.5.2014 um 17 Uhr #event', created_at:Time.now-2.days },
+              {id:2, url:'http://2', text:'am 17.6.2014 um 18 Uhr #event', created_at:Time.now-1.days },
           ],
           expected: [
               {url:'http://1', happens_at:d(17,5),text:'am 17.5.2014 um 17 Uhr #event'},
@@ -36,8 +36,8 @@ class TweetTest < ActiveSupport::TestCase
       {
           name:     'Doppelter Link',
           tweets:   [
-              {id:1, url:'http://1', text:'am 17.5.2014 um 17 Uhr #event' },
-              {id:2, url:'http://1', text:'am 17.6.2014 um 18 Uhr #event' },
+              {id:1, url:'http://1', text:'am 17.5.2014 um 17 Uhr #event', created_at:Time.now-2.days },
+              {id:2, url:'http://1', text:'am 17.6.2014 um 18 Uhr #event', created_at:Time.now-1.days },
           ],
           expected: [
               {url:'http://1', happens_at:d(17,6),text:'am 17.6.2014 um 18 Uhr #event'},
@@ -46,8 +46,8 @@ class TweetTest < ActiveSupport::TestCase
       {
           name:     'Doppelte Twitter id',
           tweets:   [
-              {id:1, url:'http://1', text:'am 17.5.2014 um 17 Uhr #event' },
-              {id:1, url:'http://2', text:'am 17.6.2014 um 18 Uhr #event' },
+              {id:1, url:'http://1', text:'am 17.5.2014 um 17 Uhr #event', created_at:Time.now-1.days },
+              {id:1, url:'http://2', text:'am 17.6.2014 um 18 Uhr #event', created_at:Time.now-1.days },
           ],
           expected: [
               {url:'http://1', happens_at:d(17,5),text:'am 17.5.2014 um 17 Uhr #event'},
@@ -56,9 +56,9 @@ class TweetTest < ActiveSupport::TestCase
       {
           name:     'Doppeltes Datum',
           tweets:   [
-              {id:3, url:'http://3', text:'am 16.5.2014 um 17 Uhr #event' },
-              {id:1, url:'http://1', text:'am 17.5.2014 um 17 Uhr #event' },
-              {id:2, url:'http://2', text:'am 17.5.2014 um 18 Uhr #event' },
+              {id:3, url:'http://3', text:'am 16.5.2014 um 17 Uhr #event', created_at:Time.now-3.days },
+              {id:1, url:'http://1', text:'am 17.5.2014 um 17 Uhr #event', created_at:Time.now-2.days },
+              {id:2, url:'http://2', text:'am 17.5.2014 um 18 Uhr #event', created_at:Time.now-1.days },
           ],
           expected: [
               {url:'http://3', happens_at:d(16,5),text:'am 16.5.2014 um 17 Uhr #event'},
@@ -79,6 +79,14 @@ class TweetTest < ActiveSupport::TestCase
         assert_equal expected[:happens_at], event.happens_at
         assert_equal expected[:text], event.text
         assert_equal expected[:url], event.link
+
+        event.text = 'MODIFIED'
+        event.save
+      end
+
+      reader.run
+      Event.oldest_first.each do |event|
+        assert_equal 'MODIFIED', event.text
       end
     end
   end
