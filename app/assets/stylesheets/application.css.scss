@@ -23,7 +23,7 @@ p {
  color: #333
 }
 
-.welcome_text {
+.header_text {
   font-size: 32px;
   margin-bottom: 0;
   text-align: center;
@@ -32,15 +32,11 @@ p {
   /*font-style:italic*/
 }
 
-.heading_supersize {
-  font-size: 128px;
-  text-align:center;
-  font-weight: normal;
-  line-height: 150px;
-  margin:0 0 10px;
-  color: #212121
+.welcome_text {
+  margin-top: 20px;
+  text-align: justify;
+  line-height: 1.8em;
 }
-
 
 /* Top Menu */
 nav.top-bar {
@@ -108,8 +104,16 @@ header {
 
 */
 
+.list_item_header {
+  background: #f3f3f3;
+  text-align: center;
+  h2 {
+    margin: 10px;
+    /*font-family: 'Open Sans Condensed',sans-serif;*/
+    letter-spacing: 1px;
+  }
+}
 
-/*
 .first_line {
   padding-top: 7px;
 }
@@ -117,7 +121,6 @@ header {
 .last_line {
   padding-bottom: 15px;
 }
-*/
 
 .footer-bottom {
   background: #fafafa;

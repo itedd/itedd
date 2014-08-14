@@ -41,7 +41,7 @@ body
             li== link_to "Anmelden", new_user_session_path
     
   header
-    h2.welcome_text IT Events Dresden
+    h2.header_text IT Events in Dresden
 
   - flash.each do |name, msg|
     = content_tag :div, msg, class:name
@@ -49,11 +49,12 @@ body
   == yield
 
   footer.footer-bottom
-    .large-12.columns
-      .row
-        .large-6.columns.small-8
-          p &copy; Ruby Usergroup Dresden
-        .large-6.columns.small-2
-          ul.right
-            li
-              = link_to 'Impressum', impressum_path
+    .row
+      .large-12.columns
+        .row
+          .large-6.columns.small-8
+            p &copy; Ruby Usergroup Dresden
+          .large-6.columns.small-2
+            ul.right
+              li
+                = link_to 'Impressum', impressum_path
