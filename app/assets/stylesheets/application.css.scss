@@ -17,12 +17,107 @@
 
 @import 'foundation-icons';
 
+
+/* Page Text */
+p {
+ color: #333
+}
+
+.welcome_text {
+  font-size: 32px;
+  margin-bottom: 0;
+  text-align:center;
+  font-weight: normal;
+  font-family:Georgia, "Times New Roman", Times, serif;
+  font-style:italic
+}
+
+.heading_supersize {
+  font-size: 128px;
+  text-align:center;
+  font-weight: normal;
+  line-height: 150px;
+  margin:0 0 10px;
+  color: #212121
+}
+
+
+/* Top Menu */
+nav.top-bar {
+  box-shadow: 0 1px 6px rgba(34, 25, 25, 0.6);
+  text-align:center;
+}
+
+section.top-bar-section {
+  display: inline-block;
+}
+
+@media only screen and (max-width: 40em) {
+  section.top-bar-section {
+    display: block;
+  }
+}
+
+.nav-bar {
+  margin-top: 0;
+  background: none;
+}
+
+.nav-bar > li {
+  border: 0;
+  padding: 0;
+  font-family: 'Open Sans Condensed',sans-serif;
+  letter-spacing: 1px;
+  box-shadow: none;
+}
+
+.nav-bar > li > a:first-child {
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 0 25px
+}
+
+/* Header area */
+
+header {
+  background: #f3f3f3;
+  clear: both;
+  padding: 20px 0 40px;
+}
+
+
+/*
+.nav-bar > li:last-child {border: 0; box-shadow: none}
+.nav-bar > li.active:hover { background: #000; cursor: default; }
+.nav-bar > li:hover { background: #eeeeee; color: #000;         
+        -webkit-transition: all .2s ease-in-out;
+        -moz-transition: all .2s ease-in-out;
+        -ms-transition: all .2s ease-in-out;
+        -o-transition: all .2s ease-in-out;
+        transition: all .2s ease-in-out; 
+}
+
+.nav-bar > li > a { color: #4d4d4d}
+.nav-bar > li > a:hover { color: #000;}
+.active a {background:#F06B48; color: #FFF}
+
+.nav-bar > li.has-flyout > a:first-child:after { content: ""; display: block; width: 0; height: 0; border: solid 5px; border-color: #e0e0e0 transparent transparent transparent; position: absolute; right: 20px; top: 17px; }
+
+.nav-bar > li.has-flyout > a:hover:first-child:after { content: ""; display: block; width: 0; height: 0; border: solid 5px; border-color: #e0e0e0 transparent transparent transparent; position: absolute; right: 20px; top: 17px; }
+
+*/
+
+
+/*
 .first_line {
   padding-top: 7px;
 }
+
 .last_line {
   padding-bottom: 15px;
 }
+*/
+
 .footer-bottom {
   background: #333333;
   color: white;
@@ -30,13 +125,14 @@
   height: 32px;
   line-height: 32px;
   padding-left: 5px;
-  margin-top: 16px;
+  margin-top: 50px;
 
   a {
     color: white;
   }
 }
 
+/*
 .embedded_container {
   padding: 0px;
   width: 100%;
@@ -49,4 +145,4 @@
     color: darkgray;
   }
 }
-
+*/

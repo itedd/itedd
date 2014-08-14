@@ -1,57 +1,59 @@
 doctype html
 html
   head
-    meta charset="utf-8"
-    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    meta charset='utf-8'
+    meta name='viewport' content='width=device-width, initial-scale=1.0'
 
     title Itedd
-    == stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
-    == javascript_include_tag "application", "data-turbolinks-track" => true, "vendor/modernizr" => true
+    == stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    == stylesheet_link_tag    'application', 'http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Playfair+Display:400italic'
+    == javascript_include_tag 'application', 'data-turbolinks-track' => true, 'vendor/modernizr' => true
     == csrf_meta_tags
 
-body class="antialiased"
-  div class="row"
-    div class="large-12 columns"
-      nav class="top-bar" data-topbar="true"
-        ul class="title-area"
-          li class="name"
-            h1
-              a href="/"
-                | IT Events Dresden
-          li class="toggle-topbar menuicon"
-            a href="#" Menu
+body
+  .sticky
+    nav.top-bar data-topbar="true"
+      ul.title-area
+        li.name
+        li.toggle-topbar.menu-icon
+          a href="#" 
+            span Menu
 
-        section class="top-bar-section"
-          ul class="right"
+      section.top-bar-section
+        ul#menu-header.nav-bar
+          li.active
+            a href='/' Übersicht 
+          li
+            == link_to 'Embed', embedded_path
+          li
+            == link_to 'FAQ', faq_path
+          - if can? :manage, User
             li
-              == link_to 'Embed', embedded_path
-            li.divider
+              == link_to 'Users', user_admins_path
+
+          - if can? :manage, UserGroup
             li
-              == link_to 'FAQ', faq_path
-            li.divider
-            - if can? :manage, User
-              li
-                == link_to 'Users', user_admins_path
-              li.divider
-            - if can? :manage, UserGroup
-              li
-                == link_to 'UserGroups', user_group_admins_path
-              li.divider
-            - if user_signed_in?
-              li
-                == link_to 'Account', edit_user_registration_path
-              li.divider
+              == link_to 'UserGroups', user_group_admins_path
+
+          - if user_signed_in?
+            li
+              == link_to 'Account', edit_user_registration_path
             li
               - if user_signed_in?
                 == link_to "Logout", destroy_user_session_path, method: "delete"
               - else
                 == link_to "Login", new_user_session_path
+    
+  header
+    h1.heading_supersize ITEDD
+    h2.welcome_text IT Events Dresden
 
-      - flash.each do |name, msg|
-        = content_tag :div, msg, class:name
+
+  - flash.each do |name, msg|
+    = content_tag :div, msg, class:name
+
+  == yield
 
 
-      == yield
-
-      footer.footer-bottom.center
-        = link_to 'Impressum', impressum_path
+  footer.footer-bottom.center
+    = link_to 'Impressum', impressum_path
