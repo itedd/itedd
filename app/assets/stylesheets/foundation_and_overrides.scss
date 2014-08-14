@@ -1131,8 +1131,8 @@ $font-smoothing: antialiased;
 // $topbar-margin-bottom: 0;
 
 // Controlling the styles for the title in the top bar
-$topbar-title-weight: normal;
-$topbar-title-font-size: rem-calc(16);
+$topbar-title-weight: bold;
+$topbar-title-font-size: rem-calc(20);
 
 // Style the top bar dropdown elements
  $topbar-dropdown-bg: $topbar-bg-color;
@@ -1194,6 +1194,10 @@ $topbar-title-font-size: rem-calc(16);
 // $include-html-visibility-classes: $include-html-classes;
 
 @import 'foundation';
+
+.top-bar .title-area {
+  margin-left: 10px;
+}
 
 html {
 //  font-size: 62.5%;

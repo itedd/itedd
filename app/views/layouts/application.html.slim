@@ -15,6 +15,9 @@ body
     nav.top-bar data-topbar="true"
       ul.title-area
         li.name
+          h1
+            a href="#" 
+            | ITEDD
         li.toggle-topbar.menu-icon
           a href="#" 
             span Menu
@@ -47,7 +50,6 @@ body
                 == link_to "Anmelden", new_user_session_path
     
   header
-    h1.heading_supersize ITEDD
     h2.welcome_text IT Events Dresden
 
   - flash.each do |name, msg|
@@ -55,6 +57,12 @@ body
 
   == yield
 
-
-  footer.footer-bottom.center
-    = link_to 'Impressum', impressum_path
+  footer.footer-bottom
+    .large-12.columns
+      .row
+        .large-6.columns.small-8
+          p &copy; Ruby Usergroup Dresden
+        .large-6.columns.small-2
+          ul.right
+            li
+              = link_to 'Impressum', impressum_path

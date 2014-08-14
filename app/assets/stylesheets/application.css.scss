@@ -26,10 +26,10 @@ p {
 .welcome_text {
   font-size: 32px;
   margin-bottom: 0;
-  text-align:center;
+  text-align: center;
   font-weight: normal;
   font-family:Georgia, "Times New Roman", Times, serif;
-  font-style:italic
+  /*font-style:italic*/
 }
 
 .heading_supersize {
@@ -63,7 +63,7 @@ section.top-bar-section {
   background: none;
 }
 
-.nav-bar > li {
+.nav-bar > li, .title-area > li {
   border: 0;
   padding: 0;
   font-family: 'Open Sans Condensed',sans-serif;
@@ -82,7 +82,8 @@ section.top-bar-section {
 header {
   background: #f3f3f3;
   clear: both;
-  padding: 20px 0 40px;
+  padding: 20px 0 20px;
+  border-bottom-style: ridge;
 }
 
 
@@ -119,16 +120,21 @@ header {
 */
 
 .footer-bottom {
-  background: #333333;
+  background: #fafafa;
   color: white;
   overflow: visible;
   height: 32px;
   line-height: 32px;
   padding-left: 5px;
   margin-top: 50px;
-
+ 
+  ul, p{
+    margin: 5px;
+  }
+ 
   a {
-    color: white;
+    color: black;
+    font-size: 85%;
   }
 }
 
