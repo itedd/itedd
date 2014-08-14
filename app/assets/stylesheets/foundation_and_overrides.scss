@@ -1214,3 +1214,16 @@ h2 {
 p {
   font-size: 0.9rem;
 }
+
+input[type="file"],
+input[type="checkbox"],
+input[type="radio"],
+select {
+  margin: 0 1rem 1rem 0;
+}
+
+.link-list {
+  font-size: 0.9rem;
+  list-style-type: none;
+}
+
