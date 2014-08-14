@@ -1,4 +1,6 @@
 class UserGroup < ActiveRecord::Base
+  include Ensures
+
   validates :name, presence: true, length: {minimum: 5, maximum: 100}
   validates :color, presence: true, format: { with: %r{\A(#[0-9A-Fa-f]{6})\z}}
   validates :logo, length: {maximum: 200}
@@ -18,17 +20,11 @@ class UserGroup < ActiveRecord::Base
   scope :ordered, -> { order('name ASC') }
   scope :with_twitter, -> { where('twitter_account is not null') }
 
-  before_update :check_website_link
+  ensure_link :website
 
   def approved?
     users.select do |user|
       user.approved==true
     end.size>0
-  end
-
-  def check_website_link
-    if website && !website.start_with?('http://') && !website.start_with?('https://')
-      self.website = "http://#{website}"
-    end
   end
 end

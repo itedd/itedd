@@ -1,4 +1,7 @@
 class Event < ActiveRecord::Base
+  include WithoutTimestamp
+  include Ensures
+
   acts_as_paranoid
 
   validates :link, presence: true, length: {maximum: 200}
@@ -11,11 +14,11 @@ class Event < ActiveRecord::Base
   scope :oldest_first, -> { order happens_at: :asc }
   scope :newest_first, -> { order happens_at: :desc }
 
-  before_update :check_link
+  ensure_link :link
 
-  def check_link
-    if link && !link.start_with?('http://') && !link.start_with?('https://')
-      self.link = "http://#{link}"
+  def save_without_timestamps
+    without_timestamps do
+      save
     end
   end
 
