@@ -1,25 +1,27 @@
-h2 Alle Veranstalter
+.row
+  .large-12.columns
+    h2 Alle Veranstalter
 
-table
-  thead
-    tr
-      th
-        span Name
-      th
-        span Organisatoren
-      th
-        span Aktiv
-      th
-  tbody
-    - @user_groups.each do |ug|
-      tr
-        td= user_group_link(ug)
-        td= organizer_for_group(ug)
-        td
-          - if ug.approved?
-            i class="fi-check"
-          - else
-            i class="fi-x"
-        td
-          - if can?(:manage, ug)
-            = link_to "<i class='fi-pencil'/>".html_safe, edit_user_group_admin_path(ug)
+    table
+      thead
+        tr
+          th
+            span Name
+          th
+            span Organisatoren
+          th
+            span Aktiv
+          th
+      tbody
+        - @user_groups.each do |ug|
+          tr
+            td= user_group_link(ug)
+            td= organizer_for_group(ug)
+            td
+              - if ug.approved?
+                i class="fi-check"
+              - else
+                i class="fi-x"
+            td
+              - if can?(:manage, ug)
+                = link_to "<i class='fi-pencil'/>".html_safe, edit_user_group_admin_path(ug)
