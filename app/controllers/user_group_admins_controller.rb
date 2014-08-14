@@ -1,10 +1,9 @@
 class UserGroupAdminsController < ApplicationController
-  before_filter :load_and_authorize_user_group
+  before_filter :load_and_authorize_user_group, except: :index
+  skip_before_filter :authenticate_user!, only: [:index]
 
   def index
-    if @user_groups.size==1
-      redirect_to controller: :user_groups, action: :show, id: @user_groups.first.id
-    end
+    @user_groups = UserGroup.all
   end
 
   def edit

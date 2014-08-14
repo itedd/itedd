@@ -1,8 +1,20 @@
 class EventsController < ApplicationController
   before_filter :load_deleted_event, only: :restore
-  load_and_authorize_resource only: [:edit, :update, :destroy, :restore]
+  load_and_authorize_resource only: [:create, :new, :edit, :update, :destroy, :restore]
   skip_before_filter :authenticate_user!, only: [:index]
   respond_to :json, only: :index
+
+  def new
+  end
+
+  def create
+    if @event.update(event_params)
+      flash[:notice] = 'Die Änderungen wurden gespeichert.'
+      redirect_to edit_event_path(@event)
+    else
+      render 'new'
+    end
+  end
 
   def edit
   end
@@ -29,7 +41,8 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.approved.limit(params[:limit])
+    @events = Event.upcoming.approved.for_user_group(params[:user_group_id])
+    @events = @events.limit(params[:limit]) if params[:limit]
     respond_to do |format|
       format.json { render json: events_to_json }
     end
@@ -42,7 +55,13 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:id, :text, :link, :happens_at)
+    if current_user.admin?
+      params.require(:event).permit(:id, :text, :link, :happens_at, :user_group_id)
+    else
+      p = params.require(:event).permit(:id, :text, :link, :happens_at)
+      p[:user_group_id] = current_user.user_group_id
+      p
+    end
   end
 
   def events_to_json

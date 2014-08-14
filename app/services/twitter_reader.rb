@@ -63,12 +63,16 @@ class TwitterReader < BaseReader
           existing_event = Event.with_deleted.where( happens_at: event.happens_at ).where( user_group: @user_group ).first
         end
         if existing_event
-          existing_event.happens_at = event.happens_at
-          existing_event.text = event.text
-          existing_event.link = event.link
-          existing_event.save
+          if existing_event.updated_at<=event.created_at
+            existing_event.happens_at = event.happens_at
+            existing_event.text       = event.text
+            existing_event.link       = event.link
+            existing_event.updated_at = event.created_at
+            existing_event.save_without_timestamps
+          end
         else
-          event.save
+          event.updated_at = event.created_at
+          event.save_without_timestamps
         end
       end
     end

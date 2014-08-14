@@ -43,7 +43,7 @@ class UserAdminsController < ApplicationController
   end
 
   def user_params
-    p = params.required(:user).permit(:email, :password, :password_confirmation, :user_group_id)
+    p = params.required(:user).permit(:email, :password, :password_confirmation, :user_group_id, :approved)
     unless p[:password].present?
       p.delete :password
       p.delete :password_confirmation

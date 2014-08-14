@@ -1,4 +1,7 @@
 class Event < ActiveRecord::Base
+  include WithoutTimestamp
+  include Ensures
+
   acts_as_paranoid
 
   validates :link, presence: true, length: {maximum: 200}
@@ -11,6 +14,14 @@ class Event < ActiveRecord::Base
   scope :oldest_first, -> { order happens_at: :asc }
   scope :newest_first, -> { order happens_at: :desc }
 
+  ensure_link :link
+
+  def save_without_timestamps
+    without_timestamps do
+      save
+    end
+  end
+
   class << self
     def upcoming(after = Time.now)
       oldest_first.where arel_table[:happens_at].gteq(after)
@@ -19,9 +30,15 @@ class Event < ActiveRecord::Base
       newest_first.where arel_table[:happens_at].lt(since)
     end
 
-    def for_user_group user_group
-      if user_group && user_group != 0
-        where(user_group_id: user_group)
+    def for_user_group(user_group_id)
+      if user_group_id.is_a? UserGroup
+        id = user_group_id.id
+      else
+        id = user_group_id
+        id = id.to_i if id
+      end
+      if id && id != 0
+        where(user_group_id: id)
       else
         all
       end

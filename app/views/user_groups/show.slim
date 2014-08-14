@@ -1,17 +1,18 @@
-= render partial: 'user_groups/headline', locals: {user_group: @user_group}
-
-.row
-  .column.small-9.small-offset-1
-    p
-      = @user_group.description
-
-- @events.each do |event|
-  .row.headline
+.user_group
+  = render partial: 'user_groups/headline', locals: {user_group: @user_group}
+  .row
     .column.small-9.small-offset-1
-      .row class="#{event.destroyed? ? "destroyed" : "" }"
-        .column.small-12.medium-2.large-2
-          = I18n.l(event.happens_at)
-        .column.small-12.medium-10.large-10
-          = link_to "#{event.text}", event.link
-    .column.small-1
-      = render partial: 'events/event_actions', locals: {event: event}
+      p
+        = @user_group.description
+
+  - @events.each do |event|
+    .event
+      .row.headline
+        .column.small-9.small-offset-1
+          .row class="#{event.destroyed? ? "destroyed" : "" }"
+            .column.small-12.medium-2.large-2
+              = I18n.l(event.happens_at)
+            .column.small-12.medium-10.large-10
+              = link_to "#{event.text}", event.link
+        .column.small-1
+          = render partial: 'events/event_actions', locals: {event: event}

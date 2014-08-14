@@ -1,4 +1,4 @@
-h2 Alle UserGroups
+h2 Alle Veranstalter
 
 table
   thead
@@ -13,9 +13,8 @@ table
   tbody
     - @user_groups.each do |ug|
       tr
-        td= link_to ug.name, user_group_path(ug)
-        td
-          = organizer_for_group(ug)
+        td= user_group_link(ug)
+        td= organizer_for_group(ug)
         td
           - if ug.approved?
             i class="fi-check"

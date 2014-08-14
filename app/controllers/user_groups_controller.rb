@@ -1,6 +1,14 @@
 class UserGroupsController < ApplicationController
   load_and_authorize_resource
-  skip_before_filter :authenticate_user!, only: :show
+  skip_before_filter :authenticate_user!, only: [:show, :index]
+
+  def index
+    if can? :manage, UserGroup
+      @user_groups = UserGroup.all
+    else
+      @user_groups = UserGroup.approved
+    end
+  end
 
   def show
     @events = if can?(:manage, @user_group)
@@ -25,7 +33,7 @@ class UserGroupsController < ApplicationController
   private
 
   def user_group_params
-    params.require(:user_group_admins).permit(
+    params.require(:user_group).permit(
         :id, :name, :twitter_account, :color, :logo, :website,
         :description, :facebook_page, :googleplus_page)
   end

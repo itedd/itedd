@@ -1,8 +1,9 @@
-= render partial: 'user_groups/headline', locals: {user_group: event.user_group}
+.event
+  = render partial: 'user_groups/headline', locals: {user_group: event.user_group}
 
-.row
-  .column.small-9.small-offset-1
-    p.first_line= link_to event.text, event.link, target: 'blank'
-  .column.small-1
-    .row
-      = render partial: 'events/event_actions', locals: {event: event}
+  .row
+    .column.small-9.small-offset-1
+      p.first_line= link_to event.text, event.link, target: '_blank'
+    .column.small-1
+      .row
+        = render partial: 'events/event_actions', locals: {event: event}
