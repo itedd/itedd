@@ -1,8 +1,8 @@
+.row
+  .columns
+    h2 Alle Veranstalter
 - @user_groups.each do |ug|
   .user_group
-    .row
-      .columns
-        h2 Alle Veranstalter
     = render partial: 'user_groups/headline', locals: {user_group: ug}
     .row
       .column.small-9.small-offset-1
