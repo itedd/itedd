@@ -1,0 +1,11 @@
+h2 Neue Veranstaltung
+
+.row
+  .large-12.columns
+    = simple_form_for(@event, url: events_path(@event)) do |f|
+      = f.input :text
+      = f.input :link
+      - if current_user.admin?
+        = f.association :user_group
+      = f.input :happens_at
+      = f.button :submit, 'Anlegen'

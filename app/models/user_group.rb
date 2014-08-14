@@ -27,7 +27,7 @@ class UserGroup < ActiveRecord::Base
   end
 
   def check_website_link
-    if website && !website.start_with?("http://")
+    if website && !website.start_with?('http://') && !website.start_with?('https://')
       self.website = "http://#{website}"
     end
   end
