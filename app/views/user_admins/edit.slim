@@ -7,4 +7,5 @@ h2 Nutzer bearbeiten
       = f.input :password
       = f.input :password_confirmation
       = f.association :user_group, include_blank: false
+      = f.input :approved, as: :boolean
       = f.button :submit, 'Speichern'

@@ -14,11 +14,13 @@ de:
       defaults:
         name: 'Name'
         password: 'Passwort'
-        email: 'E-mail'
+        email: 'Email'
         company: 'Firma'
         address: 'Anschrift'
         password_confirmation: 'Passwort-Bestätigung'
         current_password: 'Aktuelles Passwort'
+        approved: 'Aktiviert'
+        user_group: 'Veranstalter'
 
     hints:
       user:

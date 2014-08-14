@@ -23,22 +23,19 @@ body class="antialiased"
 
         section class="top-bar-section"
           ul class="right"
-            li
-              == link_to 'Einbetten', embedded_path
+            li== link_to 'Neues Event', new_event_path
             li.divider
-            li
-              == link_to 'FAQ', faq_path
+            li== link_to 'Einbetten', embedded_path
+            li.divider
+            li== link_to 'FAQ', faq_path
             li.divider
             - if can? :manage, User
-              li
-                == link_to 'Nutzer', user_admins_path
+              li== link_to 'Nutzer', user_admins_path
               li.divider
-            li
-              == link_to 'Veranstalter', user_groups_path
+            li== link_to 'Veranstalter', user_groups_path
             li.divider
             - if user_signed_in?
-              li
-                == link_to 'Konto', edit_user_registration_path
+              li== link_to 'Konto', edit_user_registration_path
               li.divider
             li
               - if user_signed_in?

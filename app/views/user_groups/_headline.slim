@@ -6,7 +6,7 @@
       == '&nbsp;'
   .column.small-7.medium-9.large-7
     .i.fi-arrow-right style="color:#{user_group.color}; font-size:40px; float:left"
-    h2= user_group.name
+    h2= link_to user_group.name, user_group_path(user_group)
   .column.small-1.medium-1.large-1
     .icon-bar.horizontal.two-up
       - if user_group.twitter_account.present?

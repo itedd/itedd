@@ -11,6 +11,14 @@ class Event < ActiveRecord::Base
   scope :oldest_first, -> { order happens_at: :asc }
   scope :newest_first, -> { order happens_at: :desc }
 
+  before_update :check_link
+
+  def check_link
+    if link && !link.start_with?('http://') && !link.start_with?('https://')
+      self.link = "http://#{link}"
+    end
+  end
+
   class << self
     def upcoming(after = Time.now)
       oldest_first.where arel_table[:happens_at].gteq(after)
