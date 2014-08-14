@@ -16,14 +16,16 @@ body
       ul.title-area
         li.name
           h1
-            a href="#" 
-            | ITEDD
+            a href="/" 
+              | ITEDD
         li.toggle-topbar.menu-icon
           a href="#" 
             span Menu
 
       section.top-bar-section
         ul#menu-header.nav-bar
+          li
+            a href='/' Übersicht 
           li== link_to 'Einbetten', embedded_path
           li== link_to 'FAQ', faq_path
           - if can? :manage, User
@@ -47,8 +49,8 @@ body
         div class=("alert-box round #{name.to_s == 'notice' ? 'success' : 'alert'}") data-alert=""
           = content_tag :div, msg, class:name
           a.close href="#"  &times;
-
-  == yield
+  .content
+    == yield
 
   footer.footer-bottom
     .row
