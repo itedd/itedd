@@ -60,6 +60,9 @@ header {
   text-align: center;
   font-weight: normal;
   color: #5F5C5C;
+  a, a:hover {
+    color: #5F5C5C;
+  }
 }
 
 /*** Misc ***/
@@ -128,10 +131,26 @@ header {
 }
 
 .logo_container {
-  min-height: 45px;
-  min-width: 45px;
+  min-height: 40px;
+  min-width: 40px;
   img {
     min-height: 32px;
     min-width: 32px;
+  }
+}
+
+.description {
+  margin-top: -5px;
+}
+
+.user_group {
+  margin-bottom: 5px;
+
+  p {
+    margin-top: -15px;
+  }
+
+  p.mobile {
+    margin-top: -18px;
   }
 }

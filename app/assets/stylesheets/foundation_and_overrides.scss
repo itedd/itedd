@@ -69,7 +69,7 @@ $font-smoothing: antialiased;
 
 // Media Query Ranges
 // $small-range: (0em, 40em);
- $medium-range: (48.063em, 64em);
+ $medium-range: (44em, 64em);
 // $large-range: (64.063em, 90em);
 // $xlarge-range: (90.063em, 120em);
 // $xxlarge-range: (120.063em);
@@ -1209,7 +1209,7 @@ body {
 }
 
 h2 {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 }
 
 p,li {
@@ -1264,7 +1264,8 @@ select {
 
 .headline-title {
   padding: 0;
-  padding-left: 5px;
+  padding-left: 10px;
+  margin-top: -3px
 }
 
 .no-padding {
@@ -1308,5 +1309,5 @@ select {
 
 .top-bar-section ul li > a {
   /*display: inline-block;*/
-  font-size: 1em;
+  font-size: 0.8em;
 }

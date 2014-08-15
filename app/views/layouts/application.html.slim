@@ -36,7 +36,8 @@ body
             = nav_link "Anmelden", new_user_session_path
 
   header
-    h2.header_text IT Events in Dresden
+    h2.header_text
+      = link_to 'IT Events in Dresden', '/'
 
   - flash.each do |name, msg|
     - next if name.to_s=='notice'
