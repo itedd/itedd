@@ -1,4 +1,4 @@
-.icon-bar.horizontal.two-up.action-bar
+.social-icon-bar.horizontal.two-up.action-bar
   - if can? :destroy, event
     - if event.destroyed?
       = link_to "<i class='fi-eye indicate_deactivation'></i>".html_safe, restore_event_path(event), class: 'item', title: 'Ereignis einblenden', method: :get

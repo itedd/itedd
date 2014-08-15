@@ -34,7 +34,7 @@
 // $row-width: rem-calc(1000);
 // $column-gutter: rem-calc(30);
 // $total-columns: 12;
-
+$bar-hover-color: #fff;
 // We use these to control various global styles
 // $body-bg: #fff;
 // $body-font-color: #222;
@@ -1232,11 +1232,11 @@ select {
   list-style-type: none;
 }
 
-.icon-bar .indicate_deactivation {
+.icon-bar .indicate_deactivation, .social-icon-bar {
   color: rgba(0, 102, 204, 0.4);
 }
 
-.icon-bar {
+.icon-bar, .social-icon-bar {
   font-size: 30px;
   background-color: #fff;
 
@@ -1247,6 +1247,14 @@ select {
 
   i:hover {
     color: rgba(0, 102, 204, 1);
+  }
+}
+
+.social-icon-bar {
+  margin-right: 5px;
+  i {
+    padding-left: 15px;
+    padding-right: 5px;
   }
 }
 
