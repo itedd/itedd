@@ -15,16 +15,13 @@ body
     nav.top-bar data-topbar="true"
       ul.title-area
         li.name
-          h1
-            a href="/" 
-              | ITEDD
         li.toggle-topbar.menu-icon
           a href="#" 
             span Menu
 
       section.top-bar-section
         ul#menu-header.nav-bar
-          = nav_link 'Übersicht', root_path
+          = nav_link 'ITEDD', root_path
           = nav_link 'Einbetten', embedded_path
           = nav_link 'FAQ', faq_path
           - if can? :manage, User
