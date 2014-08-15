@@ -11,11 +11,11 @@
 }
 
 #embedded_calendar_source_textarea, #embedded_list_source_textarea {
-  min-height: 200px;
-  min-width:  300px;
+  min-height: 60px;
+  min-width:  100%;
 }
 
-#embedded_calendar_iframe {
+#embedded_calendar_iframe, #embedded_list_iframe {
   border: 0px;
   overflow: auto;
 }

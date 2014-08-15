@@ -2,11 +2,10 @@
   .column.small-3
     = l(event.happens_at)
   .column.small-9
-    = link_to event.user_group.name, user_group_path(event.user_group)
+    = link_to event.user_group.name, user_group_path(event.user_group), target: '_blank'
 .row
   .column.small-3
     - if event.user_group.logo.present?
-      = link_to image_tag(event.user_group.logo), event.user_group.website
+      = link_to image_tag(event.user_group.logo), event.user_group.website, target:'_blank'
   .column.small-9
-    a href=event.link
-      = event.text
+    = link_to event.text, event.link, target:'_blank'
