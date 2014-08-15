@@ -39,12 +39,12 @@ body
     h2.header_text IT Events in Dresden
 
   - flash.each do |name, msg|
-    - next if name==:notice
+    - next if name.to_s=='notice'
     .row
       .column.large-11.large-centered
         div class=("alert-box round #{name.to_s == 'notice' ? 'success' : 'alert'}") data-alert=""
           = content_tag :div, msg, class:name
-          a.close href="#"  &times;
+          a.close href="#" &times;
   .content
     == yield
 
