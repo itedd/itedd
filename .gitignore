@@ -21,6 +21,7 @@ config/initializers/secret_token.rb
 *.swp
 *.sqlite3
 
+/.env.development
 
 .idea
 config/database.yml
