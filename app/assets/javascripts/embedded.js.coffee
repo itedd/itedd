@@ -30,8 +30,7 @@ update_all= (user_group_id) ->
 get_user_group_id= () ->
   $('select#user_group_').val() || 0
 
-
-$ ->
+@on_page_loaded=() ->
   update_all(0)
 
   $('select#user_group_').change ->
@@ -42,7 +41,6 @@ $ ->
 
   $('#embedded_height').change ->
     update_all( get_user_group_id() )
-
 
   $('textarea.embedded').focus ->
     $(this).select()

@@ -1,31 +1,43 @@
-.row
+.row.first_line
+  .small-12.columns.list_item_header
+    h2 Einstellungen
+.row.first_line
   .small-12.columns
     input#embedded_calendar_url type='hidden' value=embedded_calendar_url
     input#embedded_calendar_source type='hidden' value='<iframe width="$WIDTH" height="$HEIGHT" src="$URL" frameBorder="0"></iframe>'
     input#embedded_list_url type='hidden' value=embedded_embedded_url
     input#embedded_list_source type='hidden' value='<iframe width="$WIDTH" height="$HEIGHT" src="$URL" frameBorder="0"></iframe>'
-
     .input.select.optional
       = collection_select :user_group, user_group_id, UserGroup.approved, :id, :name, include_blank: 'Alle UserGroups'
 
 .row
   .columns.small-offset-5.small-1
+    span Breite
     input#embedded_width type='text' value="400"
   .columns.small-1
+    span Höhe
     input#embedded_height type='text' value="400"
   .columns.small-5
-.row
-  .small-6.columns
-    h2 Vorschau
-  .small-6.columns
-    h2 Quelltext
+
+.row.first_line
+  .small-12.columns.list_item_header
+    h2 Kalender
 .row.embedded_item
-  .small-6.columns
-    iframe.embedded#embedded_calendar_iframe src=embedded_calendar_url
-  .small-6.columns
+  .large-10.columns
+    iframe.embedded#embedded_calendar_iframe
+.row.embedded_item
+  .small-10.columns
     textarea.embedded#embedded_calendar_source_textarea
+
+.row.first_line
+  .small-12.columns.list_item_header
+    h2 Liste
 .row.embedded_item
-  .small-6.columns
-    iframe.embedded#embedded_list_iframe src=embedded_embedded_url
-  .small-6.columns
+  .small-10.columns
+    iframe.embedded#embedded_list_iframe
+.row.embedded_item
+  .small-10.columns
     textarea.embedded#embedded_list_source_textarea
+
+javascript:
+  $(on_page_loaded);
