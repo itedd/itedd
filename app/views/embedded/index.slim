@@ -4,9 +4,10 @@
 .row.first_line
   .small-12.columns
     input#embedded_calendar_url type='hidden' value=embedded_calendar_url
-    input#embedded_calendar_source type='hidden' value='<iframe width="$WIDTH" height="$HEIGHT" src="$URL" frameBorder="0"></iframe>'
+    input#embedded_calendar_source type='hidden' value='<iframe width="$WIDTH" height="$HEIGHT" src="$URL" frameBorder="0" border="0"></iframe>'
     input#embedded_list_url type='hidden' value=embedded_embedded_url
     input#embedded_list_source type='hidden' value='<iframe width="$WIDTH" height="$HEIGHT" src="$URL" frameBorder="0"></iframe>'
+    input#embedded_list_source type='hidden' value='<iframe width="$WIDTH" height="$HEIGHT" src="$URL" frameBorder="0" border="0"></iframe>'
     .input.select.optional
       = collection_select :user_group, user_group_id, UserGroup.approved, :id, :name, include_blank: 'Alle UserGroups'
 
