@@ -75,7 +75,13 @@ Erste Schritte:
 bundle
 cp config/database.yml.example config/database.yml
 # Database.yml an eigenes System anpassen
-rake db:create
-rake db:migrate
+rake db:setup
 rake test
 ```
+
+Twitter Interaktion:
+
+1. Twitter App unter https://dev.twitter.com anlegen
+2. ``cp .env.development.example .env.development``
+3. Alle 4 Keys entsprechend eintragen
+4. ``rake refresh_twitter``
