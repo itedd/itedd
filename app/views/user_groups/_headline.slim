@@ -28,7 +28,7 @@
 
       / UserGroup Website
       - if user_group.website.present?
-        = link_to "<i class='fi-web'></i>".html_safe, user_group.website, target: '_blank', class: 'item', title: 'Webseite'
+        = link_to "<i class='fi-home'></i>".html_safe, user_group.website, target: '_blank', class: 'item', title: 'Webseite'
 
       / Edit UserGroup
       - if can? :update, user_group

@@ -1,6 +1,5 @@
 .row
   .large-12.columns
-    h2 Veranstalter bearbeiten
     = simple_form_for(@user_group, url: user_group_admin_path(@user_group)) do |ugf|
       = ugf.input :name
       = ugf.input :color
@@ -10,4 +9,4 @@
       = ugf.input :twitter_account
       = ugf.input :facebook_page
       = ugf.input :googleplus_page
-      = ugf.button :submit, 'Speichern'
+      = ugf.button :submit, 'Änderungen speichern'

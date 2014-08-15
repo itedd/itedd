@@ -1,6 +1,5 @@
 .row
   .large-12.columns
-    h2 Veranstaltung bearbeiten
     = simple_form_for(@event, url: event_path(@event)) do |f|
       = f.input :id, as: :hidden
       = f.input :text

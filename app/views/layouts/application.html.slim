@@ -24,20 +24,19 @@ body
 
       section.top-bar-section
         ul#menu-header.nav-bar
-          li
-            a href='/' Übersicht 
-          li== link_to 'Einbetten', embedded_path
-          li== link_to 'FAQ', faq_path
+          = nav_link 'Übersicht', root_path
+          = nav_link 'Einbetten', embedded_path
+          = nav_link 'FAQ', faq_path
           - if can? :manage, User
-            li== link_to 'Nutzer', user_admins_path
-          li== link_to 'Veranstalter', user_groups_path
+            = nav_link 'Nutzer', user_admins_path
+          = nav_link 'Veranstalter', user_groups_path
           - if user_signed_in?
-            li== link_to 'Neues Event', new_event_path
-            li== link_to 'Konto', edit_user_registration_path
+            = nav_link 'Neues Event', new_event_path
+            = nav_link 'Konto', edit_user_registration_path
           - if user_signed_in?
-            li== link_to 'Abmelden', destroy_user_session_path, method: "delete"
+            = nav_link 'Abmelden', destroy_user_session_path, method: "delete"
           - else
-            li== link_to "Anmelden", new_user_session_path
+            = nav_link "Anmelden", new_user_session_path
     
   header
     h2.header_text IT Events in Dresden
