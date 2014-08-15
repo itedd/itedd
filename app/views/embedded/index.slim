@@ -18,21 +18,25 @@
     span Höhe
     input#embedded_height type='text' value="400"
   .columns.small-5
+
 .row.first_line
   .small-12.columns.list_item_header
-    h2 Vorschau
+    h2 Kalender
 .row.embedded_item
-  .small-6.columns
+  .large-10.columns
     iframe.embedded#embedded_calendar_iframe
-  .small-6.columns
-    iframe.embedded#embedded_list_iframe
+.row.embedded_item
+  .small-10.columns
+    textarea.embedded#embedded_calendar_source_textarea
+
 .row.first_line
   .small-12.columns.list_item_header
-    h2 Quelltext
+    h2 Liste
 .row.embedded_item
-  .small-6.columns
-    textarea.embedded#embedded_calendar_source_textarea
-  .small-6.columns
+  .small-10.columns
+    iframe.embedded#embedded_list_iframe
+.row.embedded_item
+  .small-10.columns
     textarea.embedded#embedded_list_source_textarea
 
 javascript:
