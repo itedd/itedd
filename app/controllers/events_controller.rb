@@ -1,8 +1,11 @@
 class EventsController < ApplicationController
+  include IcalConcern
+
   before_filter :load_deleted_event, only: :restore
   load_and_authorize_resource only: [:create, :new, :edit, :update, :destroy, :restore]
   skip_before_filter :authenticate_user!, only: [:index]
   respond_to :json, only: :index
+  respond_to :ics, only: :index
 
   def new
   end
@@ -45,6 +48,7 @@ class EventsController < ApplicationController
     @events = @events.limit(params[:limit]) if params[:limit]
     respond_to do |format|
       format.json { render json: events_to_json }
+      format.ics  { render text: events_ical(@events) }
     end
   end
 
