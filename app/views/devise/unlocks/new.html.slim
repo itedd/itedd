@@ -1,9 +1,8 @@
 .row
   .large-12.columns
-    h2 Entsperrhinweise erneut senden
     = simple_form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => { :method => :post }) do |f|
       = f.input :email
-      = f.button :submit, 'Abschicken'
+      = f.button :submit, 'Entsperrhinweise erneut anfordern'
 
 .row
   .large-12.columns

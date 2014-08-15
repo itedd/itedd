@@ -21,6 +21,7 @@ de:
         current_password: 'Aktuelles Passwort'
         approved: 'Aktiviert'
         user_group: 'Veranstalter'
+        happens_at: 'Datum'
 
     hints:
       user:
