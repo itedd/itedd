@@ -12,4 +12,7 @@
         .small-12.columns.list_item_header
           h2= "#{I18n.l(day)}"
       - events.each do |event|
-        = render partial: 'welcomes/event', locals: {event: event}
+        - if is_mobile_device?
+          = render partial: 'welcomes/event_mobile', locals: {event: event}
+        - else
+          = render partial: 'welcomes/event', locals: {event: event}
