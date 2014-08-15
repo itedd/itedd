@@ -4,7 +4,7 @@ html
     meta charset='utf-8'
     meta name='viewport' content='width=device-width, initial-scale=1.0'
 
-    title Itedd
+    title ITEDD - IT-Events in Dresden
     == stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     == stylesheet_link_tag    'application', 'http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Playfair+Display:400italic'
     == javascript_include_tag 'application', 'data-turbolinks-track' => true, 'vendor/modernizr' => true
@@ -16,7 +16,7 @@ body
       ul.title-area
         li.name
         li.toggle-topbar.menu-icon
-          a href="#" 
+          a href="#"
             span Menu
 
       section.top-bar-section
@@ -34,7 +34,7 @@ body
             = nav_link 'Abmelden', destroy_user_session_path, method: "delete"
           - else
             = nav_link "Anmelden", new_user_session_path
-    
+
   header
     h2.header_text IT Events in Dresden
 
