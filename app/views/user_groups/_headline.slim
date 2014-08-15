@@ -8,10 +8,10 @@
       == '&nbsp;'
 
   / UserGroup Name
-  .column.small-5.medium-5.large-3
+  .column.small-5.medium-5.large-8
     h2= link_to user_group.name, user_group_path(user_group)
 
   / Social Icons
-  .column.small-3.medium-3.large-3
-    .icon-bar.horizontal.five-up.option-bar.right
+  .column.small-3.medium-3.large-3.no-padding
+    .icon-bar.horizontal.five-up.option-bar.right.small_icons
       = render partial: 'user_groups/event_options', locals: {user_group: user_group}
