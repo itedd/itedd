@@ -17,22 +17,7 @@
 
 @import 'foundation-icons';
 
-
-.header_text {
-  font-size: 32px;
-  margin-bottom: 0;
-  text-align: center;
-  font-weight: normal;
-  color: #5F5C5C;
-}
-
-.welcome_text {
-  margin-top: 20px;
-  text-align: center;
-  line-height: 1.8em;
-}
-
-/* Top Menu */
+/*** Top Menu ***/
 nav.top-bar {
   box-shadow: 0 1px 6px rgba(34, 25, 25, 0.6);
   text-align:center;
@@ -56,7 +41,6 @@ section.top-bar-section {
 .nav-bar > li, .title-area > li {
   border: 0;
   padding: 0;
-  /*font-family: 'Open Sans Condensed',sans-serif;*/
   letter-spacing: 1px;
   box-shadow: none;
   h1 {
@@ -66,19 +50,39 @@ section.top-bar-section {
 
 .nav-bar > li > a:first-child {
   font-size: 14px;
-  /*text-transform: uppercase;*/
   padding: 0 25px
 }
 
-/* Header area */
 
+/*** Misc ***/
+.content {
+  margin-top: 20px;
+}
+
+.welcome_text {
+  margin-top: 20px;
+  text-align: center;
+  line-height: 1.8em;
+}
+
+
+/*** Header area ***/
 header {
   background: #f3f3f3;
   clear: both;
   padding: 20px 0 20px;
-  border-bottom-style: ridge;
+  /*border-bottom-style: ridge;*/
 }
 
+.header_text {
+  font-size: 32px;
+  margin-bottom: 0;
+  text-align: center;
+  font-weight: normal;
+  color: #5F5C5C;
+}
+
+/*** Event list ***/
 .event {
   padding-top: 10px;
 }
@@ -98,9 +102,6 @@ header {
   font-style: bold;
 }
 
-.content {
-  margin-top: 15px;
-}
 
 .social_item_bar .indicate_deactivation {
   color: rgba(0, 102, 204, 0.4);
@@ -134,6 +135,8 @@ header {
   padding-bottom: 15px;
 }
 
+
+/*** Footer ***/
 .footer-bottom {
   background: #fafafa;
   overflow: visible;
@@ -153,6 +156,7 @@ header {
     font-size: 85%;
   }
 }
+
 
 /*
 .embedded_container {
