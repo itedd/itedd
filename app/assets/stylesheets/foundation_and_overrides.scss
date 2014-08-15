@@ -1212,7 +1212,7 @@ h2 {
   font-size: 1.4rem;
 }
 
-p {
+p,li {
   font-size: 0.9rem;
 }
 
@@ -1231,4 +1231,21 @@ select {
   font-size: 0.9rem;
   list-style-type: none;
 }
+
+.list_item_header {
+  background: #f3f3f3;
+  text-align: center;
+  h2 {
+    margin: 2px;
+    color: #5F5C5C;
+    letter-spacing: 1px;
+  }
+  h4 {
+    margin: 5px;
+    color: #5F5C5C;
+    letter-spacing: 1px;
+    font-size: 1.3em;
+  }
+}
+
 
