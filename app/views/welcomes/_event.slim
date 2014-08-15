@@ -1,7 +1,7 @@
 .event
   = render partial: 'user_groups/headline', locals: {user_group: event.user_group}
   .row
-    .column.large-8.large-offset-1
+    .column.large-9
       p.first_line= link_to event.text, event.link, target: '_blank'
     .column.large-3.no-padding
       = render partial: 'events/event_actions', locals: {event: event}
