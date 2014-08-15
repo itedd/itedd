@@ -1,0 +1,13 @@
+.event
+  = render partial: 'user_groups/headline_mobile', locals: {user_group: event.user_group}
+  .row
+    .column.small-11
+      p.first_line= link_to event.text, event.link, target: '_blank'
+    .column.small-1
+      .row
+        = render partial: 'events/event_actions_mobile', locals: {event: event}
+  .row
+    .column.small-12
+      .icon-bar.horizontal.four-up.mobile.option-bar
+        = render partial: 'user_groups/event_options', locals: {user_group: event.user_group}
+

@@ -1,0 +1,8 @@
+.icon-bar.vertical.two-up.mobile.action-bar
+  - if can? :destroy, event
+    - if event.destroyed?
+      = link_to "<i class='fi-eye indicate_deactivation'></i>".html_safe, restore_event_path(event), class: 'item no-padding', title: 'Ereignis einblenden', method: :get 
+    - else
+      = link_to "<i class='fi-eye'></i>".html_safe, event_path(event), class: 'item no-padding', title: 'Ereignis verstecken', method: :delete
+  - if can? :update, event
+    = link_to "<i class='fi-pencil'></i>".html_safe, edit_event_path(event), class: 'item no-padding', title: 'Ereignis bearbeiten'

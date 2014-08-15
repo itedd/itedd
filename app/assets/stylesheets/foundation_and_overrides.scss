@@ -1205,7 +1205,7 @@ html {
 
 body {
  font-size: 0.9rem;
- color: #5F5C5C;
+ /*color: #5F5C5C;*/
 }
 
 h2 {
@@ -1232,6 +1232,56 @@ select {
   list-style-type: none;
 }
 
+.icon-bar .indicate_deactivation {
+  color: rgba(0, 102, 204, 0.4);
+}
+
+.icon-bar {
+  font-size: 30px;
+  background-color: #fff;
+
+  i {
+    padding: 5px;
+    color: rgba(0, 102, 204, 0.75);
+  }
+
+  i:hover {
+    color: rgba(0, 102, 204, 1);
+  }
+}
+
+.headline-icon {
+  padding-right: 0;
+}
+
+.headline-title {
+  padding: 0;
+}
+
+.no-padding {
+  padding: 0px;
+}
+
+.mobile.action-bar i {
+  font-size: 20px;
+}
+
+.option-bar a {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-bottom: 5px;
+}
+
+.mobile.option-bar a {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-bottom: 5px;
+}
+
+.action-bar a.item {
+  padding: 0;
+}
+
 .list_item_header {
   background: #f3f3f3;
   text-align: center;
@@ -1247,5 +1297,3 @@ select {
     font-size: 1.3em;
   }
 }
-
-

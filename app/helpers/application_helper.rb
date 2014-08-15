@@ -30,4 +30,8 @@ module ApplicationHelper
       link_to user_group.name, user_group_path(user_group)
     end
   end
+
+  def is_mobile_device?
+    !!(request.user_agent =~ /mobile/i)
+  end
 end

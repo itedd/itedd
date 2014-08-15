@@ -1,0 +1,20 @@
+/ Twitter
+- if user_group.twitter_account.present?
+  = link_to "<i class='fi-social-twitter'></i>".html_safe, twitter_link(user_group), target: '_blank', class: 'item', title: 'Twitter'
+
+/ Facebook
+- if user_group.facebook_page.present?
+  = link_to "<i class='fi-social-facebook'></i>".html_safe, user_group.facebook_page, target: '_blank', class: 'item', title: 'Facebook'
+
+/ Google+
+- if user_group.googleplus_page.present?
+  = link_to "<i class='fi-social-google-plus'></i>".html_safe, user_group.googleplus_page, target: '_blank', class: 'item', title: 'Google+'
+
+/ UserGroup Website
+- if user_group.website.present?
+  = link_to "<i class='fi-home'></i>".html_safe, user_group.website, target: '_blank', class: 'item', title: 'Webseite'
+
+/ Edit UserGroup
+- if !is_mobile_device? and can? :update, user_group
+  = link_to "<i class='fi-pencil'></i>".html_safe, edit_user_group_path(user_group), class: 'item', title: 'Veranstalter bearbeiten'
+
