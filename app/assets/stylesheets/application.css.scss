@@ -53,25 +53,11 @@ section.top-bar-section {
   padding: 0 25px
 }
 
-
-/*** Misc ***/
-.content {
-  margin-top: 20px;
-}
-
-.welcome_text {
-  margin-top: 20px;
-  text-align: center;
-  line-height: 1.8em;
-}
-
-
 /*** Header area ***/
 header {
   background: #f3f3f3;
   clear: both;
   padding: 20px 0 20px;
-  /*border-bottom-style: ridge;*/
 }
 
 .header_text {
@@ -80,6 +66,19 @@ header {
   text-align: center;
   font-weight: normal;
   color: #5F5C5C;
+}
+
+/*** Misc ***/
+.content {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  box-shadow: 1px 0 6px rgba(34, 25, 25, 0.6);
+}
+
+.welcome_text {
+  margin-top: 20px;
+  text-align: center;
+  line-height: 1.8em;
 }
 
 /*** Event list ***/
@@ -143,7 +142,7 @@ header {
   height: 32px;
   line-height: 32px;
   padding-left: 5px;
-  margin-top: 50px;
+  margin-top: 4px;
  
   ul, p{
     list-style: none;
@@ -152,23 +151,7 @@ header {
   }
  
   a {
+    margin-left: 3px;
     color: #5F5C5C;
-    font-size: 85%;
   }
 }
-
-
-/*
-.embedded_container {
-  padding: 0px;
-  width: 100%;
-}
-
-.destroyed {
-  color: darkgrey;
-
-  a {
-    color: darkgray;
-  }
-}
-*/
