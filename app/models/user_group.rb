@@ -18,7 +18,8 @@ class UserGroup < ActiveRecord::Base
 
   scope :approved, -> { joins(:users).where(users:{approved:true}).uniq }
   scope :ordered, -> { order('name ASC') }
-  scope :with_twitter, -> { where('twitter_account is not null') }
+  scope :with_twitter, -> { where('twitter_account is not null and twitter_account != ?', '') }
+  scope :with_ical, -> { where('ical_url is not null and ical_url != ?', '') }
 
   ensure_link :website
 

@@ -8,14 +8,7 @@
       #nested_user_group
         h4 User Group
         = f.simple_fields_for :user_group do |ugf|
-          = ugf.input :name
-          = ugf.input :color
-          = ugf.input :logo
-          = ugf.input :website
-          = ugf.input :description
-          = ugf.input :twitter_account
-          = ugf.input :facebook_page
-          = ugf.input :googleplus_page
+          = render 'user_groups/form', f: ugf
       = f.button :submit, 'Registrieren'
 
 .row
