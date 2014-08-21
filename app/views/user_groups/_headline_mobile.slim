@@ -1,0 +1,17 @@
+.row.headline
+
+  / Display Logo
+  .column.small-2.headline-icon
+    - if user_group.logo.present?
+      = link_to image_tag(user_group.logo), user_group_path(user_group)
+    - else
+      == '&nbsp;'
+
+  / UserGroup Name
+  .column.small-10.headline-title
+    h2= link_to user_group.name, user_group_path(user_group)
+
+  / Social Icons
+  /.column.small-3.medium-3.large-3
+    /.icon-bar.horizontal.five-up.social_item_bar.right
+      /= render partial: 'user_groups/event_options', locals: {user_group: user_group}

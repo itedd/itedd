@@ -23,4 +23,5 @@ class ApplicationController < ActionController::Base
       u.permit(:email, :password, :password_confirmation, :user_group_id, user_group_attributes:[:name, :color, :logo, :website, :description, :facebook_page, :googleplus_page, :twitter_account, :ical_url])
     end
   end
+
 end

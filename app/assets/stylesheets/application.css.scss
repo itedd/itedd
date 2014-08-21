@@ -40,17 +40,11 @@ section.top-bar-section {
 
 .nav-bar > li, .title-area > li {
   border: 0;
-  padding: 0;
   letter-spacing: 1px;
   box-shadow: none;
   h1 {
     color: #5F5C5C;
   }
-}
-
-.nav-bar > li > a:first-child {
-  font-size: 14px;
-  padding: 0 25px
 }
 
 /*** Header area ***/
@@ -66,6 +60,9 @@ header {
   text-align: center;
   font-weight: normal;
   color: #5F5C5C;
+  a, a:hover {
+    color: #5F5C5C;
+  }
 }
 
 /*** Misc ***/
@@ -91,30 +88,17 @@ header {
   font-style: bold;
 }
 
-
-.social_item_bar .indicate_deactivation {
-  color: rgba(0, 102, 204, 0.4);
-}
-
-.social_item_bar {
-  font-size: 30px;
-
-  i {
-    padding: 5px;
-    color: rgba(0, 102, 204, 0.75);
-  }
-
-  i:hover {
-    color: rgba(0, 102, 204, 1);
-  }
+.icon-bar.vertical {
+  margin-top: -5px;
 }
 
 .small_icons {
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .first_line {
   padding-top: 7px;
+  margin-bottom: 5px;
   a {
     color: #5F5C5C;
   }
@@ -143,5 +127,30 @@ header {
   a {
     margin-left: 3px;
     color: #5F5C5C;
+  }
+}
+
+.logo_container {
+  min-height: 40px;
+  min-width: 40px;
+  img {
+    min-height: 32px;
+    min-width: 32px;
+  }
+}
+
+.description {
+  margin-top: -5px;
+}
+
+.user_group {
+  margin-bottom: 5px;
+
+  p {
+    margin-top: -15px;
+  }
+
+  p.mobile {
+    margin-top: -18px;
   }
 }

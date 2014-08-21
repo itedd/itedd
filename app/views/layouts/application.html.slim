@@ -14,7 +14,7 @@ body
   .sticky
     nav.top-bar data-topbar="true"
       ul.title-area
-        li.name
+        li.name.hide-for-medium-up
         li.toggle-topbar.menu-icon
           a href="#"
             span Menu
@@ -36,21 +36,22 @@ body
             = nav_link "Anmelden", new_user_session_path
 
   header
-    h2.header_text IT Events in Dresden
+    h2.header_text
+      = link_to 'IT Events in Dresden', '/'
 
   - flash.each do |name, msg|
-    - next if name==:notice
+    - next if name.to_s=='notice'
     .row
       .column.large-11.large-centered
         div class=("alert-box round #{name.to_s == 'notice' ? 'success' : 'alert'}") data-alert=""
           = content_tag :div, msg, class:name
-          a.close href="#"  &times;
+          a.close href="#" &times;
   .content
     == yield
 
   footer.footer-bottom
     .row
       .large-6.columns.small-8
-        p &copy; Ruby Usergroup Dresden 2014
+        p &copy; Ruby Dresden 2014
       .large-6.columns.small-2
         = link_to 'Impressum', impressum_path, class: 'right'

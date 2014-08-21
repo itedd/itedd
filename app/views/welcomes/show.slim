@@ -1,7 +1,7 @@
 .row
   .large-12.large-centered.columns
     p.welcome_text
-      | Du willst interessante IT-Veranstaltungen in der Region finden, aber kannst die Angebote nicht übersehen? Schau Dich um.
+      | Du willst interessante IT-Veranstaltungen in der Region finden, aber kannst die Angebote nicht übersehen? -> Schau Dich um.
       br/
       | Du organisierst selbst IT-Veranstaltungen und möchtest Termine finden, die nicht mit anderen Veranstaltungen kollidieren? -> 
       = link_to 'Registriere Dich', new_user_session_path
@@ -12,4 +12,7 @@
         .small-12.columns.list_item_header
           h2= "#{I18n.l(day)}"
       - events.each do |event|
-        = render partial: 'welcomes/event', locals: {event: event}
+        - if is_mobile_device?
+          = render partial: 'welcomes/event_mobile', locals: {event: event}
+        - else
+          = render partial: 'welcomes/event', locals: {event: event}
