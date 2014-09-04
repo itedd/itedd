@@ -26,7 +26,10 @@ body
           = nav_link 'FAQ', faq_path
           - if can? :manage, User
             = nav_link 'Nutzer', user_admins_path
-          = nav_link 'Veranstalter', user_groups_path
+          - if can? :manage, UserGroup
+            = nav_link 'Veranstalter', user_group_admins_path
+          - else
+            = nav_link 'Veranstalter', user_groups_path
           - if user_signed_in?
             = nav_link 'Neues Event', new_event_path
             = nav_link 'Konto', edit_user_registration_path
