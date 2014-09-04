@@ -12,6 +12,7 @@
           th
             span Admin
           th
+          th
       tbody
         - @users.each do |user|
           tr
@@ -42,3 +43,6 @@
             td
               - if current_user!=user && can?(:manage, user)
                 = link_to "<i class='fi-pencil'/>".html_safe, edit_user_admin_path(user)
+            td
+              - if current_user!=user && can?(:manage, user)
+                = link_to "<i class='fi-trash'/>".html_safe, user_admin_path(user), data: { confirm: "Soll der Nutzer \"#{user.email}\" gelöscht werden?" }, method: :delete

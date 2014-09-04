@@ -10,6 +10,7 @@
           th
             span Aktiv
           th
+          th
       tbody
         - @user_groups.each do |ug|
           tr
@@ -23,3 +24,6 @@
             td
               - if can?(:manage, ug)
                 = link_to "<i class='fi-pencil'/>".html_safe, edit_user_group_admin_path(ug)
+            td
+              - if can?(:manage, ug)
+                = link_to "<i class='fi-trash'/>".html_safe, user_group_admin_path(ug), data: { confirm: "Soll der Veranstalter \"#{ug.name}\" gelöscht werden?" }, method: :delete

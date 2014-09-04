@@ -17,6 +17,12 @@ class UserGroupAdminsController < ApplicationController
     end
   end
 
+  def destroy
+    authorize! :manage, UserGroup
+    @user_group.destroy!
+    redirect_to :user_group_admins
+  end
+
   private
 
   def load_and_authorize_user_group

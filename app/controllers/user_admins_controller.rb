@@ -32,6 +32,12 @@ class UserAdminsController < ApplicationController
     redirect_to :user_admins
   end
 
+  def destroy
+    authorize! :manage, User
+    @user.destroy!
+    redirect_to :user_admins
+  end
+
   private
 
   def load_and_authorize_user
