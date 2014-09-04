@@ -16,3 +16,6 @@
           = render partial: 'welcomes/event_mobile', locals: {event: event}
         - else
           = render partial: 'welcomes/event', locals: {event: event}
+.row
+  .large-3.large-offset-9.large-right.columns
+    = link_to 'Veranstaltungen als iCal', events_path(format: :ics), class: 'right'
