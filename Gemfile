@@ -48,6 +48,7 @@ end
 group :test do
   gem 'shoulda'
   gem 'minitest-reporters'
+  gem 'timecop'
 end
 
 group :production do

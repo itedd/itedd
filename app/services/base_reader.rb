@@ -11,7 +11,7 @@ class BaseReader
         link: tweet_url,
         user_group: user_group,
         created_at: tweet_time
-                 })
+      })
     end
   end
 
