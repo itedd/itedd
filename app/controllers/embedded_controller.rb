@@ -1,6 +1,12 @@
 class EmbeddedController < ApplicationController
   skip_before_filter :authenticate_user!, only: [:index, :show, :calendar]
 
+  before_filter :allow_iframe_requests
+
+  def allow_iframe_requests
+    response.header.delete('X-Frame-Options')
+  end
+
   def index
     render layout: 'application'
   end
