@@ -6,6 +6,6 @@
 .row
   .column.small-3
     - if event.user_group.logo.present?
-      = link_to image_tag(event.user_group.logo), event.user_group.website, target:'_blank'
+      = link_to image_tag(event.user_group.logo, size:40), event.user_group.website, target:'_blank'
   .column.small-9
     = link_to event.text, event.link, target:'_blank'
