@@ -33,4 +33,10 @@ Itedd::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+
+  config.after_initialize do
+    t = Time.local(2014, 11, 10, 10, 5, 0)
+    Timecop.freeze(t)
+  end
 end
+
