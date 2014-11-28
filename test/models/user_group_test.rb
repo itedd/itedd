@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UserGroupTest < ActiveSupport::TestCase
   should validate_presence_of(:name)
-  should ensure_length_of(:name).is_at_least(5).is_at_most(100)
+  should ensure_length_of(:name).is_at_least(4).is_at_most(100)
 
   should have_many :events
 

@@ -1,7 +1,7 @@
 class UserGroup < ActiveRecord::Base
   include Ensures
 
-  validates :name, presence: true, length: {minimum: 5, maximum: 100}
+  validates :name, presence: true, length: {minimum: 4, maximum: 100}
   validates :color, presence: true, format: { with: %r{\A(#[0-9A-Fa-f]{6})\z}}
   validates :logo, length: {maximum: 200}
   validates :website, length: {maximum: 200}
