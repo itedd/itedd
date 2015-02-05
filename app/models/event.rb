@@ -29,6 +29,9 @@ class Event < ActiveRecord::Base
     def finished(since = Time.now)
       newest_first.where arel_table[:happens_at].lt(since)
     end
+    def since_beginning_of_month(start = Time.now)
+      oldest_first.where arel_table[:happens_at].gteq(start.beginning_of_month)
+    end
 
     def for_user_group(user_group_id)
       if user_group_id.is_a? UserGroup

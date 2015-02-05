@@ -44,7 +44,7 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.upcoming.approved.for_user_group(params[:user_group_id])
+    @events = Event.since_beginning_of_month.approved.for_user_group(params[:user_group_id])
     @events = @events.limit(params[:limit]) if params[:limit]
     respond_to do |format|
       format.json { render json: events_to_json }
