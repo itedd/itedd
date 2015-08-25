@@ -10,51 +10,51 @@ html
     == javascript_include_tag 'application', 'data-turbolinks-track' => true, 'vendor/modernizr' => true
     == csrf_meta_tags
 
-body
-  .sticky
-    nav.top-bar data-topbar="true"
-      ul.title-area
-        li.name.hide-for-medium-up
-        li.toggle-topbar.menu-icon
-          a href="#"
-            span Menu
+  body
+    .sticky
+      nav.top-bar data-topbar="true"
+        ul.title-area
+          li.name.hide-for-medium-up
+          li.toggle-topbar.menu-icon
+            a href="#"
+              span Menu
 
-      section.top-bar-section
-        ul#menu-header.nav-bar
-          = nav_link 'ITEDD', root_path
-          = nav_link 'Einbetten', embedded_path
-          = nav_link 'FAQ', faq_path
-          - if can? :manage, User
-            = nav_link 'Nutzer', user_admins_path
-          - if can? :manage, UserGroup
-            = nav_link 'Veranstalter', user_group_admins_path
-          - else
-            = nav_link 'Veranstalter', user_groups_path
-          - if user_signed_in?
-            = nav_link 'Neues Event', new_event_path
-            = nav_link 'Konto', edit_user_registration_path
-          - if user_signed_in?
-            = nav_link 'Abmelden', destroy_user_session_path, method: "delete"
-          - else
-            = nav_link "Anmelden", new_user_session_path
+        section.top-bar-section
+          ul#menu-header.nav-bar
+            = nav_link 'ITEDD', root_path
+            = nav_link 'Einbetten', embedded_path
+            = nav_link 'FAQ', faq_path
+            - if can? :manage, User
+              = nav_link 'Nutzer', user_admins_path
+            - if can? :manage, UserGroup
+              = nav_link 'Veranstalter', user_group_admins_path
+            - else
+              = nav_link 'Veranstalter', user_groups_path
+            - if user_signed_in?
+              = nav_link 'Neues Event', new_event_path
+              = nav_link 'Konto', edit_user_registration_path
+            - if user_signed_in?
+              = nav_link 'Abmelden', destroy_user_session_path, method: "delete"
+            - else
+              = nav_link "Anmelden", new_user_session_path
 
-  header
-    h2.header_text
-      = link_to 'IT Events in Dresden', '/'
+    header
+      h2.header_text
+        = link_to 'IT Events in Dresden', '/'
 
-  - flash.each do |name, msg|
-    - next if name.to_s=='notice'
-    .row
-      .column.large-11.large-centered
-        div class=("alert-box round #{name.to_s == 'notice' ? 'success' : 'alert'}") data-alert=""
-          = content_tag :div, msg, class:name
-          a.close href="#" &times;
-  .content
-    == yield
+    - flash.each do |name, msg|
+      - next if name.to_s=='notice'
+      .row
+        .column.large-11.large-centered
+          div class=("alert-box round #{name.to_s == 'notice' ? 'success' : 'alert'}") data-alert=""
+            = content_tag :div, msg, class:name
+            a.close href="#" &times;
+    .content
+      == yield
 
-  footer.footer-bottom
-    .row
-      .large-6.columns.small-8
-        p &copy; Ruby Dresden 2014
-      .large-6.columns.small-2
-        = link_to 'Impressum', impressum_path, class: 'right'
+    footer.footer-bottom
+      .row
+        .large-6.columns.small-8
+          p &copy; Ruby Dresden 2014
+        .large-6.columns.small-2
+          = link_to 'Impressum', impressum_path, class: 'right'
