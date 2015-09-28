@@ -6,6 +6,9 @@ update_code= (item, user_group_id) ->
   if $("#embedded_#{item}_url").length>0 && $("#embedded_#{item}_iframe").length>0
     final_url = $("#embedded_#{item}_url").val()+'?user_group_id='+user_group_id
 
+    if window.location.port && final_url.indexOf(window.location.host) == -1
+        final_url = final_url.replace "//#{window.location.hostname}/", "//#{window.location.host}/"
+
     width = $("#embedded_width").val()
     height = $("#embedded_height").val()
 
