@@ -136,36 +136,6 @@ GEM
     rails-i18n (4.0.2)
       i18n (~> 0.6)
       rails (>= 4.0)
-      rails (>= 4.0)
-      rails (>= 4.0)
-      rails (>= 4.0)
-      rails (>= 4.0)
-      rails (>= 4.0)
-      rails (>= 4.0)
-      rails (>= 4.0)
-      rails (>= 4.0)
-      rails (>= 4.0)
-      rails (>= 4.0)
-      rails (>= 4.0)
-      rails (>= 4.0)
-      rails (>= 4.0)
-      rails (>= 4.0)
-      rails (>= 4.0)
-      rails (>= 4.0)
-      rails (>= 4.0)
-      rails (>= 4.0)
-      rails (>= 4.0)
-      rails (>= 4.0)
-      rails (>= 4.0)
-      rails (>= 4.0)
-      rails (>= 4.0)
-      rails (>= 4.0)
-      rails (>= 4.0)
-      rails (>= 4.0)
-      rails (>= 4.0)
-      rails (>= 4.0)
-      rails (>= 4.0)
-      rails (>= 4.0)
     rails_12factor (0.0.2)
       rails_serve_static_assets
       rails_stdout_logging
@@ -280,3 +250,6 @@ DEPENDENCIES
   turbolinks
   twitter (~> 5.0.0.rc.1)
   uglifier (>= 1.3.0)
+
+BUNDLED WITH
+   1.10.6
