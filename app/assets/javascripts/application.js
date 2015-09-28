@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require foundation
 //= require turbolinks
+//= require jquery.eventCalendar.min.js
+//= require jquery.timeago.js
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
