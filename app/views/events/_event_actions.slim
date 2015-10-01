@@ -1,8 +1,11 @@
-.social-icon-bar.horizontal.five-up.action-bar.option-bar.right.small_icons
+.social-icon-bar.horizontal.five-up.action-bar.option-bar.right.small_icons.show-only-for-medium-up
   - if can? :destroy, event
     - if event.destroyed?
-      = link_to "<i class='fi-eye indicate_deactivation'></i>".html_safe, restore_event_path(event), class: 'item', title: 'Ereignis einblenden', method: :get
+      = link_to restore_event_path(event), class: 'item', title: 'Ereignis einblenden', method: :get do
+        i.fi-eye.indicate_deactivation
     - else
-      = link_to "<i class='fi-eye'></i>".html_safe, event_path(event), class: 'item', title: 'Ereignis verstecken', method: :delete
+      = link_to event_path(event), class: 'item', title: 'Ereignis verstecken', method: :delete do
+        i.fi-eye
   - if can? :update, event
-    = link_to "<i class='fi-pencil'></i>".html_safe, edit_event_path(event), class: 'item', title: 'Ereignis bearbeiten'
+    = link_to edit_event_path(event), class: 'item', title: 'Ereignis bearbeiten' do
+      i.fi-pencil

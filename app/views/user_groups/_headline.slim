@@ -1,17 +1,18 @@
-.row.headline
+.row.event
 
   / Display Logo
-  .column.small-1.logo_container
+  .column.small-2.large-1.medium-1.logo_container
     - if user_group.logo.present?
-      = link_to image_tag(user_group.logo, size:40), user_group_path(user_group), class: 'logo-image'
+      = link_to image_tag(user_group.logo, size:40), user_group_path(user_group), class: 'logo'
     - else
       == '&nbsp;'
 
   / UserGroup Name
-  .column.small-6.medium-6.large-8
+  .column.small-10.medium-6.large-8.event-headline
     h2= link_to user_group.name, user_group_path(user_group)
 
+
   / Social Icons
-  .column.small-5.medium-5.large-3.no-padding
+  .column.medium-5.large-3.no-padding.show-for-medium-up
     .social-icon-bar.horizontal.five-up.option-bar.right.small_icons
       = render partial: 'user_groups/event_options', locals: {user_group: user_group}

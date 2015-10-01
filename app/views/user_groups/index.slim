@@ -1,15 +1,6 @@
 - @user_groups.each do |ug|
   .user_group
-    - if is_mobile_device?
-      = render partial: 'user_groups/headline_mobile', locals: {user_group: ug}
-    - else
-      = render partial: 'user_groups/headline', locals: {user_group: ug}
+    = render partial: 'user_groups/headline', locals: {user_group: ug}
     .row
-      - if is_mobile_device?
-        .column.small-9.small-offset-2
-          p.mobile
-            = ug.description
-      - else
-        .column.small-9.small-offset-1
-          p
-            = ug.description
+      .column.small-10.small-offset-2
+        p= ug.description

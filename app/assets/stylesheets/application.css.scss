@@ -83,7 +83,7 @@ header {
   padding-top: 10px;
 }
 
-.headline a{
+.event-headline a{
   color: #504E4E;
   font-style: bold;
 }
@@ -117,16 +117,23 @@ header {
   line-height: 32px;
   padding-left: 5px;
   margin-top: 4px;
- 
+
   ul, p{
     list-style: none;
     color: #5F5C5C;
     margin: 5px;
   }
- 
+
   a {
     margin-left: 3px;
     color: #5F5C5C;
+  }
+}
+
+.logo {
+  img {
+    max-height: 40px;
+    max-width: 40px;
   }
 }
 
