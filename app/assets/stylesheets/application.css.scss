@@ -83,9 +83,11 @@ header {
   padding-top: 10px;
 }
 
-.event-headline a {
-  color: #504E4E;
-  font-style: bold;
+.event-headline {
+  a {
+    color: #504E4E;
+    font-style: bold;
+  }
 }
 
 .icon-bar.vertical {
@@ -130,20 +132,19 @@ header {
   }
 }
 
-.logo {
+a.logo {
+  position: relative;
+  margin-top: 30px;
   img {
     max-height: 40px;
     max-width: 40px;
+    min-width: 32px;
   }
 }
 
-.logo_container {
-  min-height: 40px;
-  min-width: 40px;
-  img {
-    min-height: 32px;
-    min-width: 32px;
-  }
+.logo-container {
+  line-height: 1.4;
+  padding-top: 10px !important;
 }
 
 .description {
