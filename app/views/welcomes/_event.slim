@@ -1,8 +1,22 @@
-= render partial: 'user_groups/headline', locals: {user_group: event.user_group}
+.row.event
 
-.row
-  .column.large-9.large-offset-1.medium-7.medium-offset-1.small-10.small-offset-2
-    p.first_line= link_to event.text, event.link, target: '_blank'
+  / Display Logo
+  .column.small-2.large-1.medium-1.logo_container
+    - if event.user_group.logo.present?
+      = link_to image_tag(event.user_group.logo, size:40), user_group_path(event.user_group), class: 'logo'
+    - else
+      == '&nbsp;'
+
+  / UserGroup Name
+  .column.small-10.medium-6.large-8.event-headline
+    h2= link_to event.user_group.name, user_group_path(event.user_group)
+    p= link_to event.text, event.link, target: '_blank'
+
+
+  / Social Icons
+  .column.medium-5.large-3.no-padding.show-for-medium-up
+    .social-icon-bar.horizontal.five-up.option-bar.right.small_icons
+      = render partial: 'user_groups/event_options', locals: {user_group: event.user_group}
 
   .column.large-2.medium-4.no-padding.show-for-medium-up
     = render partial: 'events/event_actions', locals: {event: event}
