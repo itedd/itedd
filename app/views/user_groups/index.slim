@@ -1,6 +1,17 @@
 - @user_groups.each do |ug|
-  .user_group
-    = render partial: 'user_groups/headline', locals: {user_group: ug}
-    .row
-      .column.small-10.small-offset-2
-        p= ug.description
+  .row.event.user_group
+    / Display Logo
+    .column.small-2.large-1.medium-1.logo-container
+      - if ug.logo.present?
+        = link_to image_tag(ug.logo, size:40), user_group_path(ug), class: 'logo'
+      - else
+        == '&nbsp;'
+
+    / UserGroup Name
+    .column.small-10.medium-5.large-8.event-headline
+      h2= link_to ug.name, user_group_path(ug)
+      p= ug.description
+
+    .column.medium-5.large-3.no-padding.show-for-medium-up
+      .social-icon-bar.horizontal.five-up.option-bar.right.small_icons
+        = render partial: 'user_groups/event_options', locals: {user_group: ug }

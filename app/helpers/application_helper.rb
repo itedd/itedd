@@ -30,4 +30,8 @@ module ApplicationHelper
       link_to user_group.name, user_group_path(user_group)
     end
   end
+
+  def copyright_notice
+    "&copy; Ruby Dresden #{Date.today.year}".html_safe
+  end
 end
