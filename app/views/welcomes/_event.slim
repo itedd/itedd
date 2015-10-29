@@ -10,7 +10,7 @@
   / UserGroup Name
   .column.small-10.medium-6.large-8.event-headline
     h2= link_to event.user_group.name, user_group_path(event.user_group)
-    p= link_to event.text, event.link, target: '_blank'
+    p.description= link_to event.text, event.link, target: '_blank'
 
 
   / Social Icons
