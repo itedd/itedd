@@ -3,6 +3,11 @@
   = link_to twitter_link(user_group), target: '_blank', class: 'item', title: 'Twitter' do
     i.fi-social-twitter
 
+/ Meetup
+- if user_group.meetup_url.present?
+  = link_to user_group.meetup_url, target: '_blank', class: 'item', title: 'Meetup' do
+    i.fi-ticket
+
 / Facebook
 - if user_group.facebook_page.present?
   = link_to user_group.facebook_page, target: '_blank', class: 'item', title: 'Facebook' do

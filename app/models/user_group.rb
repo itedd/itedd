@@ -20,6 +20,7 @@ class UserGroup < ActiveRecord::Base
   scope :ordered, -> { order('name ASC') }
   scope :with_twitter, -> { where('twitter_account is not null and twitter_account != ?', '') }
   scope :with_ical, -> { where('ical_url is not null and ical_url != ?', '') }
+  scope :with_meetup, -> { where('meetup_url is not null and meetup_url != ?', '') }
 
   ensure_link :website
 
