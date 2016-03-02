@@ -1232,11 +1232,11 @@ select {
   list-style-type: none;
 }
 
-.icon-bar .indicate_deactivation, .social-icon-bar {
+.icon-bar .indicate_deactivation, .event-icon-bar {
   color: rgba(0, 102, 204, 0.4);
 }
 
-.icon-bar, .social-icon-bar {
+.icon-bar, .event-icon-bar {
   font-size: 30px;
   background-color: #fff;
 
@@ -1250,7 +1250,7 @@ select {
   }
 }
 
-.social-icon-bar {
+.event-icon-bar {
   margin-right: 5px;
   i {
     padding-left: 15px;
