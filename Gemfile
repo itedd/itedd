@@ -76,7 +76,7 @@ gem 'twitter', '~> 5.0.0.rc.1'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
-ruby "2.1.7"
+ruby '2.1.7'
 
-gem "mail"
-gem "postmark"
+gem 'mail'
+gem 'sendgrid-ruby'

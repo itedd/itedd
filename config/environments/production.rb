@@ -80,12 +80,13 @@ Itedd::Application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-      :port           => '25',
-      :address        => ENV['POSTMARK_SMTP_SERVER'],
-      :user_name      => ENV['POSTMARK_API_KEY'],
-      :password       => ENV['POSTMARK_API_KEY'],
-      :domain         => 'rugd-itedd.heroku.com',
-      :authentication => :plain,
+    :port => 587,
+    :address => ENV['SENDGRID_SMTP_SERVER'],
+    :user_name => ENV['SENDGRID_USERNAME'],
+    :password => ENV['SENDGRID_PASSWORD'],
+    :domain => 'rugd-itedd.heroku.com',
+    :authentication => :plain,
+    :enable_starttls_auto => true
   }
   config.action_mailer.default_url_options = { :host => 'itedd.de' }
 
