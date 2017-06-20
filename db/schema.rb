@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20140821210745) do
     t.string "facebook_page",   limit: 200
     t.string "googleplus_page", limit: 200
     t.string "ical_url"
+    t.string "meetup_url"
   end
 
   create_table "users", force: true do |t|

@@ -6,8 +6,9 @@
       = ugf.input :logo
       = ugf.input :website
       = ugf.input :description
-      = ugf.input :twitter_account
-      = ugf.input :facebook_page
-      = ugf.input :googleplus_page
-      = ugf.input :ical_url
+      = ugf.input :twitter_account, label: "Twitter Account (Import, Link)"
+      = ugf.input :facebook_page, label: "Facebook Page (Link)"
+      = ugf.input :googleplus_page, label: "Google+ Community (Link)"
+      = ugf.input :ical_url, label: "ICAL URL (Import Only)"
+      = ugf.input :meetup_url, label: "Meetup Gruppen URL (Import, Link)"
       = ugf.button :submit, 'Änderungen speichern'
